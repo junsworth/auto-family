@@ -63,16 +63,32 @@ exports.add = function(req, res, next) {
       db.User.create({
         email: req.body.email,
         password: hashPassword(req.body.password),
-        UserTypeId: req.body.userTypeId
-      }).then(function(result){
-      }).catch({
+        UserTypeId: req.body.UserTypeId
+      }).catch(function(error){
+        console.log('Error adding user');
+        next('ERROR_ADDING_REGISTRATION');
+        //res.status(204).send();
+      }).then(function(user){
+        if (user) {
+          req.session.regenerate(function() {
+            req.session.user = {
+              id: user.id,
+              email: user.email,
+              password: user.password,
+              UserTypeId: user.UserTypeId
+            };
+            res.json(req.session.user);
+          });
+        } else {
+          next('INVALID_REGISTRATION');
+        }
       }).then(function() {
         //res.redirect('/');
       });
     }
     
   }).then(function() {
-      res.status(200).send();
+      //res.status(200).send();
   });
 
 }
@@ -99,6 +115,7 @@ exports.reset = function(req, res, next) {
 exports.logout = function(req, res, next) {
   req.session.destroy(function() {
     res.redirect('/');
+    console.log('User logging out...');
   });
 };
 

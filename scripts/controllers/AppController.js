@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('AppCtrl', function ($scope, $rootScope, UserType) {
+  .controller('AppCtrl', function ($scope, $rootScope, $location, request) {
     
     this.awesomeThings = [
       'HTML5 Boilerplate',
@@ -17,6 +17,13 @@ angular.module('familyCarsApp')
     ];
 
     setMenu();
+
+    $scope.logout = function() {
+    request.post('/auth/logout').then(function() {
+      $rootScope.principal = null;
+      $scope.user = null;
+    });
+  };
     
     function setMenu() {
 
@@ -30,13 +37,13 @@ angular.module('familyCarsApp')
 
         $scope.menuItems = [ {
           url: '#users',
-          name: 'Users'
+          name: 'Cars'
         }, {
           url: '#playlists',
-          name: 'Playlists'
+          name: 'Suppliers'
         }, {
           url: '#schedular',
-          name: 'Schedular'
+          name: 'Events'
         }, {
           url: '#library',
           name: 'Library'
@@ -52,10 +59,10 @@ angular.module('familyCarsApp')
 
         $scope.menuItems = [ {
           url: '#users',
-          name: 'Users'
+          name: 'Cars'
         }, {
           url: '#playlists',
-          name: 'Playlists'
+          name: 'Event'
         }, {
           url: '#schedular',
           name: 'Schedular'
@@ -74,10 +81,10 @@ angular.module('familyCarsApp')
 
         $scope.menuItems = [ {
           url: '#users',
-          name: 'Users'
+          name: 'Cars'
         }, {
           url: '#playlists',
-          name: 'Playlists'
+          name: 'Bikes'
         }, {
           url: '#schedular',
           name: 'Schedular'
