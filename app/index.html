@@ -21,8 +21,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ng-controller="LoginCtrl" ng-if="!principal">
-
+    <div ng-controller="LoginCtrl" ng-if="!principal" data-ng-init="setSiteType(UserType.User)">
       <div class="header">
         <div class="navbar navbar-default" role="navigation">
           <div class="container">

@@ -21,7 +21,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
+    <!-- <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -43,6 +43,108 @@
               <li><a ng-href="#/about">About</a></li>
               <li><a ng-href="#/">Contact</a></li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div ng-controller="LoginCtrl" ng-if="!principal" data-ng-init="setSiteType(UserType.Admin)">
+      <div class="header">
+        <div class="navbar navbar-default" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="#/">Auto-Family</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#/">Home</a></li>
+                <li><a ng-href="#/about">About</a></li>
+                <li><a ng-href="#/">Contact</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+
+                  <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" h><!-- <span disabled="true" class="glyphicon glyphicon-user"></span> -->Sign in / Join<span class="caret"></span></a>
+                    
+                    <ul class="dropdown-menu">
+
+                      <div class="row" style="margin:10px;">
+                          <div class="form-group">
+                            <label>Email:</label>
+                            <input type="text" ng-model="email" class="form-control" placeholder="email">
+                            <label>Password:</label>
+                            <input type="password" ng-model="password" class="form-control" placeholder="password">
+                            <button style="margin-top:3px;" type="button" class="btn btn-sm btn-info" ng-click="login()">Sign in</button>
+                          </div>
+                      </div>
+                      
+                    </ul>
+
+                  </li>
+
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Logged In -->
+    <div ng-controller="AppCtrl" ng-if="principal">
+
+      <div class="header">
+        <div class="navbar navbar-default" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="#/" ng-show="principal.UserTypeId == UserType.Admin">Auto-Family IMS</a>
+              <a class="navbar-brand" href="#/" ng-show="principal.UserTypeId == UserType.Staff">Auto-Family CMS</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+              <ul class="nav navbar-nav">
+                <!-- <li class="active"><a href="#/">Home</a></li>
+                <li><a ng-href="#/about">About</a></li>
+                <li><a ng-href="#/">Contact</a></li> -->
+                <li ng-repeat="menuItem in menuItems track by ::menuItem.url" ng-class="{active: isActive(menuItem)}">
+                  <a ng-href="{{::menuItem.url}}">{{menuItem.name}}</a>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <!-- <li><a href=""><span disabled="true" class="glyphicon glyphicon-user"></span> {{user.username}}</a></li>
+
+                <li ng-click="logout()">
+                  <a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> -->
+
+                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" h><span disabled="true" class="glyphicon glyphicon-user"></span> {{principal.email}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li ng-click="logout()"><a href=""><span class="glyphicon glyphicon-log-out"></span> Logout</a></a></li>
+                    </ul>
+                  </li>
+              </ul>
+
+            </div>
           </div>
         </div>
       </div>
@@ -84,10 +186,18 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="/scripts/admin.js"></script>
-        <script src="/scripts/controllers/main.js"></script>
-        <script src="/scripts/controllers/about.js"></script>
-        <!-- endbuild -->
+    <script src="/scripts/ui-bootstrap-tpls-1.2.1.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="/scripts/admin.js"></script>
+    <script src="/scripts/controllers/main.js"></script>
+    <script src="/scripts/controllers/about.js"></script>
+    <script src="/scripts/controllers/AppController.js"></script>
+    <script src="/scripts/controllers/LoginController.js"></script>
+    <script src="/scripts/controllers/UserController.js"></script>
+    <script src="/scripts/controllers/ErrorDialogController.js"></script>
+    <script src="/scripts/Constants.js"></script>
+    <!-- endbuild -->
+    <script type="text/javascript" src="/scripts/services/request.js"></script>
+
 </body>
 </html>

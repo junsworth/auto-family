@@ -114,7 +114,8 @@ exports.reset = function(req, res, next) {
 
 exports.logout = function(req, res, next) {
   req.session.destroy(function() {
-    res.redirect('/');
+    //res.redirect('#/');
+    res.status(200).send();
     console.log('User logging out...');
   });
 };

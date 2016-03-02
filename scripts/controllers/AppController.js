@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('AppCtrl', function ($scope, $rootScope, $location, request) {
+  .controller('AppCtrl', function ($scope, $rootScope, $location, request, UserType) {
     
     this.awesomeThings = [
       'HTML5 Boilerplate',
@@ -17,11 +17,13 @@ angular.module('familyCarsApp')
     ];
 
     setMenu();
+    $scope.UserType = UserType;
 
     $scope.logout = function() {
     request.post('/auth/logout').then(function() {
       $rootScope.principal = null;
       $scope.user = null;
+      $location.path('#/');
     });
   };
     
@@ -37,9 +39,9 @@ angular.module('familyCarsApp')
 
         $scope.menuItems = [ {
           url: '#users',
-          name: 'Cars'
+          name: 'Users'
         }, {
-          url: '#playlists',
+          url: '#suppliers',
           name: 'Suppliers'
         }, {
           url: '#schedular',
@@ -58,14 +60,14 @@ angular.module('familyCarsApp')
       } else if($rootScope.principal.UserTypeId == UserType.Staff) {
 
         $scope.menuItems = [ {
-          url: '#users',
+          url: '#cars',
           name: 'Cars'
         }, {
-          url: '#playlists',
-          name: 'Event'
+          url: '#events',
+          name: 'Events'
         }, {
-          url: '#schedular',
-          name: 'Schedular'
+          url: '#news',
+          name: 'News'
         }, {
           url: '#library',
           name: 'Library'
@@ -80,10 +82,10 @@ angular.module('familyCarsApp')
       } else if($rootScope.principal.UserTypeId == UserType.User) {
 
         $scope.menuItems = [ {
-          url: '#users',
+          url: '#cars',
           name: 'Cars'
         }, {
-          url: '#playlists',
+          url: '#bikes',
           name: 'Bikes'
         }, {
           url: '#schedular',
@@ -92,8 +94,8 @@ angular.module('familyCarsApp')
           url: '#library',
           name: 'Library'
         }, {
-          url: '#devices',
-          name: 'Devices'
+          url: '#contact',
+          name: 'Contact'
         }, {
           url: '#settings',
           name: 'Settings'
