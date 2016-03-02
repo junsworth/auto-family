@@ -4,6 +4,10 @@
 
 process.env.PORT = process.env.PORT || 3000;
 process.env.IP = process.env.IP || "0.0.0.0";
+process.env.DEFAUL_USERNAME = process.env.DEFAUL_USERNAME || "jonathan@bubbleworks.co.za";
+process.env.DEFAUL_PASSWORD = process.env.DEFAUL_PASSWORD || "admin";
+
+var UserTypes = ["Admin", "Staff", "User"];
 
 /* Configuration End */
 
@@ -14,6 +18,8 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var routes = require('./gateway/routes/index');
 var db = require('./gateway/models/database');
+
+var auth = require('./gateway/routes/auth');
 
 var app = express();
 
@@ -29,6 +35,7 @@ app.use(express.static(path.resolve(__dirname, 'app')));
 app.use('/admin', express.static(path.resolve(__dirname, 'admin')));
 
 app.use('/styles',  express.static( path.join(__dirname, '/styles')));
+app.use('/views',  express.static( path.join(__dirname, '/views')));
 app.use('/scripts',  express.static( path.join(__dirname, '/scripts')));
 app.use('/bower_components',  express.static( path.join(__dirname, '/bower_components')));
 
@@ -71,9 +78,34 @@ db.sequelize.authenticate().then(function () {
         }).then(function() {
             
             console.log('DB has been created successfully');
-            
-            
 
+            //create default user if none exit
+            db.User.count().then(function(c) {
+                if (c === 0) {
+
+                    // create user types
+                    for( var i in UserTypes) {
+
+                        var type = UserTypes[i];
+
+                        console.log("", type)
+
+                        db.UserType.create({
+                          title: type
+                        });
+                        
+                    }
+                    
+                    // create admin user
+                    db.User.create({
+                        email: process.env.DEFAUL_USERNAME,
+                        password: auth.hashPassword(process.env.DEFAUL_PASSWORD),
+                        UserTypeId: 1
+                    });
+
+                }
+            });
+            
             app.listen(process.env.PORT, process.env.IP, function() {
                 console.log("Console server listening at ", process.env.IP + ":" + process.env.PORT);
             });
