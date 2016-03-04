@@ -15,9 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -42,4 +43,23 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+      $httpProvider.interceptors.push(function($q, $injector) {
+      return {
+        responseError: function(rejection) {
+          $injector.invoke(function($uibModal) {
+            $uibModal.open({
+              templateUrl: '/views/dialogs/error-dialog.html',
+              controller: 'ErrorDialogController',
+              resolve: {
+                error: function() {
+                  return rejection.data;
+                }
+              }
+            });
+          });
+          return $q.reject(rejection);
+        }
+      };
+    });
   });

@@ -18,6 +18,7 @@ angular.module('familyCarsApp')
   $scope.email = ''
   $scope.password = '';
 
+  $scope.UserToRegisterType = 3;
   $scope.UserType = UserType;
 
   users();

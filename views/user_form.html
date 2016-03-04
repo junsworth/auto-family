@@ -8,6 +8,17 @@
       <input type="password" ng-model="password" class="form-control" id="pwd" placeholder="Enter password">
     </div>
     
-    <button type="submit" class="btn btn-default" ng-click="add(UserType.User)">Register</button>
+    <div class="form-group" ng-show="principal.UserTypeId == UserType.Admin">
+    <label>User Type</label>
+    <select name="usertype" class="form-control" ng-model="UserToRegisterType">
+        <option value="1">Admin</option>
+        <option value="2">Staff</option>
+        <option value="3">User</option>
+    </select>
+    </div>
+    
+    <hr>
+
+    <button type="submit" class="btn btn-default" ng-click="add(UserToRegisterType)">Register</button>
 
 </form>
