@@ -9,6 +9,7 @@ var fs = require('fs');
 var router = express.Router();
 
 var auth = require('./auth');
+var cars = require('./cars');
 
 // parse application/x-www-form-urlencoded
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -23,5 +24,9 @@ router.get('/auth/user', auth.getUser);
 router.get('/auth/users', auth.users);
 router.post('/auth/reset', auth.reset);
 router.post('/auth/add', auth.check, auth.add);
+
+// cars
+router.get('/cars/makes', cars.makes);
+router.get('/cars/models', cars.models);
 
 module.exports = router;
