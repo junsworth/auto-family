@@ -40,6 +40,36 @@ angular
         controller: 'UserCtrl',
         controllerAs: 'adduser'
       })
+      .when('/cars', {
+        templateUrl: 'views/cars.html',
+        controller: 'CarManagerCtrl',
+        controllerAs: 'cars'
+      })
+      .when('/addcar', {
+        templateUrl: 'views/forms/car_form.html',
+        controller: 'CarManagerCtrl',
+        controllerAs: 'addcar'
+      })
+      .when('/customers', {
+        templateUrl: 'views/customers.html',
+        controller: 'CustomerManagerCtrl',
+        controllerAs: 'customers'
+      })
+      .when('/addcustomer', {
+        templateUrl: 'views/forms/customer_form.html',
+        controller: 'CustomerManagerCtrl',
+        controllerAs: 'addcustomer'
+      })
+      .when('/suppliers', {
+        templateUrl: 'views/suppliers.html',
+        controller: 'SupplierManagerCtrl',
+        controllerAs: 'suppliers'
+      })
+      .when('/addsupplier', {
+        templateUrl: 'views/forms/supplier_form.html',
+        controller: 'SupplierManagerCtrl',
+        controllerAs: 'addsupplier'
+      })
       .otherwise({
         redirectTo: '/'
       });
