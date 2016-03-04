@@ -41,17 +41,17 @@ angular.module('familyCarsApp')
           url: '#users',
           name: 'Users'
         }, {
+          url: '#customers',
+          name: 'Customers'
+        }, {
           url: '#suppliers',
           name: 'Suppliers'
         }, {
-          url: '#schedular',
+          url: '#events',
           name: 'Events'
         }, {
-          url: '#library',
-          name: 'Library'
-        }, {
-          url: '#devices',
-          name: 'Devices'
+          url: '#services',
+          name: 'Services'
         }, {
           url: '#settings',
           name: 'Settings'
