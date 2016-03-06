@@ -3,11 +3,9 @@
  * Created by jonathanunsworth on 15/02/12.
  */
 angular.module('familyCarsApp').constant('cfg',{
-  baseUrl : 'http://192.168.1.20:3000/',
+  baseUrl : 'http://0.0.0.0:3000/',
   imageUrl : 'images/',
-  imageUploadUrl : 'images/upload/',
-  videoUrl : 'videos/',
-  videoUploadUrl : 'videos/upload/'
+  imageUploadUrl : 'images/upload/'
 }).constant('UserType', {
     Admin: 1,
     Staff: 2,

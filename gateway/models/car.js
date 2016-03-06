@@ -10,6 +10,12 @@ module.exports = function(sequelize, DataTypes) {
       unique:true,
       allowNull:false
     },
+    header: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: false,
+      primaryKey: false
+    },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -28,15 +34,27 @@ module.exports = function(sequelize, DataTypes) {
       unique: false,
       primaryKey: false
     },
-    purchaseprice: {
+    purchasePrice: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: false,
       primaryKey: false
     },
-    saleprice: {
+    salePrice: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: false,
+      primaryKey: false
+    },
+    insertDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      unique: false,
+      primaryKey: false
+    },
+    saleDate: {
+      type: DataTypes.DATE,
+      allowNull: true,
       unique: false,
       primaryKey: false
     },

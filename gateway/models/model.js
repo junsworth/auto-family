@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
     updatedAt: false,
     classMethods: {
       associate: function(models) {
-        
+        Model.hasMany(models.Car);
       }
     }
   });

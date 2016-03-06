@@ -34,6 +34,7 @@ app.use(session({
 app.use(express.static(path.resolve(__dirname, 'app')));
 app.use('/admin', express.static(path.resolve(__dirname, 'admin')));
 
+app.use('/images',  express.static( path.join(__dirname, '/images')));
 app.use('/styles',  express.static( path.join(__dirname, '/styles')));
 app.use('/views',  express.static( path.join(__dirname, '/views')));
 app.use('/scripts',  express.static( path.join(__dirname, '/scripts')));
