@@ -10,6 +10,8 @@ var router = express.Router();
 
 var auth = require('./auth');
 var cars = require('./cars');
+var suppliers = require('./suppliers');
+var customers = require('./customers');
 
 // parse application/x-www-form-urlencoded
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -28,5 +30,12 @@ router.post('/auth/add', auth.check, auth.add);
 // cars
 router.get('/cars/makes', cars.makes);
 router.get('/cars/models', cars.models);
+
+// suppliers
+router.post('/suppliers/add', suppliers.add);
+router.get('/suppliers/suppliers', suppliers.suppliers);
+
+// customers
+router.post('/customers/add', customers.add);
 
 module.exports = router;

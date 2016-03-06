@@ -8,6 +8,46 @@
         <input class="form-control" ng-model="search.title" placeholder="Search Name.."/>
 	</div>
 	<div class="panel-body">
+		<table class="table table-striped">
+            <tbody>
+            <!-- <tr ng-repeat="user in users track by ::user.id"> -->
+            <tr ng-repeat="supplier in suppliers.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) track by ::supplier.id">
+              <td>
+                <table>
+                  <tbody>
+                  <tr>
+                    <td>
+                      {{supplier.name}}
+                    </td>
+                    <td>
+                      {{supplier.email}}
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <div class="pull-right">
+                  <button class="btn btn-primary btn-sm" ng-click="edit(device.id)">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    Edit
+                  </button>
+                  <button class="btn btn-danger btn-sm" ng-click="delete(device.id)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Delete
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center">
+
+                <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></uib-pagination>
+                
+                </td>
+            </tr>
+            </tbody>
+        </table>
 	</div>
 	<div class="panel-footer">
 		<h4>Supplier Manager Footer</h4>

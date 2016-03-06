@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     updatedAt: false,
     classMethods: {
       associate: function(models) {
-        UserType.hasOne(models.User)
+        UserType.hasOne(models.User);
       }
     }
   });

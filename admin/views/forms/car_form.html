@@ -4,7 +4,9 @@
 	</div>
 	<div class="panel-body">
 
-	   <div class="form-group">
+	<form name="carForm" ng-submit="">
+
+	  <div class="form-group">
 		<label for="makeSelect"> Select Make: </label>
 		<select name="makeSelect" id="makeSelect" class="form-control" 
 	      ng-options="make.title for make in makes track by make.id"
@@ -23,34 +25,47 @@
 	      </select>
       </div>
 
-      <div class="form-group">
-	      <label for="email"> Description: </label>
-	      <input type="text" ng-model="description" class="form-control" id="email" placeholder="Enter description">
+      <div class="form-group" ng-class="{ 'has-error' : carForm.description.$invalid && !carForm.description.$pristine }">
+	      <label for="description"> Description: </label>
+	      <input type="text" ng-model="description" class="form-control" id="description" name="description" placeholder="Enter description" required>
 	  </div>
 	  
-	  <div class="form-group">
-		  <label for="pwd"> Mileage: </label>
-		  <input type="text" ng-model="mileage" class="form-control" id="pwd" placeholder="Enter mileage">
+	  <div class="form-group" ng-class="{ 'has-error' : carForm.mileage.$invalid && !carForm.mileage.$pristine }">
+		  <label for="mileage"> Mileage: </label>
+		  <input type="text" ng-model="mileage" class="form-control" id="mileage" name="mileage" placeholder="Enter mileage" required>
 	  </div>
 
-	  <div class="form-group">
-		  <label for="pwd"> Purchase Price: </label>
-		  <input type="text" ng-model="price" class="form-control" id="pwd" placeholder="Enter price">
+	  <div class="form-group" ng-class="{ 'has-error' : carForm.year.$invalid && !carForm.year.$pristine }">
+		  <label for="year"> Year: </label>
+		  <input type="text" ng-model="year" class="form-control" id="year" name="year" placeholder="Enter year" required>
 	  </div>
 
-	  <div class="form-group">
-		  <label for="pwd"> Sale Price: </label>
-		  <input type="text" ng-model="price" class="form-control" id="pwd" placeholder="Enter price">
+	  <div class="form-group" ng-class="{ 'has-error' : carForm.purchaseprice.$invalid && !carForm.purchaseprice.$pristine }">
+		  <label for="purchaseprice"> Purchase Price: </label>
+		  <input type="text" ng-model="purchaseprice" name="purchaseprice" class="form-control" id="pwd" placeholder="Enter price" required>
+	  </div>
+
+	  <div class="form-group" ng-class="{ 'has-error' : carForm.purchaseprice.$invalid && !carForm.purchaseprice.$pristine }">
+		  <label for="salesprice"> Sale Price: </label>
+		  <input type="text" ng-model="salesprice" class="form-control" id="salesprice" name="salesprice" placeholder="Enter price" required>
 	  </div>
 
 	  <div class="form-group">
       	<label for="supplier"> Supplier: </label>
 		<select name="supplier" id="supplier" class="form-control" 
-	      ng-options="model.title for model in filteredModels track by model.id"
+	      ng-options="supplier.name for supplier in suppliers track by supplier.id"
 	      ng-model="supplier">
 	      <option value="">---Please select supplier---</option>
 	      </select>
       </div>
+
+      <hr>
+
+	    <button type="submit" class="btn btn-primary">Submit</button>
+
+	  <hr>
+
+    </form>
 
       <hr>
   	  <tt>make option = {{makeSelect.id}}</tt><br/>
