@@ -22,6 +22,7 @@ angular.module('familyCarsApp')
 
     makes();
     models();
+    suppliers();
 
     function makes() {
 	    
@@ -42,5 +43,11 @@ angular.module('familyCarsApp')
   	$scope.filterModels = function(id) {
   		$scope.filteredModels = filterFilter($scope.models, {'MakeId':id});
   	}
+
+    function suppliers() {
+      request.get('/suppliers/suppliers').then(function(suppliers) {
+        $scope.suppliers = suppliers;
+      });
+    }
 
   });
