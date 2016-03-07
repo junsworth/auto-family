@@ -40,6 +40,11 @@
 		      <input type="text" ng-model="header" class="form-control" id="header" name="header" placeholder="Enter header" required>
 		  </div>
 
+		  <div class="form-group" ng-class="{ 'has-error' : carForm.subHeader.$invalid && !carForm.subHeader.$pristine }">
+		      <label for="subHeader"> Sub Header: </label>
+		      <input type="text" ng-model="subHeader" class="form-control" id="subHeader" name="subHeader" placeholder="Enter sub header" required>
+		  </div>
+
 	      <div class="form-group" ng-class="{ 'has-error' : carForm.description.$invalid && !carForm.description.$pristine }">
 		      <label for="description"> Description: </label>
 		      <input type="text" ng-model="description" class="form-control" id="description" name="description" placeholder="Enter description" required>
@@ -60,9 +65,9 @@
 			  <input type="text" ng-model="purchasePrice" name="purchaseprice" class="form-control" id="pwd" placeholder="Enter price" required>
 		  </div>
 
-		  <div class="form-group" ng-class="{ 'has-error' : carForm.purchaseprice.$invalid && !carForm.purchaseprice.$pristine }">
-			  <label for="salesprice"> Sale Price: </label>
-			  <input type="text" ng-model="salesPrice" class="form-control" id="salesprice" name="salesprice" placeholder="Enter price" required>
+		  <div class="form-group" ng-class="{ 'has-error' : carForm.salePrice.$invalid && !carForm.salePrice.$pristine }">
+			  <label for="salePrice"> Sale Price: </label>
+			  <input type="text" ng-model="salePrice" class="form-control" id="salePrice" name="salePrice" placeholder="Enter price" required>
 		  </div>
 
 		  <div class="form-group">

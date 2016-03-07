@@ -22,6 +22,7 @@ angular.module('familyCarsApp')
     $scope.isEditGallery = false;
 
     $scope.header = "";
+    $scope.subHeader = "";
     $scope.description = "";
     $scope.mileage = "";
     $scope.year = "";
@@ -74,8 +75,39 @@ angular.module('familyCarsApp')
     function cars() {
       request.get('/cars/cars').then(function(cars) {
         $scope.cars = cars;
+        $scope.viewby = 4;
+
+        $scope.totalItems = $scope.cars.length;
+
+        $scope.currentPage = 1;
+
+        $scope.itemsPerPage = $scope.viewby;
+
+        $scope.maxSize = 5; //Number of pager buttons to show
       });
     };
+
+    $scope.setPage = function (pageNo) {
+
+      $scope.currentPage = pageNo;
+
+    };
+
+
+    $scope.pageChanged = function() {
+
+      console.log('Page changed to: ' + $scope.currentPage);
+
+    };
+
+
+    $scope.setItemsPerPage = function(num) {
+
+      $scope.itemsPerPage = num;
+
+      $scope.currentPage = 1; //reset to first paghe
+
+    }
 
   	$scope.filterModels = function(id) {
   		$scope.filteredModels = filterFilter($scope.models, {'MakeId':id});
@@ -160,6 +192,7 @@ angular.module('familyCarsApp')
 
       request.post('/cars/add', {
         header: $scope.header,
+        subHeader: $scope.subHeader,
         description: $scope.description,
         mileage: $scope.mileage,
         year: $scope.year,
@@ -176,5 +209,46 @@ angular.module('familyCarsApp')
       });
 
     };
+
+    $scope.getCarPhotos = function(str) {
+      console.log('----- ' + str + '------');
+      return JSON.parse(str);
+    };
+
+    $scope.getCarThumbnails = function(str) {
+      var array = JSON.parse(str);
+
+      var tmp = [];
+      var tmp2 = [];
+
+      for(var i = 0; i < array.length; i++) {
+        
+        tmp.push(array[i]);
+
+        console.log('Push id - ' + array[i].id);
+        if( i!= 0 && ((i+1)%4 == 0)) {
+          tmp2.push(tmp);
+          console.log('Push array length -' + tmp.length);
+          tmp = [];
+        }
+
+      }
+
+      return tmp2;
+    }
+
+    $scope.isCorrectIndex = function(index) {
+      if(index == 0)
+        return false;
+      else
+        return true;
+    }
+
+    $scope.isInCorrectIndex = function(index) {
+      if(index != 0)
+        return true;
+      else
+        return false;
+    }
 
 });

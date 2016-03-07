@@ -16,8 +16,14 @@ module.exports = function(sequelize, DataTypes) {
       unique: false,
       primaryKey: false
     },
-    description: {
+    subHeader: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: false,
+      primaryKey: false
+    },
+    description: {
+      type: DataTypes.TEXT,
       allowNull: false,
       unique: false,
       primaryKey: false
@@ -59,7 +65,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: false
     },
     images: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
       unique: false,
       primaryKey: false

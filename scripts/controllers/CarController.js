@@ -18,8 +18,45 @@ angular.module('familyCarsApp')
     cars();
 
     $scope.getCarPhotos = function(str) {
+    	console.log('----- ' + str + '------');
     	return JSON.parse(str);
     };
+
+    $scope.getCarThumbnails = function(str) {
+    	var array = JSON.parse(str);
+
+    	var tmp = [];
+    	var tmp2 = [];
+
+    	for(var i = 0; i < array.length; i++) {
+    		
+    		tmp.push(array[i]);
+
+    		console.log('Push id - ' + array[i].id);
+    		if( i!= 0 && ((i+1)%4 == 0)) {
+    			tmp2.push(tmp);
+    			console.log('Push array length -' + tmp.length);
+    			tmp = [];
+    		}
+
+    	}
+
+    	return tmp2;
+    }
+
+    $scope.isCorrectIndex = function(index) {
+    	if(index == 0)
+    		return false;
+    	else
+    		return true;
+    }
+
+    $scope.isInCorrectIndex = function(index) {
+    	if(index != 0)
+    		return true;
+    	else
+    		return false;
+    }
 
     function cars() {
       request.get('/cars/cars').then(function(cars) {

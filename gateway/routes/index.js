@@ -39,6 +39,7 @@ router.get('/suppliers/suppliers', suppliers.suppliers);
 
 // customers
 router.post('/customers/add', customers.add);
+router.get('/customers/customers', customers.customers);
 
 // image processing
 router.post('/images/upload', multipartMiddleware, function(req, resp) {

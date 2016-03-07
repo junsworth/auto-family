@@ -6,7 +6,7 @@
 
 	<div class="panel-body">
 
-		<form name="customerForm" ng-submit="">
+		<form name="customerForm" ng-submit="add()">
 
 			<div class="form-group" ng-class="{ 'has-error' : customerForm.name.$invalid && !customerForm.name.$pristine }">
 		      <label for="name">Name*:</label>

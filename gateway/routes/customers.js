@@ -6,6 +6,19 @@
 var db = require('../models/database');
 var lodash = require('lodash');
 
+exports.customers = function(req, res) {
+
+  db.Customer.findAll({
+    id: ['id']
+  }).then(function(results) {
+
+    res.send(lodash.map(results, function(element, index, list) {
+      return lodash.pick(element.toJSON(), ['id', 'name', 'address','addresstwo', 'city', 'email', 'phone']);
+    }));
+  });
+
+};
+
 exports.add = function(req, res, next) {
 
   db.Customer.find({
@@ -18,7 +31,7 @@ exports.add = function(req, res, next) {
       next('CUSTOMER_ALREADY_EXISTS');
     } else {
       db.Customer.create({
-        name: req.body.email,
+        name: req.body.name,
         address: req.body.address,
         addresstwo: req.body.addresstwo,
         city: req.body.city,
@@ -31,7 +44,7 @@ exports.add = function(req, res, next) {
       }).then(function(customer){
         
         if (customer) {
-          
+          res.json(customer);
         } else {
 
           next('INVALID_CUSTOMER_REGISTRATION');

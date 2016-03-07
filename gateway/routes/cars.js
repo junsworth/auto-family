@@ -54,6 +54,7 @@ exports.add = function(req, res, next) {
 
   db.Car.create({
     header: req.body.header,
+    subHeader: req.body.subHeader,
     description: req.body.description,
     mileage: req.body.mileage,
     year: req.body.year,
@@ -84,7 +85,7 @@ exports.cars = function(req, res) {
   }).then(function(results) {
 
     res.send(lodash.map(results, function(element, index, list) {
-      return lodash.pick(element.toJSON(), ['id', 'header', 'description', 'mileage', 'year', 'purchasePrice', 'salePrice', 'insertDate', 'saleDate', 'images']);
+      return lodash.pick(element.toJSON(), ['id', 'header', 'subHeader', 'description', 'mileage', 'year', 'purchasePrice', 'salePrice', 'insertDate', 'saleDate', 'images']);
     }));
 
   });
