@@ -8,23 +8,31 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('UserCtrl', function ($scope, $rootScope, request, $location, UserType) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('UserCtrl', function ($scope, $rootScope, request, $location, UserType, $routeParams) {
+    
+  if($routeParams.id) {
+        request.get('/users/get/:id', {
+            id: $routeParams.id
+        }).then(function(user) {
 
-  $scope.email = ''
-  $scope.password = '';
+            $scope.email = user.email;
+            $scope.password = user.password;
+            $scope.UserToRegisterType = user.UserTypeId;
 
-  $scope.UserToRegisterType = 3;
-  $scope.UserType = UserType;
+            $scope.UserType = UserType;
 
-  users();
+        });
+    } else {
+        $scope.email = ''
+        $scope.password = '';
+        $scope.UserToRegisterType = 3;
+        $scope.UserType = UserType;
+        users();
+    }
+
+  
 
   $scope.add = function(type) {
-
     request.post('/auth/add', {
       email: $scope.email,
       password: $scope.password,
@@ -34,7 +42,6 @@ angular.module('familyCarsApp')
       $rootScope.principal = principal;
       $location.path('#/');
     });
-
   };
 
   function users() {
@@ -52,28 +59,29 @@ angular.module('familyCarsApp')
       $scope.maxSize = 5; //Number of pager buttons to show
 
     });
-  }
+  };
+
+  $scope.edit = function(user) {
+      $location.path('/adduser').search({id: user.id});
+  };
+
+  $scope.delete = function(user) {
+    request.delete('/user/delete/:id', {
+      id: user.id
+    }).then(users).then($location.path('/users'));
+  };
 
   $scope.setPage = function (pageNo) {
-
     $scope.currentPage = pageNo;
-
   };
-
 
   $scope.pageChanged = function() {
-
     console.log('Page changed to: ' + $scope.currentPage);
-
   };
 
-
   $scope.setItemsPerPage = function(num) {
-
     $scope.itemsPerPage = num;
-
-    $scope.currentPage = 1; //reset to first paghe
-
+    $scope.currentPage = 1; //reset to first page
   }
 
 });
