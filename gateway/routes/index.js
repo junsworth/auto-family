@@ -27,19 +27,33 @@ router.get('/auth/users', auth.users);
 router.post('/auth/reset', auth.reset);
 router.post('/auth/add', auth.check, auth.add);
 
+router.get('/users/get/:id', auth.check, auth.get);
+router.put('/users/update/:id', auth.check, auth.update);
+router.delete('/users/delete/:id', auth.check, auth.delete);
+
 // cars
 router.get('/cars/makes', cars.makes);
 router.get('/cars/models', cars.models);
 router.get('/cars/cars', cars.cars);
 router.post('/cars/add', cars.add);
+router.get('/cars/get/:id', auth.check, cars.get);
+router.put('/cars/update/:id', auth.check, cars.update);
+router.delete('/cars/delete/:id', auth.check, cars.delete);
 
 // suppliers
 router.post('/suppliers/add', suppliers.add);
 router.get('/suppliers/suppliers', suppliers.suppliers);
+router.get('/suppliers/get/:id', auth.check, suppliers.get);
+router.put('/suplliers/update/:id', auth.check, suppliers.update);
+router.delete('/suppliers/delete/:id', auth.check, suppliers.delete);
+
 
 // customers
 router.post('/customers/add', customers.add);
 router.get('/customers/customers', customers.customers);
+router.get('/customers/get/:id', auth.check, customers.get);
+router.put('/customers/update/:id', auth.check, customers.update);
+router.delete('/customers/delete/:id', auth.check, customers.delete);
 
 // image processing
 router.post('/images/upload', multipartMiddleware, function(req, resp) {

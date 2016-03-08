@@ -3,34 +3,48 @@
 var db = require('../models/database');
 var lodash = require('lodash');
 
+exports.get = function(req, res) {
+  db.Car.findById(parseInt(req.params.id, 10))
+    .then(function(result) {
+      db.Model.findById(result.ModelId)
+        .then(function(model){
+          db.Make.findById(model.MakeId)
+            .then(function(make){              
+              db.Supplier.findById(result.SupplierId)
+                .then(function(supplier){                  
+                  var arrayResult = [];
+                  arrayResult.push({'Car':result});
+                  arrayResult.push({'Make':make});
+                  arrayResult.push({'Model':model});
+                  arrayResult.push({'Supplier':supplier});
+                  res.send(JSON.stringify(arrayResult));
+                });
+            });
+        });      
+    });
+};
+
 // get all car makes
 exports.makes = function(req, res) {
 	console.log('getting car makes');
   db.Make.findAll({
     id: ['id']
   }).then(function(results) {
-
     res.send(lodash.map(results, function(element, index, list) {
       return lodash.pick(element.toJSON(), ['id', 'title']);
     }));
-
   });
-
 };
 
 // get all car models
 exports.models = function(req, res) {
-
   db.Model.findAll({
     id: ['id']
   }).then(function(results) {
-
     res.send(lodash.map(results, function(element, index, list) {
       return lodash.pick(element.toJSON(), ['id', 'title', 'MakeId']);
     }));
-
   });
-
 };
 
 // find all car models by make id
@@ -43,11 +57,9 @@ exports.findModelsByMakeId = function(req, res) {
         console.log('Error retrieving models');
         next('ERROR_RETRIEVING_MODELS');
         //res.status(204).send();
-  }).then(function(models) {
-  
+  }).then(function(models) {  
   });
-
-}
+};
 
 // add new car
 exports.add = function(req, res, next) {
@@ -79,15 +91,41 @@ exports.add = function(req, res, next) {
 
 // get all cars
 exports.cars = function(req, res) {
-
   db.Car.findAll({
     id: ['id']
   }).then(function(results) {
-
     res.send(lodash.map(results, function(element, index, list) {
       return lodash.pick(element.toJSON(), ['id', 'header', 'subHeader', 'description', 'mileage', 'year', 'purchasePrice', 'salePrice', 'insertDate', 'saleDate', 'images']);
     }));
-
   });
+};
 
+// update car
+exports.update = function(req, res) {
+  db.Car.findById(req.params.id)
+    .then(function(result) {
+      return result.updateAttributes(req.body);
+    }).then(function() {
+      res.status(204).send();
+    });
+};
+
+// delete car
+exports.delete = function(req, res, next) {
+  db.sequelize.transaction().then(function(t) {
+    db.Car.find(req.params.id, {
+      transaction: t
+    }).then(function(result) {
+      return result.destroy({
+        transaction: t
+      });
+    }).then(function() {
+      return t.commit();
+    }).then(function() {
+      res.status(204).send();
+    }, function(err) {
+      t.rollback();
+      next(err);
+    });
+  });
 };

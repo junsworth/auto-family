@@ -15,14 +15,13 @@ var unHashedPassword = exports.unHashPassword = function(password) {
 };
 
 exports.check = function(req, res, next) {
-  //if (!req.session.user) {
-  //  res.status(401).send({
-  //    code: 'UNAUTHORIZED'
-  //  });
-  //} else {
-  //  next();
-  //}
-  next();
+  if (!req.session.user) {
+   res.status(401).send({
+     code: 'UNAUTHORIZED'
+   });
+  } else {
+   next();
+  }
 };
 
 exports.login = function(req, res, next) {
@@ -130,16 +129,48 @@ exports.getUser = function(req, res) {
 };
 
 exports.users = function(req, res) {
-
   db.User.findAll({
     id: ['id']
   }).then(function(results) {
-
     res.send(lodash.map(results, function(element, index, list) {
       return lodash.pick(element.toJSON(), ['id', 'email', 'password','UserTypeId']);
     }));
   });
+};
 
+exports.get = function(req, res) {
+  db.User.findById(parseInt(req.params.id, 10))
+    .then(function(result) {
+      res.send(result);
+    });
+};
+
+exports.update = function(req, res) {
+  db.User.findById(req.params.id)
+    .then(function(result) {
+      return result.updateAttributes(req.body);
+    }).then(function() {
+      res.status(204).send();
+    });
+};
+
+exports.delete = function(req, res, next) {
+  db.sequelize.transaction().then(function(t) {
+    db.User.find(req.params.id, {
+      transaction: t
+    }).then(function(result) {
+      return result.destroy({
+        transaction: t
+      });
+    }).then(function() {
+      return t.commit();
+    }).then(function() {
+      res.status(204).send();
+    }, function(err) {
+      t.rollback();
+      next(err);
+    });
+  });
 };
 
   
