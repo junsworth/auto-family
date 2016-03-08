@@ -8,38 +8,69 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('CarManagerCtrl', function ($scope, $rootScope, request, $location, filterFilter, $timeout, Upload, cfg) {
+  .controller('CarManagerCtrl', function ($scope, $rootScope, request, $location, filterFilter, $timeout, Upload, cfg, $routeParams) {
     
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    if($routeParams.id) {
+        request.get('/cars/get/:id', {
+            id: $routeParams.id
+        }).then(function(car) {
 
-    $scope.makeSelect = -1;
-    $scope.modelSelect = -1;
-    $scope.supplierSelect = -1;
-    $scope.isEditGallery = false;
+          $scope.makeSelect = car[1].Make;
+          $scope.modelSelect = car[2].Model;
+          $scope.supplierSelect = car[3].Supplier;
+          $scope.isEditGallery = false;
 
-    $scope.header = "";
-    $scope.subHeader = "";
-    $scope.description = "";
-    $scope.mileage = "";
-    $scope.year = "";
-    $scope.purchasePrice = "";
-    $scope.salePrice = "";
-    $scope.insertDate = "";
-    $scope.saleDate = "";
+          $scope.header = car[0].Car.header;
+          $scope.subHeader = car[0].Car.subHeader;
+          $scope.description = car[0].Car.description;
+          $scope.mileage = car[0].Car.mileage;
+          $scope.year = car[0].Car.year;
+          $scope.purchasePrice = car[0].Car.purchasePrice;
+          $scope.salePrice = car[0].Car.salePrice;
+          $scope.insertDate = car[0].Car.insertDate;
+          $scope.saleDate = car[0].Car.saleDate;
+          
+          $scope.slides = JSON.parse(car[0].Car.images);
 
-    $scope.models = [];
+          console.log('Number of images -- ' + car[0].Car.images);
 
-    makes();
-    models();
-    suppliers();
-    cars();
+          makes();
+          models();
+          suppliers();
+          cars();
 
-    $scope.dt1 = new Date();
-    $scope.dt2 = new Date();
+          $scope.dt1 = new Date($scope.insertDate);
+          $scope.dt2 = new Date($scope.saleDate);       
+
+        });
+    } else {
+
+        $scope.makeSelect = -1;
+        $scope.modelSelect = -1;
+        $scope.supplierSelect = -1;
+        $scope.isEditGallery = false;
+
+        $scope.header = "";
+        $scope.subHeader = "";
+        $scope.description = "";
+        $scope.mileage = "";
+        $scope.year = "";
+        $scope.purchasePrice = "";
+        $scope.salePrice = "";
+        $scope.insertDate = "";
+        $scope.saleDate = "";
+
+        $scope.models = [];
+
+        makes();
+        models();
+        suppliers();
+        cars();
+
+        $scope.dt1 = new Date();
+        $scope.dt2 = new Date();
+
+    }    
 
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
@@ -69,6 +100,9 @@ angular.module('familyCarsApp')
   	function models() {
 	    request.get('/cars/models').then(function(models) {
 	      $scope.models = models;
+        if($scope.makeSelect) {
+          $scope.filterModels($scope.makeSelect.id);
+        }
 	    });
   	};
 
@@ -87,26 +121,27 @@ angular.module('familyCarsApp')
       });
     };
 
-    $scope.setPage = function (pageNo) {
-
-      $scope.currentPage = pageNo;
-
+    $scope.edit = function(car) {
+      $location.path('/addcar').search({id: car.id});
     };
 
+    $scope.delete = function(car) {
+      request.delete('/cars/delete/:id', {
+        id: car.id
+      }).then(cars).then($location.path('/cars'));
+    };
+
+    $scope.setPage = function (pageNo) {
+      $scope.currentPage = pageNo;
+    };
 
     $scope.pageChanged = function() {
-
       console.log('Page changed to: ' + $scope.currentPage);
-
     };
 
-
     $scope.setItemsPerPage = function(num) {
-
       $scope.itemsPerPage = num;
-
-      $scope.currentPage = 1; //reset to first paghe
-
+      $scope.currentPage = 1; //reset to first page
     }
 
   	$scope.filterModels = function(id) {
