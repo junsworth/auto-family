@@ -2,30 +2,37 @@
 
 /**
  * @ngdoc function
- * @name familyCarsApp.controller:MainCtrl
+ * @name familyCarsApp.controller:CustomerManagerCtrl
  * @description
- * # MainCtrl
+ * # CustomerManagerCtrl
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('CustomerManagerCtrl', function ($scope, $rootScope, $location, request) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('CustomerManagerCtrl', function ($scope, $rootScope, $location, request, $routeParams) {
+    
+    if($routeParams.id) {
+        request.get('/customers/get/:id', {
+            id: $routeParams.id
+        }).then(function(customer) {
+            $scope.name = customer.name;
+            $scope.address = customer.address;
+            $scope.addresstwo = customer.addresstwo;
+            $scope.city = customer.city;
+            $scope.email = customer.email;
+            $scope.phone = customer.phone;
+        });
+    } else {
+        $scope.name = "";
+        $scope.address = "";
+        $scope.addresstwo = "";
+        $scope.city = "";
+        $scope.email = "";
+        $scope.phone = "";
 
-    $scope.name = "";
-    $scope.address = "";
-    $scope.addresstwo = "";
-    $scope.city = "";
-    $scope.email = "";
-    $scope.phone = "";
-
-    customers();
+        customers();
+    }
 
     $scope.add = function() {
-
 	    request.post('/customers/add', {
 	      name: $scope.name,
 	      address: $scope.address,
@@ -37,8 +44,17 @@ angular.module('familyCarsApp')
 	      console.log('customer ' + JSON.stringify(customer));
 	      $location.path('#/customers');
 	    });
-
   	};
+
+    $scope.edit = function(customer) {
+        $location.path('/addcustomer').search({id: customer.id});
+    };
+
+    $scope.delete = function(customer) {
+      request.delete('/customer/delete/:id', {
+        id: customer.id
+      }).then(customers).then($location.path('/customers'));
+    };
 
   	function customers() {
 	    request.get('/customers/customers').then(function(customers) {
@@ -58,66 +74,20 @@ angular.module('familyCarsApp')
 	}
 
 	$scope.setPage = function (pageNo) {
-
 	  $scope.currentPage = pageNo;
-
 	};
-
 
 	$scope.pageChanged = function() {
-
 	  console.log('Page changed to: ' + $scope.currentPage);
-
 	};
 
-
 	$scope.setItemsPerPage = function(num) {
-
 	  $scope.itemsPerPage = num;
-
-	  $scope.currentPage = 1; //reset to first paghe
-
+	  $scope.currentPage = 1; //reset to first page
 	}
 
 	$scope.getCarPhotos = function(str) {
-    	console.log('----- ' + str + '------');
     	return JSON.parse(str);
     };
-
-    $scope.getCarThumbnails = function(str) {
-    	var array = JSON.parse(str);
-
-    	var tmp = [];
-    	var tmp2 = [];
-
-    	for(var i = 0; i < array.length; i++) {
-    		
-    		tmp.push(array[i]);
-
-    		console.log('Push id - ' + array[i].id);
-    		if( i!= 0 && ((i+1)%4 == 0)) {
-    			tmp2.push(tmp);
-    			console.log('Push array length -' + tmp.length);
-    			tmp = [];
-    		}
-
-    	}
-
-    	return tmp2;
-    }
-
-    $scope.isCorrectIndex = function(index) {
-    	if(index == 0)
-    		return false;
-    	else
-    		return true;
-    }
-
-    $scope.isInCorrectIndex = function(index) {
-    	if(index != 0)
-    		return true;
-    	else
-    		return false;
-    }
 
   });
