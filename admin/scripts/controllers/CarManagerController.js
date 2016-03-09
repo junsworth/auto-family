@@ -15,32 +15,34 @@ angular.module('familyCarsApp')
             id: $routeParams.id
         }).then(function(car) {
 
-          $scope.makeSelect = car[1].Make;
-          $scope.modelSelect = car[2].Model;
-          $scope.supplierSelect = car[3].Supplier;
-          $scope.isEditGallery = false;
+          if(car.length == 4) {
 
-          $scope.header = car[0].Car.header;
-          $scope.subHeader = car[0].Car.subHeader;
-          $scope.description = car[0].Car.description;
-          $scope.mileage = car[0].Car.mileage;
-          $scope.year = car[0].Car.year;
-          $scope.purchasePrice = car[0].Car.purchasePrice;
-          $scope.salePrice = car[0].Car.salePrice;
-          $scope.insertDate = car[0].Car.insertDate;
-          $scope.saleDate = car[0].Car.saleDate;
-          
-          $scope.slides = JSON.parse(car[0].Car.images);
+            $scope.makeSelect = car[1].Make;
+            $scope.modelSelect = car[2].Model;
+            $scope.supplierSelect = car[3].Supplier;
+            $scope.isEditGallery = false;
 
-          console.log('Number of images -- ' + car[0].Car.images);
+            $scope.header = car[0].Car.header;
+            $scope.subHeader = car[0].Car.subHeader;
+            $scope.description = car[0].Car.description;
+            $scope.mileage = car[0].Car.mileage;
+            $scope.year = car[0].Car.year;
+            $scope.purchasePrice = car[0].Car.purchasePrice;
+            $scope.salePrice = car[0].Car.salePrice;
+            $scope.insertDate = car[0].Car.insertDate;
+            $scope.saleDate = car[0].Car.saleDate;
+            
+            $scope.slides = JSON.parse(car[0].Car.images);
 
-          makes();
-          models();
-          suppliers();
-          cars();
+            makes();
+            models();
+            suppliers();
+            cars();
 
-          $scope.dt1 = new Date($scope.insertDate);
-          $scope.dt2 = new Date($scope.saleDate);       
+            $scope.dt1 = new Date($scope.insertDate);
+            $scope.dt2 = new Date($scope.saleDate);
+
+          }
 
         });
     } else {

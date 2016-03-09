@@ -69,12 +69,6 @@ angular.module('familyCarsApp')
           url: '#news',
           name: 'News'
         }, {
-          url: '#library',
-          name: 'Library'
-        }, {
-          url: '#devices',
-          name: 'Devices'
-        }, {
           url: '#settings',
           name: 'Settings'
         }];
@@ -85,14 +79,14 @@ angular.module('familyCarsApp')
           url: '#cars',
           name: 'Cars'
         }, {
-          url: '#bikes',
-          name: 'Bikes'
+          url: '#event',
+          name: 'Events'
         }, {
-          url: '#schedular',
-          name: 'Schedular'
+          url: '#specials',
+          name: 'Specials'
         }, {
-          url: '#library',
-          name: 'Library'
+          url: '#services',
+          name: 'Services'
         }, {
           url: '#contact',
           name: 'Contact'

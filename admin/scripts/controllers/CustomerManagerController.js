@@ -42,7 +42,7 @@ angular.module('familyCarsApp')
 	      phone: $scope.phone
 	    }).then(function(customer) {
 	      console.log('customer ' + JSON.stringify(customer));
-	      $location.path('#/customers');
+	      $location.path('/customers');
 	    });
   	};
 

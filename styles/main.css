@@ -43,11 +43,14 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
-  text-align: center;
+  /*text-align: center;*/
+  background-image: url("../images/1457436885.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
   border-bottom: 1px solid #e5e5e5;
 }
 .jumbotron .btn {
-  font-size: 21px;
+  font-size: 12px;
   padding: 14px 24px;
 }
 

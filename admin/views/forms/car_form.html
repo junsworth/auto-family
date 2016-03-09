@@ -1,11 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h4>Add Car
-		
-		<a class="btn btn-success btn-xs pull-right" type="file" ngf-select="uploadFiles($file, $invalidFiles)"
-				          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB" href="">
-                  <span class="glyphicon glyphicon-picture"></span>
-
 		<a class="btn btn-success btn-xs pull-right" ng-click="editGallery()" href="">
                   <span class="glyphicon glyphicon-picture"></span>
         </a>
@@ -109,18 +104,16 @@
 
 	    </form>
 
-	      <hr>
-	  	  <tt>make option = {{makeSelect.id}}</tt><br/>
-	  	  <tt>model option = {{modelSelect.id}}</tt><br/>
 	</div>
-
-
 
 		<!-- Edit Photo Gallery -->
 		<div ng-show="isEditGallery">
 
 			<div class="row" style="height: 305px">
-			  <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+
+			<div class="col-md-6">
+             
+             <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
 			      <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
 			        <img ng-src="{{slide.image}}" style="margin:auto;">
 			        <div class="carousel-caption">
@@ -128,25 +121,53 @@
 			          <p>{{slide.text}}</p>
 			        </div>
 			      </uib-slide>
-			  </uib-carousel>
+			  </uib-carousel> 	
+             
+            </div>
+			  
 			</div>
-
 
 			<div class="row">
-				<h4>Upload on file select</h4>
-				  <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
-				          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
-				      Select File</button>
-				  <br><br>
-				  File:
-				  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-				      <span class="progress" ng-show="f.progress >= 0">
-				          <div style="width:{{f.progress}}%"  
-				               ng-bind="f.progress + '%'"></div>
-				      </span>
-				  </div>     
-				  {{errorMsg}}
+
+				<div class="col-md-6">
+
+					<a class="btn btn-success btn-xs pull-right" type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+				          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB" href="">
+                  	<span class="glyphicon glyphicon-upload">Upload image</span></a>
+
+                  	<br/><br/>
+					  File:
+					  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+					      <span class="progress" ng-show="f.progress >= 0">
+					          <div style="width:{{f.progress}}%"  
+					               ng-bind="f.progress + '%'"></div>
+					      </span>
+					  </div>     
+					  {{errorMsg}}
+					
+				</div>
+				
 			</div>
+
+
+			<!-- <div class="row">
+				<div class="col-md-6">
+              		<h4>Upload image</h4>
+					  <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+					          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+					      Select File</button>
+					  <br><br>
+					  File:
+					  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+					      <span class="progress" ng-show="f.progress >= 0">
+					          <div style="width:{{f.progress}}%"  
+					               ng-bind="f.progress + '%'"></div>
+					      </span>
+					  </div>     
+					  {{errorMsg}}
+              	</div>
+				
+			</div> -->
 			
 		</div>
 

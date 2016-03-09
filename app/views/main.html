@@ -1,4 +1,99 @@
 <div class="jumbotron">
+
+  <!-- <div class="row">
+  <div class="col-md-8">.col-md-8</div>
+  <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-6">.col-md-6</div>
+  <div class="col-md-6">.col-md-6</div>
+</div> -->
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Find new & used cars</div>
+        <div class="panel-body">
+          
+          <form name="carSearchForm">
+
+            <div class="form-group">
+
+              <label for="makeSelect"> Select Make: </label>
+              
+              <select name="makeSelect" id="makeSelect" class="form-control" 
+                  ng-options="make.title for make in makes track by make.id"
+                  ng-model="makeSelect"
+                  ng-change="filterModels(makeSelect.id)">
+                  <option value="">---Please select make---</option>
+              </select>
+
+            </div>
+
+            <div class="form-group">
+
+              <label for="modelSelect"> Select Model: </label>
+              <select name="modelSelect" id="modelSelect" class="form-control" 
+                ng-options="model.title for model in filteredModels track by model.id"
+                ng-model="modelSelect">
+                <option value="">---Please select model---</option>
+              </select>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <label for="minPrice"> Min: </label>
+              
+              <select name="minPrice" id="minPrice" class="form-control" 
+                  ng-options="price.price for price in prices track by price.id"
+                  ng-model="minPrice">
+                  <option value="">-Min price-</option>
+              </select>
+              </div>
+
+              <div class="col-md-6">
+              <label for="maxPrice"> Max: </label>
+              
+              <select name="maxPrice" id="maxPrice" class="form-control" 
+                  ng-options="price.price for price in prices track by price.id"
+                  ng-model="maxPrice">
+                  <option value="">-Max price-</option>
+              </select>
+              </div>
+              
+            </div>
+
+            <div class="row" style="margin-top: 5px;">
+
+              <div class="col-md-6">
+              </div>
+
+              <div class="col-md-6" align="right">
+                <button type="submit" role="button" class="btn-md btn-primary">Search</button>
+              </div>
+              
+            </div>
+            
+          </form>
+
+        </div>
+      </div>   
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+<!-- <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
@@ -20,4 +115,4 @@
 
   <h4>Karma</h4>
   <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+</div> -->
