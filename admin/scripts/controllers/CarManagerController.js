@@ -38,6 +38,8 @@ angular.module('familyCarsApp')
             models();
             suppliers();
             cars();
+            
+            $scope.isEdit = true;
 
             $scope.dt1 = new Date($scope.insertDate);
             $scope.dt2 = new Date($scope.saleDate);
@@ -46,7 +48,7 @@ angular.module('familyCarsApp')
 
         });
     } else {
-
+        $scope.isEdit = false;
         $scope.makeSelect = -1;
         $scope.modelSelect = -1;
         $scope.supplierSelect = -1;

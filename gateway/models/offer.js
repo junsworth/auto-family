@@ -1,8 +1,5 @@
-/**
- * Created by jonathanunsworth on 15/01/14.
- */
 module.exports = function(sequelize, DataTypes) {
-  var Car = sequelize.define('Car', {
+  var Offer = sequelize.define('Offer', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey:true,
@@ -10,13 +7,13 @@ module.exports = function(sequelize, DataTypes) {
       unique:true,
       allowNull:false
     },
-    header: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: false,
       primaryKey: false
     },
-    subHeader: {
+    header: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: false,
@@ -28,44 +25,20 @@ module.exports = function(sequelize, DataTypes) {
       unique: false,
       primaryKey: false
     },
-    mileage: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    images: {
+      type: DataTypes.TEXT,
+      allowNull: true,
       unique: false,
       primaryKey: false
     },
-    year: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: false,
-      primaryKey: false
-    },
-    purchasePrice: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: false,
-      primaryKey: false
-    },
-    salePrice: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: false,
-      primaryKey: false
-    },
-    insertDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      unique: false,
-      primaryKey: false
-    },
-    saleDate: {
+    startDate: {
       type: DataTypes.DATE,
       allowNull: true,
       unique: false,
       primaryKey: false
     },
-    images: {
-      type: DataTypes.TEXT,
+    endDate: {
+      type: DataTypes.DATE,
       allowNull: true,
       unique: false,
       primaryKey: false
@@ -75,10 +48,11 @@ module.exports = function(sequelize, DataTypes) {
     updatedAt: false,
     classMethods: {
       associate: function(models) {
-        Car.hasMany(models.TestDrive);
+
       }
     }
   });
 
-  return Car;
+  return Offer;
+
 };

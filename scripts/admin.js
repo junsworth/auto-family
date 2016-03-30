@@ -37,7 +37,7 @@ angular
         controllerAs: 'users'
       })
       .when('/adduser', {
-        templateUrl: '/views/user_form.html',
+        templateUrl: '/common/views/forms/user_form.html',
         controller: 'UserCtrl',
         controllerAs: 'adduser'
       })
@@ -71,6 +71,36 @@ angular
         controller: 'SupplierManagerCtrl',
         controllerAs: 'addsupplier'
       })
+      .when('/services', {
+        templateUrl: 'views/services.html',
+        controller: 'ServicesManagerCtrl',
+        controllerAs: 'services'
+      })
+      .when('/addservice', {
+        templateUrl: 'views/forms/form-service.html',
+        controller: 'ServicesManagerCtrl',
+        controllerAs: 'addservice'
+      })
+      .when('/offers', {
+        templateUrl: 'views/offers.html',
+        controller: 'SpecialOffersCtrl',
+        controllerAs: 'offers'
+      })
+      .when('/offers/edit', {
+        templateUrl: 'views/forms/form-offer.html',
+        controller: 'SpecialOffersCtrl',
+        controllerAs: 'offersedit'
+      })
+      .when('/news', {
+        templateUrl: 'views/articles.html',
+        controller: 'NewsManagerCtrl',
+        controllerAs: 'offers'
+      })
+      .when('/news/edit', {
+        templateUrl: 'views/forms/form-article.html',
+        controller: 'NewsManagerCtrl',
+        controllerAs: 'offersedit'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -80,7 +110,7 @@ angular
         responseError: function(rejection) {
           $injector.invoke(function($uibModal) {
             $uibModal.open({
-              templateUrl: '/views/dialogs/error-dialog.html',
+              templateUrl: '/common/views/dialogs/error-dialog.html',
               controller: 'ErrorDialogController',
               resolve: {
                 error: function() {

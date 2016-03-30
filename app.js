@@ -34,10 +34,13 @@ app.use(session({
 app.use(express.static(path.resolve(__dirname, 'app')));
 app.use('/admin', express.static(path.resolve(__dirname, 'admin')));
 
+app.use('/app/images',  express.static( path.join(__dirname, '/app/images')));
+app.use('/admin/images',  express.static( path.join(__dirname, '/admin/images')));
+
 app.use('/images',  express.static( path.join(__dirname, '/images')));
-app.use('/styles',  express.static( path.join(__dirname, '/styles')));
-app.use('/views',  express.static( path.join(__dirname, '/views')));
-app.use('/scripts',  express.static( path.join(__dirname, '/scripts')));
+app.use('/common/styles',  express.static( path.join(__dirname, '/styles')));
+app.use('/common/views',  express.static( path.join(__dirname, '/views')));
+app.use('/common/scripts',  express.static( path.join(__dirname, '/scripts')));
 app.use('/bower_components',  express.static( path.join(__dirname, '/bower_components')));
 
 app.use(bodyParser.urlencoded({
@@ -91,7 +94,7 @@ db.sequelize.authenticate().then(function () {
 
                         console.log("", type)
 
-                        db.UserType.create({
+                        db.UserType.create({    
                           title: type
                         });
                         

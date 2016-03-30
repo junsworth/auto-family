@@ -1,0 +1,105 @@
+<div class="panel panel-default">
+	
+	<div class="panel-heading" ng-if="!isEdit">
+		<h4>Add Special Offer</h4>
+	</div>
+	<div class="panel-heading" ng-if="isEdit">
+		<h4>Edit Special Offer</h4>
+	</div>
+
+	<div class="panel-body">
+
+		<form name="offerForm" ng-submit="submit(isEdit)">
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group" ng-class="{ 'has-error' : offerForm.title.$invalid && !offerForm.title.$pristine }">
+				      <label for="title">Title*:</label>
+				      <input type="text" ng-model="title" class="form-control" name="title" id="title" placeholder="Enter title" required>
+				    </div>
+		    	</div>
+		    </div>
+
+		    <div class="row">
+				<div class="col-md-6">
+				    <div class="form-group" ng-class="{ 'has-error' : offerForm.header.$invalid && !offerForm.header.$pristine }">
+				      <label for="header">Header*:</label>
+				      <input type="text" ng-model="header" class="form-control" name="header" id="header" placeholder="Enter header" required>
+				    </div>
+		    	</div>
+		    </div>
+
+		    <div class="row">
+				<div class="col-md-6">
+				    <div class="form-group" ng-class="{ 'has-error' : offerForm.description.$invalid && !offerForm.description.$pristine }">
+				      <label for="description">Description*:</label>
+				      <input type="text" ng-model="description" class="form-control" name="description" id="description" placeholder="Enter description" required>
+				    </div>
+		    	</div>
+		    </div>
+
+		    <div class="row">
+		      <div class="col-md-6">
+		      <label for="supplier"> Start Date: </label>
+		        <p class="input-group">
+		          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt1" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+		          <span class="input-group-btn">
+		            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+		          </span>
+		        </p>
+		      </div>
+
+		      <div class="col-md-6">
+		      	<label for="supplier"> End Date: </label>
+		        <p class="input-group">
+		          <input type="text" class="form-control" uib-datepicker-popup ng-model="dt2" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+		          <span class="input-group-btn">
+		            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+		          </span>
+		        </p>
+		      </div>
+		  </div>
+
+		    <div class="row" align="middle" style="margin-top: 6px;">
+			    <div class="col-md-8">
+			      <div style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
+			          <div ng-show="progressValue > 0">
+			              <uib-progressbar max="max" value="progressValue"><span style="color:white; white-space:nowrap;">{{progressValue}} / {{max}}</span></uib-progressbar>
+			          </div>
+			      </div>     
+			      {{errorMsg}}
+			    </div>
+			</div>
+
+			<div class="row" align="middle">
+				<div class="col-md-8">
+			          <div ngf-select="uploadFiles($file, $invalidFiles)" ngf-drop="uploadFiles($file, $invalidFiles)" class="my_drop-box"
+			          ngf-drag-over-class="my_dragover" ngf-multiple="false" 
+			          ngf-pattern="image/*">Drop image files here or click to upload</div>
+			          <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+
+			          <img ng-src="{{image}}" ng-if="image" width="50%" height="50%">
+			    </div>
+			</div>
+
+		    
+			
+			<hr>
+
+		    <button type="submit" class="btn btn-primary">Submit</button>
+
+		    <hr>
+
+		</form>
+
+	</div>
+	
+	<div class="panel-footer" ng-if="!isEdit">
+		<h4>Add Special Offer</h4>
+	</div>
+
+	<div class="panel-footer" ng-if="isEdit">
+		<h4>Edit Special Offer</h4>
+	</div>
+
+</div>

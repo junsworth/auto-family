@@ -20,7 +20,7 @@ angular.module('familyCarsApp')
             $scope.UserToRegisterType = user.UserTypeId;
 
             $scope.UserType = UserType;
-
+            $scope.isEdit = true;
         });
     } else {
         $scope.email = ''
@@ -28,6 +28,7 @@ angular.module('familyCarsApp')
         $scope.UserToRegisterType = 3;
         $scope.UserType = UserType;
         users();
+        $scope.isEdit = false;
     }
 
   
@@ -39,8 +40,8 @@ angular.module('familyCarsApp')
       UserTypeId: type
     }).then(function(principal) {
       console.log('principal ' + JSON.stringify(principal));
-      $rootScope.principal = principal;
-      $location.path('#/');
+      //$rootScope.principal = principal;
+      $location.path('/users');
     });
   };
 

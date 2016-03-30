@@ -2,7 +2,7 @@
  * Created by jonathanunsworth on 15/01/14.
  */
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('User', {
+  var Service = sequelize.define('Service', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey:true,
@@ -10,25 +10,40 @@ module.exports = function(sequelize, DataTypes) {
       unique:true,
       allowNull:false
     },
-    email: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
       primaryKey: false
     },
-    password: {
+    header: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: false,
+      primaryKey: false
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      unique: false,
+      primaryKey: false
+    },
+    images: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      unique: false,
+      primaryKey: false
     }
   }, {
     createdAt: false,
     updatedAt: false,
     classMethods: {
       associate: function(models) {
-        User.hasMany(models.TestDrive);
+
       }
     }
   });
 
-  return User;
+  return Service;
+
 };

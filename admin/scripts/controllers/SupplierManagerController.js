@@ -20,6 +20,7 @@ angular.module('familyCarsApp')
 		    $scope.city = supplier.city;
 		    $scope.email = supplier.email;
 		    $scope.phone = supplier.phone;
+		    $scope.isEdit = true;
 		});
     } else {
     	$scope.name = "";
@@ -28,7 +29,7 @@ angular.module('familyCarsApp')
 	    $scope.city = "";
 	    $scope.email = "";
 	    $scope.phone = "";
-
+	    $scope.isEdit = false;
 	    suppliers();
     }
 

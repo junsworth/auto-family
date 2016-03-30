@@ -1,7 +1,10 @@
 <div class="panel panel-default">
 	
-	<div class="panel-heading">
+	<div class="panel-heading" ng-if="!isEdit">
 		<h4>Add Customer</h4>
+	</div>
+	<div class="panel-heading" ng-if="isEdit">
+		<h4>Edit Customer</h4>
 	</div>
 
 	<div class="panel-body">
@@ -49,8 +52,12 @@
 
 	</div>
 	
-	<div class="panel-footer">
-		<h4>Add Customer Footer</h4>
+	<div class="panel-footer" ng-if="!isEdit">
+		<h4>Add Customer</h4>
+	</div>
+
+	<div class="panel-footer" ng-if="isEdit">
+		<h4>Edit Customer</h4>
 	</div>
 
 </div>

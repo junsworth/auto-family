@@ -31,12 +31,12 @@ angular
         controllerAs: 'about'
       })
       .when('/user', {
-        templateUrl: '/views/user_form.html',
+        templateUrl: '/common/views/forms/user_form.html',
         controller: 'UserCtrl',
         controllerAs: 'user'
       })
       .when('/cars', {
-        templateUrl: '/views/cars.html',
+        templateUrl: '/common/views/cars.html',
         controller: 'CarCtrl',
         controllerAs: 'cars'
       })
@@ -49,7 +49,7 @@ angular
         responseError: function(rejection) {
           $injector.invoke(function($uibModal) {
             $uibModal.open({
-              templateUrl: '/views/dialogs/error-dialog.html',
+              templateUrl: '/common/views/dialogs/error-dialog.html',
               controller: 'ErrorDialogController',
               resolve: {
                 error: function() {

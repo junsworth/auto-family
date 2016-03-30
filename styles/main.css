@@ -54,6 +54,11 @@ body {
   padding: 14px 24px;
 }
 
+.adminheader {
+  font-size: 34px;
+  color: rgb(80,80,80);
+}
+
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
@@ -99,4 +104,17 @@ body {
 }
 .item img {
   width: 100%;  
+}
+
+.my_drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 200px;
+    height: 65px;
+    text-align: center;
+    padding-top: 5px;
+    margin: 10px;
+}
+.my_dragover {
+    border: 5px dashed blue;
 }

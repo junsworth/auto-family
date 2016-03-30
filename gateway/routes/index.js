@@ -12,6 +12,9 @@ var auth = require('./auth');
 var cars = require('./cars');
 var suppliers = require('./suppliers');
 var customers = require('./customers');
+var services = require('./services');
+var offers = require('./offers');
+var news = require('./news');
 
 // parse application/x-www-form-urlencoded
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -25,7 +28,7 @@ router.post('/auth/logout', auth.logout);
 router.get('/auth/user', auth.getUser);
 router.get('/auth/users', auth.users);
 router.post('/auth/reset', auth.reset);
-router.post('/auth/add', auth.check, auth.add);
+router.post('/auth/add', auth.add);
 
 router.get('/users/get/:id', auth.check, auth.get);
 router.put('/users/update/:id', auth.check, auth.update);
@@ -54,6 +57,27 @@ router.get('/customers/customers', customers.customers);
 router.get('/customers/get/:id', auth.check, customers.get);
 router.put('/customers/update/:id', auth.check, customers.update);
 router.delete('/customers/delete/:id', auth.check, customers.delete);
+
+// services
+router.post('/services/add', services.add);
+router.get('/services/services', services.services);
+router.get('/services/service/:id', auth.check, services.get);
+router.put('/services/update/:id', auth.check, services.update);
+router.delete('/services/delete/:id', auth.check, services.delete);
+
+// offers
+router.post('/offers/add', offers.add);
+router.get('/offers/offers', offers.offers);
+router.get('/offers/offer/:id', auth.check, offers.get);
+router.put('/offers/update/:id', auth.check, offers.update);
+router.delete('/offers/delete/:id', auth.check, offers.delete);
+
+// news
+router.post('/news/add', news.add);
+router.get('/news/articles', news.articles);
+router.get('/news/article/:id', auth.check, news.get);
+router.put('/news/update/:id', auth.check, news.update);
+router.delete('/news/delete/:id', auth.check, news.delete);
 
 // image processing
 router.post('/images/upload', multipartMiddleware, function(req, resp) {

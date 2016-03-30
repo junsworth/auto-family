@@ -5,20 +5,23 @@
                   <span class="glyphicon glyphicon-plus"></span>
             </a>
         </h4>
-        <input class="form-control" ng-model="search.title" placeholder="Search Name.."/>
+        <input class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
     </div>
 
     <div class="panel-body">
         <table class="table table-striped">
             <tbody>
             <!-- <tr ng-repeat="user in users track by ::user.id"> -->
-            <tr ng-repeat="user in users.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) track by ::user.id">
+            <tr ng-repeat="user in users.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::user.id">
               <td>
                 <table>
                   <tbody>
                   <tr>
                     <td>
                       {{user.UserTypeId}}
+                    </td>
+                    <td>
+                      &nbsp;
                     </td>
                     <td>
                       {{user.email}}
