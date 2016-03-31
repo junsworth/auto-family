@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('CustomerManagerCtrl', function ($scope, $rootScope, $location, request, $routeParams) {
+  .controller('CustomerManagerCtrl', function ($scope, $rootScope, $location, request, $routeParams, SupplierService) {
     
     if($routeParams.id) {
         request.get('/customers/get/:id', {
@@ -35,7 +35,8 @@ angular.module('familyCarsApp')
     }
 
     $scope.add = function() {
-	    request.post('/customers/add', {
+
+        request.post('/customers/add', {
 	      name: $scope.name,
 	      address: $scope.address,
 	      addresstwo: $scope.addresstwo,

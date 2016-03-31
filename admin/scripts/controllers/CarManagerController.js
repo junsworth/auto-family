@@ -42,7 +42,13 @@ angular.module('familyCarsApp')
             $scope.isEdit = true;
 
             $scope.dt1 = new Date($scope.insertDate);
-            $scope.dt2 = new Date($scope.saleDate);
+
+            if($scope.saleDate) {
+              $scope.dt2 = new Date($scope.saleDate);
+            } else {
+              $scope.dt2 = new Date();
+            }
+            
 
           }
 
@@ -70,6 +76,8 @@ angular.module('familyCarsApp')
         models();
         suppliers();
         cars();
+
+        $scope.isEdit = false;
 
         $scope.dt1 = new Date();
         $scope.dt2 = new Date();

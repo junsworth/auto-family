@@ -15,6 +15,7 @@ var customers = require('./customers');
 var services = require('./services');
 var offers = require('./offers');
 var news = require('./news');
+var events = require('./events');
 
 // parse application/x-www-form-urlencoded
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -78,6 +79,13 @@ router.get('/news/articles', news.articles);
 router.get('/news/article/:id', auth.check, news.get);
 router.put('/news/update/:id', auth.check, news.update);
 router.delete('/news/delete/:id', auth.check, news.delete);
+
+// events
+router.post('/events/add', events.add);
+router.get('/events/events', events.events);
+router.get('/events/event/:id', auth.check, events.get);
+router.put('/events/update/:id', auth.check, events.update);
+router.delete('/events/delete/:id', auth.check, events.delete);
 
 // image processing
 router.post('/images/upload', multipartMiddleware, function(req, resp) {

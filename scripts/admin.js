@@ -101,6 +101,16 @@ angular
         controller: 'NewsManagerCtrl',
         controllerAs: 'offersedit'
       })
+      .when('/events', {
+        templateUrl: 'views/events.html',
+        controller: 'EventManagerCtrl',
+        controllerAs: 'event'
+      })
+      .when('/events/edit', {
+        templateUrl: 'views/forms/form-event.html',
+        controller: 'EventManagerCtrl',
+        controllerAs: 'event'
+      })
       .otherwise({
         redirectTo: '/'
       });

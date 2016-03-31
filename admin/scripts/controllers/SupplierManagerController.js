@@ -8,20 +8,20 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('SupplierManagerCtrl', function ($scope, $rootScope, $location, request, $routeParams) {
+  .controller('SupplierManagerCtrl', function ($scope, $rootScope, $location, request, $routeParams, SupplierService) {
     
     if($routeParams.id) {
-		request.get('/suppliers/get/:id', {
-			id: $routeParams.id
-		}).then(function(supplier) {
-			$scope.name = supplier.name;
+
+    	SupplierService.supplier($routeParams.id).then(function(supplier){
+    		$scope.name = supplier.name;
 		    $scope.address = supplier.address;
 		    $scope.addresstwo = supplier.addresstwo;
 		    $scope.city = supplier.city;
 		    $scope.email = supplier.email;
 		    $scope.phone = supplier.phone;
 		    $scope.isEdit = true;
-		});
+    	});
+
     } else {
     	$scope.name = "";
 	    $scope.address = "";
@@ -34,17 +34,14 @@ angular.module('familyCarsApp')
     }
 
     $scope.add = function() {
-	    request.post('/suppliers/add', {
-	      name: $scope.name,
-	      address: $scope.address,
-	      addresstwo: $scope.addresstwo,
-	      city: $scope.city,
-	      email: $scope.email,
-	      phone: $scope.phone
-	    }).then(function(supplier) {
-	      console.log('supplier ' + JSON.stringify(supplier));
-	      $location.path('/suppliers');
-	    });
+
+    	SupplierService.create($scope.name, 
+            $scope.address, $scope.addresstwo, 
+            $scope.city, $scope.email, $scope.phone)
+        .then(function(supplier){
+
+        }).then($location.path('/suppliers'));
+
   	};
 
   	$scope.edit = function(supplier) {
@@ -52,9 +49,11 @@ angular.module('familyCarsApp')
   	};
 
   	$scope.delete = function(supplier) {
-      request.delete('/suppliers/delete/:id', {
-        id: supplier.id
-      }).then(suppliers).then($location.path('/suppliers'));
+
+  		SupplierService.delete(supplier.id).then(function(){
+
+  		}).then(suppliers).then($location.path('/suppliers'));
+
     };
 
   	function suppliers() {

@@ -14,7 +14,7 @@ factory('OffersService', function(request){
 		      startDate: startDate,
 		      endDate: endDate
 		    }).then(function(offer) {
-		    	return service;
+		    	return offer;
 		    });
 		    return promise;
 		},
