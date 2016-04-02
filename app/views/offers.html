@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Offers</h4>
+        <input class="form-control" ng-model="search.title" placeholder="Search Name.."/>
+	</div>
+	<div class="panel-body">
+
+
+		<div class="row" ng-repeat="offer in offers.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) track by ::offer.id">
+
+			<div class="col-sm-6">
+				
+        		<img ng-src="{{offer.images}}">
+
+			</div>
+
+			<div class="col-sm-6">
+				<a href="">
+					<h4>{{offer.title}}</h4>	
+				</a>		        
+		        <h4>{{offer.header}}</h4>
+		        <p>{{offer.description}}</p>
+		    </div>
+			
+		</div>
+
+	</div>
+
+	<!-- <div class="panel-footer">
+		<h4>Offers Footer</h4>
+	</div> -->
+</div>

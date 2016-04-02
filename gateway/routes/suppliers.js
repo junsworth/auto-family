@@ -61,7 +61,7 @@ exports.update = function(req, res) {
     .then(function(result) {
       return result.updateAttributes(req.body);
     }).then(function() {
-      res.status(204).send();
+      res.status(200).send();
     });
 };
 

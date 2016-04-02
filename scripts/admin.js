@@ -22,21 +22,31 @@ angular
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
+        title: 'Auto Family Admin',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
       .when('/about', {
+        title: 'About',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/contact', {
+        title: 'Contact',
+        templateUrl: '/common/views/contact.html',
+        controller: 'ContactCtrl',
+        controllerAs: 'contact'
+      })
       .when('/users', {
+        title: 'Users',
         templateUrl: 'views/users.html',
         controller: 'UserCtrl',
         controllerAs: 'users'
       })
       .when('/adduser', {
+        title: 'Add User',
         templateUrl: '/common/views/forms/user_form.html',
         controller: 'UserCtrl',
         controllerAs: 'adduser'
@@ -133,4 +143,8 @@ angular
         }
       };
     });
-  });
+  }).run(['$rootScope', function($rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.title = current.$$route.title;
+    });
+}]);

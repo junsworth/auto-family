@@ -1,88 +1,143 @@
-<div class="panel panel-default">
-	<div class="panel-heading" ng-if="!isEdit">
-		<h4>Add Car
+
+	<div ng-if="!isEdit">
+		<h2 class="page-header">Add Car
 		<a class="btn btn-success btn-xs pull-right" ng-click="editGallery()" href="">
                   <span class="glyphicon glyphicon-picture"></span>
         </a>
-		</h4>
+		</h2>
 	</div>
-	<div class="panel-heading" ng-if="isEdit">
-		<h4>Edit Car
+	<div ng-if="isEdit">
+		<h2 class="page-header">Edit Car
 		<a class="btn btn-success btn-xs pull-right" ng-click="editGallery()" href="">
                   <span class="glyphicon glyphicon-picture"></span>
         </a>
-		</h4>
+		</h2>
 	</div>
+	<div class="row">
+      <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
+	<div class="panel panel-default">
 	<div class="panel-body">
 
 	<div ng-show="!isEditGallery">
-		<form name="carForm" ng-submit="add()">
+		<form name="carForm" ng-submit="submit()">
 
-		  <div class="form-group">
-			<label for="makeSelect"> Select Make: </label>
-			<select name="makeSelect" id="makeSelect" class="form-control" 
-		      ng-options="make.title for make in makes track by make.id"
-		      ng-model="makeSelect"
-		      ng-change="filterModels(makeSelect.id)">
-		      <option value="">---Please select make---</option> <!-- not selected / blank option -->
-		      </select>
-	      </div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="makeSelect"> Select Make: </label>
+						<select name="makeSelect" id="makeSelect" class="form-control" 
+						ng-options="make.title for make in makes track by make.id"
+						ng-model="makeSelect"
+						ng-change="filterModels(makeSelect.id)">
+						<option value="">---Please select make---</option> <!-- not selected / blank option -->
+						</select>
+					</div>
+				</div>
 
-	      <div class="form-group">
-	      	<label for="modelSelect"> Select Model: </label>
-			<select name="modelSelect" id="modelSelect" class="form-control" 
-		      ng-options="model.title for model in filteredModels track by model.id"
-		      ng-model="modelSelect">
-		      <option value="">---Please select model---</option>
-		      </select>
-	      </div>
-
-	      <div class="form-group" ng-class="{ 'has-error' : carForm.header.$invalid && !carForm.header.$pristine }">
-		      <label for="header"> Header: </label>
-		      <input type="text" ng-model="header" class="form-control" id="header" name="header" placeholder="Enter header" required>
-		  </div>
-
-		  <div class="form-group" ng-class="{ 'has-error' : carForm.subHeader.$invalid && !carForm.subHeader.$pristine }">
-		      <label for="subHeader"> Sub Header: </label>
-		      <input type="text" ng-model="subHeader" class="form-control" id="subHeader" name="subHeader" placeholder="Enter sub header" required>
-		  </div>
-
-	      <div class="form-group" ng-class="{ 'has-error' : carForm.description.$invalid && !carForm.description.$pristine }">
-		      <label for="description"> Description: </label>
-		      <input type="text" ng-model="description" class="form-control" id="description" name="description" placeholder="Enter description" required>
-		  </div>
-		  
-		  <div class="form-group" ng-class="{ 'has-error' : carForm.mileage.$invalid && !carForm.mileage.$pristine }">
-			  <label for="mileage"> Mileage: </label>
-			  <input type="text" ng-model="mileage" class="form-control" id="mileage" name="mileage" placeholder="Enter mileage" required>
-		  </div>
-
-		  <div class="form-group" ng-class="{ 'has-error' : carForm.year.$invalid && !carForm.year.$pristine }">
-			  <label for="year"> Year: </label>
-			  <input type="text" ng-model="year" class="form-control" id="year" name="year" placeholder="Enter year" required>
-		  </div>
-
-		  <div class="form-group" ng-class="{ 'has-error' : carForm.purchaseprice.$invalid && !carForm.purchaseprice.$pristine }">
-			  <label for="purchaseprice"> Purchase Price: </label>
-			  <input type="text" ng-model="purchasePrice" name="purchaseprice" class="form-control" id="pwd" placeholder="Enter price" required>
-		  </div>
-
-		  <div class="form-group" ng-class="{ 'has-error' : carForm.salePrice.$invalid && !carForm.salePrice.$pristine }">
-			  <label for="salePrice"> Sale Price: </label>
-			  <input type="text" ng-model="salePrice" class="form-control" id="salePrice" name="salePrice" placeholder="Enter price" required>
-		  </div>
-
-		  <div class="form-group">
-	      	<label for="supplier"> Supplier: </label>
-			<select name="supplier" id="supplier" class="form-control" 
-		      ng-options="supplier.name for supplier in suppliers track by supplier.id"
-		      ng-model="supplierSelect">
-		      <option value="">---Please select supplier---</option>
-		      </select>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="modelSelect"> Select Model: </label>
+						<select name="modelSelect" id="modelSelect" class="form-control" 
+						ng-options="model.title for model in filteredModels track by model.id"
+						ng-model="modelSelect">
+						<option value="">---Please select model---</option>
+						</select>
+					</div>
+				</div>
 	      </div>
 
 	      <div class="row">
-		      <div class="col-md-6">
+		      	<div class="col-md-4">
+			      <div class="form-group" ng-class="{ 'has-error' : carForm.header.$invalid && !carForm.header.$pristine }">
+				      <label for="header"> Header: </label>
+				      <input type="text" ng-model="header" class="form-control" id="header" name="header" placeholder="Enter header" required>
+				  </div>
+				</div>
+
+				<div class="col-md-4">
+				  <div class="form-group" ng-class="{ 'has-error' : carForm.subHeader.$invalid && !carForm.subHeader.$pristine }">
+				      <label for="subHeader"> Sub Header: </label>
+				      <input type="text" ng-model="subHeader" class="form-control" id="subHeader" name="subHeader" placeholder="Enter sub header" required>
+				  </div>
+		  		</div>
+		  </div>
+
+		  <div class="row">
+
+			<div class="col-md-8">
+				<div class="form-group" ng-class="{ 'has-error' : carForm.description.$invalid && !carForm.description.$pristine }">
+				<label for="description"> Description: </label>
+				<input type="text" ng-model="description" class="form-control" id="description" name="description" placeholder="Enter description" required>
+				</div>
+			</div>
+
+		  </div>
+		  
+		  <div class="row">
+
+			<div class="col-md-4">
+				<div class="form-group" ng-class="{ 'has-error' : carForm.mileage.$invalid && !carForm.mileage.$pristine }">
+				<label for="mileage"> Mileage: </label>
+				<input type="text" ng-model="mileage" class="form-control" id="mileage" name="mileage" placeholder="Enter mileage" required>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="form-group" ng-class="{ 'has-error' : carForm.year.$invalid && !carForm.year.$pristine }">
+				<label for="year"> Year: </label>
+				<input type="text" ng-model="year" class="form-control" id="year" name="year" placeholder="Enter year" required>
+				</div>
+			</div>
+
+		  </div>
+
+		  <div class="row">
+
+		  	<div class="col-md-4">
+				<div class="form-group" ng-class="{ 'has-error' : carForm.purchaseprice.$invalid && !carForm.purchaseprice.$pristine }">
+					<label for="purchaseprice"> Purchase Price: </label>
+					<input type="text" ng-model="purchasePrice" name="purchaseprice" class="form-control" id="pwd" placeholder="Enter price" required>
+				</div>
+		  	</div>
+
+		  	<div class="col-md-4">
+		  		<div class="form-group" ng-class="{ 'has-error' : carForm.salePrice.$invalid && !carForm.salePrice.$pristine }">
+				  <label for="salePrice"> Sale Price: </label>
+				  <input type="text" ng-model="salePrice" class="form-control" id="salePrice" name="salePrice" placeholder="Enter price" required>
+			  	</div>
+		  	</div>
+		  	
+		  </div>
+
+		  <div class="row">
+
+		  	<div class="col-md-4">
+		  		<div class="form-group">
+			      	<label for="supplier"> Supplier: </label>
+					<select name="supplier" id="supplier" class="form-control" 
+				      ng-options="supplier.name for supplier in suppliers track by supplier.id"
+				      ng-model="supplierSelect">
+				      <option value="">---Please select supplier---</option>
+				      </select>
+			      </div>		  		
+		  	</div>
+
+		  	<div ng-show="isEdit" class="col-md-4">
+		  		<div class="form-group">
+			      	<label for="customer"> Customer: </label>
+					<select name="customer" id="customer" class="form-control" 
+				      ng-options="customer.name for customer in customers track by customer.id"
+				      ng-model="customerSelect">
+				      <option value="">--- Please select customer ---</option>
+				      </select>
+			      </div>
+		  	</div>
+		  	
+		  </div>
+		  
+	      <div class="row">
+		      <div class="col-md-4">
 		      <label for="supplier"> Purchase Date: </label>
 		        <p class="input-group">
 		          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt1" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
@@ -92,10 +147,10 @@
 		        </p>
 		      </div>
 
-		      <div class="col-md-6">
+		      <div ng-if="isEdit" class="col-md-4">
 		      	<label for="supplier"> Sale Date: </label>
 		        <p class="input-group">
-		          <input type="text" class="form-control" uib-datepicker-popup ng-model="dt2" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+		          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt2" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="false" close-text="Close" />
 		          <span class="input-group-btn">
 		            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
 		          </span>
@@ -155,38 +210,9 @@
 				</div>
 				
 			</div>
-
-
-			<!-- <div class="row">
-				<div class="col-md-6">
-              		<h4>Upload image</h4>
-					  <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
-					          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
-					      Select File</button>
-					  <br><br>
-					  File:
-					  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-					      <span class="progress" ng-show="f.progress >= 0">
-					          <div style="width:{{f.progress}}%"  
-					               ng-bind="f.progress + '%'"></div>
-					      </span>
-					  </div>     
-					  {{errorMsg}}
-              	</div>
-				
-			</div> -->
 			
 		</div>
 
 	</div> <!-- Panel Body End -->
-
-	
-
-	<div class="panel-footer" ng-if="!isEdit">
-		<h4>Add Car</h4>
-	</div>
-	<div class="panel-footer" ng-if="isEdit">
-		<h4>Edit Car</h4>
-	</div>
 
 </div>

@@ -13,6 +13,7 @@ angular.module('familyCarsApp')
     if($routeParams.id) {
 
     	SupplierService.supplier($routeParams.id).then(function(supplier){
+    		$scope.id = supplier.id;
     		$scope.name = supplier.name;
 		    $scope.address = supplier.address;
 		    $scope.addresstwo = supplier.addresstwo;
@@ -35,14 +36,35 @@ angular.module('familyCarsApp')
 
     $scope.add = function() {
 
-    	SupplierService.create($scope.name, 
-            $scope.address, $scope.addresstwo, 
-            $scope.city, $scope.email, $scope.phone)
+    	SupplierService.create(
+    		$scope.name, 
+            $scope.address,
+            $scope.addresstwo, 
+            $scope.city, 
+            $scope.email, 
+            $scope.phone)
         .then(function(supplier){
 
         }).then($location.path('/suppliers'));
 
   	};
+
+  	$scope.save = function() {
+
+      var saveObj = {};
+      saveObj.id = $scope.id;
+      saveObj.name = $scope.name;
+      saveObj.address = $scope.address;
+      saveObj.addresstwo = $scope.addresstwo;
+      saveObj.city = $scope.city;
+      saveObj.email = $scope.email;
+      saveObj.phone = $scope.phone;
+
+      SupplierService.update(saveObj).then(function(supplier) {
+        addAlert('success', 'Success! supplier saved.');
+      });
+
+    };
 
   	$scope.edit = function(supplier) {
   		$location.path('/addsupplier').search({id: supplier.id});
@@ -85,5 +107,27 @@ angular.module('familyCarsApp')
 	  $scope.itemsPerPage = num;
 	  $scope.currentPage = 1; //reset to first paghe
 	};
+
+	// alerts
+    function addAlert(type, message) {
+      $scope.alerts = [];
+      $scope.alerts.push({type: type, msg: message});
+    }
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
+    $scope.submit = function() {
+      
+      $scope.alerts = [];
+
+      if(!$scope.isEdit) {
+        $scope.add();
+      } else if ($scope.isEdit) {
+        $scope.save();
+      }
+
+    };
 
   });

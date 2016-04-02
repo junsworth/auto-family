@@ -48,13 +48,29 @@ angular.module('familyCarsApp')
     };
 
     $scope.edit = function(article) {
-        $location.path('/news/edit').search({id: offer.id});
+        $location.path('/news/edit').search({id: article.id});
     };
 
     $scope.add = function() {
 
       NewsService.create($scope.title, $scope.header, $scope.description, $scope.image, $scope.dt1).then(function(article){
         $location.path('/news');
+      });
+
+    };
+
+    $scope.update = function() {
+
+      var saveObj = {};
+      saveObj.id = $scope.id;
+      saveObj.title = $scope.title;
+      saveObj.images = $scope.image;
+      saveObj.header = $scope.header;
+      saveObj.description = $scope.description;
+      saveObj.releaseDate = $scope.dt1;
+
+      NewsService.update(saveObj).then(function(article) {
+              addAlert('success', 'Success! article saved.');
       });
 
     };
@@ -77,12 +93,26 @@ angular.module('familyCarsApp')
       });
     };
 
-    $scope.submit = function(isEdit) {
-    	if(isEdit) {
+    // alerts
+    function addAlert(type, message) {
+      $scope.alerts = [];
+      $scope.alerts.push({type: type, msg: message});
+    }
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
+    $scope.submit = function() {
+        
+        $scope.alerts = [];
+
+    	if($scope.isEdit) {
     		$scope.update();
-    	} else if (!isEdit){
+    	} else if (!$scope.isEdit){
     		$scope.add();
     	}
+        
     }
 
     // upload file

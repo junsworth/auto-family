@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('CarCtrl', function ($scope, $rootScope, request) {
+  .controller('CarCtrl', function ($scope, $rootScope, request, $location, CarService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,6 +16,10 @@ angular.module('familyCarsApp')
     ];
 
     cars();
+
+    $scope.viewCar = function(car) {
+        $location.path('/cars/detail').search({id: car.id});
+    };
 
     $scope.getCarPhotos = function(str) {
     	console.log('----- ' + str + '------');
@@ -59,22 +63,21 @@ angular.module('familyCarsApp')
     }
 
     function cars() {
-      request.get('/cars/cars').then(function(cars) {
-        $scope.cars = cars;
 
-        $scope.viewby = 4;
+        CarService.cars().then(function(cars){
+            $scope.cars = cars;
 
-		$scope.totalItems = $scope.cars.length;
+            $scope.viewby = 4;
 
-		$scope.currentPage = 1;
+            $scope.totalItems = $scope.cars.length;
 
-		$scope.itemsPerPage = $scope.viewby;
+            $scope.currentPage = 1;
 
-		$scope.maxSize = 5; //Number of pager buttons to show
+            $scope.itemsPerPage = $scope.viewby;
 
-		console.log(JSON.stringify($scope.cars));
+            $scope.maxSize = 5; //Number of pager buttons to show
+        });
 
-      });
     };
 
     $scope.setPage = function (pageNo) {

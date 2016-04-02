@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
       primaryKey: false,
       validate: {
         notEmpty: { args: true, msg:'Email is empty.' },
@@ -37,7 +37,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     completeDate: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
       unique: false,
       primaryKey: false
     }

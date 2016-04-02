@@ -8,20 +8,37 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('CarManagerCtrl', function ($scope, $rootScope, request, $location, filterFilter, $timeout, Upload, cfg, $routeParams) {
+  .controller('CarManagerCtrl', function ($scope, $rootScope, request, $location, filterFilter, $timeout, Upload, cfg, $routeParams, CarService, CustomerService, SupplierService) {
     
-    if($routeParams.id) {
-        request.get('/cars/get/:id', {
-            id: $routeParams.id
-        }).then(function(car) {
+    $scope.alerts = [];
 
-          if(car.length == 4) {
+    // carasoul settings
+    $scope.myInterval = 5000;
+    $scope.noWrapSlides = false;
+    $scope.active = 0;
+    var slides = $scope.slides = [];
+    var currIndex = 0;
+
+    if($routeParams.id) {
+
+      CarService.car($routeParams.id).then(function(car){
+        if(car.length == 4 || car.length == 5) {
+
+            $scope.isEdit = true;
 
             $scope.makeSelect = car[1].Make;
             $scope.modelSelect = car[2].Model;
             $scope.supplierSelect = car[3].Supplier;
+
+            if(car.length == 5) {
+              $scope.customerSelect = car[4].Customer;
+            } else {
+              $scope.customerSelect = -1;
+            }
+
             $scope.isEditGallery = false;
 
+            $scope.id = car[0].Car.id;
             $scope.header = car[0].Car.header;
             $scope.subHeader = car[0].Car.subHeader;
             $scope.description = car[0].Car.description;
@@ -32,14 +49,17 @@ angular.module('familyCarsApp')
             $scope.insertDate = car[0].Car.insertDate;
             $scope.saleDate = car[0].Car.saleDate;
             
-            $scope.slides = JSON.parse(car[0].Car.images);
+            if(car[0].Car.images.lengt > 0) {
+              $scope.slides = JSON.parse(car[0].Car.images);  
+            }            
 
             makes();
             models();
+            customers();
             suppliers();
             cars();
             
-            $scope.isEdit = true;
+            
 
             $scope.dt1 = new Date($scope.insertDate);
 
@@ -47,17 +67,18 @@ angular.module('familyCarsApp')
               $scope.dt2 = new Date($scope.saleDate);
             } else {
               $scope.dt2 = new Date();
-            }
-            
+              $scope.isChanged = false;
+            }           
 
           }
+      });
 
-        });
     } else {
         $scope.isEdit = false;
         $scope.makeSelect = -1;
         $scope.modelSelect = -1;
         $scope.supplierSelect = -1;
+        $scope.customerSelect = -1;
         $scope.isEditGallery = false;
 
         $scope.header = "";
@@ -88,6 +109,12 @@ angular.module('familyCarsApp')
     $scope.format = $scope.formats[0];
     $scope.altInputFormats = ['M!/d!/yyyy'];
 
+
+    $scope.$watch("dt2", function(newValue, oldValue) {
+        console.log("I've changed : ");
+        $scope.isChanged = true;
+    });
+
     $scope.popup1 = {
       opened: false
     };
@@ -95,13 +122,6 @@ angular.module('familyCarsApp')
     $scope.popup2 = {
       opened: false
     };
-
-    // carasoul settings
-    $scope.myInterval = 5000;
-    $scope.noWrapSlides = false;
-    $scope.active = 0;
-    var slides = $scope.slides = [];
-    var currIndex = 0;
 
     function makes() {
 	    request.get('/cars/makes').then(function(makes) {
@@ -161,8 +181,14 @@ angular.module('familyCarsApp')
   	};
 
     function suppliers() {
-      request.get('/suppliers/suppliers').then(function(suppliers) {
+      SupplierService.suppliers().then(function(suppliers){
         $scope.suppliers = suppliers;
+      });
+    };
+
+    function customers() {
+      CustomerService.customers().then(function(customers){
+        $scope.customers = customers;
       });
     };
 
@@ -235,25 +261,50 @@ angular.module('familyCarsApp')
         }   
     };
 
+    $scope.save = function() {
+
+      var saveObj = {};
+      saveObj.id = $scope.id;
+      saveObj.header = $scope.header;
+      saveObj.subHeader = $scope.subHeader;
+      saveObj.description = $scope.description;
+      saveObj.mileage = $scope.mileage;
+      saveObj.year = $scope.year;
+      saveObj.purchasePrice = $scope.purchasePrice;
+      saveObj.salePrice = $scope.salePrice;
+      saveObj.insertDate = $scope.dt1;
+      saveObj.images = JSON.stringify($scope.slides);
+      saveObj.ModelId = $scope.modelSelect.id;
+
+      console.log('-----' + JSON.stringify($scope.slides) + '-------');
+
+      if($scope.isChanged) {
+        saveObj.saleDate = $scope.dt2;
+        saveObj.CustomerId = $scope.customerSelect.id;
+      }
+
+      CarService.update(saveObj).then(function(car) {
+        addAlert('success', 'Success! Car saved.---' + $scope.customerSelect + ' -- ' + $scope.dt2);
+      });
+
+    };
+
     $scope.add = function() {
 
-      request.post('/cars/add', {
-        header: $scope.header,
-        subHeader: $scope.subHeader,
-        description: $scope.description,
-        mileage: $scope.mileage,
-        year: $scope.year,
-        purchasePrice: $scope.purchasePrice,
-        salePrice: $scope.salePrice,
-        insertDate: $scope.dt1,
-        saleDate: $scope.dt2,
-        images: JSON.stringify($scope.slides),
-        ModelId: $scope.modelSelect.id,
-        SupplierId: $scope.supplierSelect.id
-      }).then(function(car) {
-        console.log('car ' + JSON.stringify(car));
-        $location.path('#/cars');
-      });
+      CarService.create(
+        $scope.header,
+        $scope.subHeader,
+        $scope.description,
+        $scope.mileage,
+        $scope.year,
+        $scope.purchasePrice,
+        $scope.salePrice,
+        $scope.dt1,
+        JSON.stringify($scope.slides),
+        $scope.modelSelect.id,
+        $scope.supplierSelect.id).then(function(car){
+
+        }).then($location.path('/cars'));
 
     };
 
@@ -297,5 +348,27 @@ angular.module('familyCarsApp')
       else
         return false;
     }
+
+    // alerts
+    function addAlert(type, message) {
+      $scope.alerts = [];
+      $scope.alerts.push({type: type, msg: message});
+    }
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
+    $scope.submit = function() {
+      
+      $scope.alerts = [];
+
+      if(!$scope.isEdit) {
+        $scope.add();
+      } else if ($scope.isEdit) {
+        $scope.save();
+      }
+
+    };
 
 });

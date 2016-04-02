@@ -18,27 +18,29 @@ angular.module('familyCarsApp')
 
     if($routeParams.id) {
 
-		OffersService.offer($routeParams.id).then(function(offer){
-			console.log(JSON.stringify(offer));
-			$scope.id = offer.id;
-			$scope.title = offer.title;
-			$scope.header = offer.header;
-			$scope.description = offer.description;
-			$scope.image = offer.images;
-			$scope.dt1 = new Date(offer.startDate);
-			$scope.dt2 = new Date(offer.endDate);
-			$scope.isEdit = true;
-		});
+  		OffersService.offer($routeParams.id).then(function(offer){
+
+  			$scope.id = offer.id;
+  			$scope.title = offer.title;
+  			$scope.header = offer.header;
+  			$scope.description = offer.description;
+  			$scope.image = offer.images;
+  			$scope.dt1 = new Date(offer.startDate);
+  			$scope.dt2 = new Date(offer.endDate);
+  			$scope.isEdit = true;
+
+  		});
         
     } else {
 
-        $scope.title = '';
-		$scope.header = '';
-		$scope.description = '';
-		$scope.image = '';
-		$scope.dt1 = new Date();
-    	$scope.dt2 = new Date();
-        $scope.isEdit = false;
+      $scope.title = '';
+      $scope.header = '';
+      $scope.description = '';
+      $scope.image = '';
+      $scope.dt1 = new Date();
+      $scope.dt2 = new Date();
+      $scope.isEdit = false;
+
     }
 
 
@@ -70,31 +72,62 @@ angular.module('familyCarsApp')
 
     };
 
+    $scope.update = function() {
+
+      var saveObj = {};
+      saveObj.id = $scope.id;
+      saveObj.title = $scope.title;
+      saveObj.images = $scope.image;
+      saveObj.header = $scope.header;
+      saveObj.description = $scope.description;
+      saveObj.startDate = $scope.dt1;
+      saveObj.endDate = $scope.dt2;
+
+      OffersService.update(saveObj).then(function() {
+              addAlert('success', 'Success! service saved.');
+      });
+
+    };
+
     function getOffers() {
       OffersService.offers().then(function(offers) {
 
-		$scope.offers = offers;
+    		$scope.offers = offers;
 
-		$scope.viewby = 4;
+    		$scope.viewby = 4;
 
-		$scope.totalItems = $scope.offers.length;
+    		$scope.totalItems = $scope.offers.length;
 
-		$scope.currentPage = 1;
+    		$scope.currentPage = 1;
 
-		$scope.itemsPerPage = $scope.viewby;
+    		$scope.itemsPerPage = $scope.viewby;
 
-		$scope.maxSize = 5; //Number of pager buttons to show
+    		$scope.maxSize = 5; //Number of pager buttons to show
 
       });
     };
 
-    $scope.submit = function(isEdit) {
-    	if(isEdit) {
-    		$scope.update();
-    	} else if (!isEdit){
-    		$scope.add();
-    	}
+    // alerts
+    function addAlert(type, message) {
+      $scope.alerts = [];
+      $scope.alerts.push({type: type, msg: message});
     }
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
+    $scope.submit = function() {
+        
+      $scope.alerts = [];
+
+      if($scope.isEdit) {
+        $scope.update();
+      } else if (!$scope.isEdit){
+        $scope.add();
+      }
+
+    };
 
     // upload file
     $scope.uploadFiles = function(file, errFiles) {

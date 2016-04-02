@@ -71,6 +71,7 @@ body {
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
+    max-width: 960px;
   }
 
   /* Remove the padding we set earlier */
@@ -117,4 +118,9 @@ body {
 }
 .my_dragover {
     border: 5px dashed blue;
+}
+
+body {
+  padding: 0;
+  margin-top: 50px;
 }

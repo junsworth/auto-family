@@ -31,8 +31,12 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
-      'app/scripts/**/*.js',
-      'test/mock/**/*.js',
+      // 'app/scripts/**/*.js',
+      // 'admin/scripts/**/*.js',
+      'scripts/app.js',
+      'scripts/controllers/*.js',
+      'scripts/services/*.js',
+      // 'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 
@@ -51,16 +55,13 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: [
-      'PhantomJS',
-      'Chrome',
-      'Firefox'
-    ],
+    browsers: ['Firefox'],
 
     // Which plugins to enable
     plugins: [
-      'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-firefox-launcher',
+      'karma-jasmine',
+      'karma-junit-reporter'
     ],
 
     // Continuous Integration mode
@@ -79,5 +80,16 @@ module.exports = function(config) {
     // },
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
+    reporters: ['progress', 'junit'],
+    // the default configuration 
+    junitReporter: {
+      outputDir: '', // results will be saved as $outputDir/$browserName.xml 
+      outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile 
+      suite: 'unit', // suite will become the package name attribute in xml testsuite element 
+      useBrowserName: true, // add browser name to report and classes names 
+      nameFormatter: undefined, // function (browser, result) to customize the name attribute in xml testcase element 
+      classNameFormatter: undefined // function (browser, result) to customize the classname attribute in xml testcase element 
+    }
+
   });
 };

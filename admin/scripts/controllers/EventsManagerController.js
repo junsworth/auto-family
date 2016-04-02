@@ -18,7 +18,6 @@ angular.module('familyCarsApp')
     if($routeParams.id) {
 
 		EventService.event($routeParams.id).then(function(event){
-			console.log(JSON.stringify(event));
 			$scope.id = event.id;
 			$scope.title = event.title;
 			$scope.header = event.header;
@@ -31,13 +30,14 @@ angular.module('familyCarsApp')
         
     } else {
 
-        $scope.title = '';
-		$scope.header = '';
-		$scope.description = '';
-		$scope.image = '';
-		$scope.dt1 = new Date();
-    	$scope.dt2 = new Date();
-        $scope.isEdit = false;
+      $scope.title = '';
+      $scope.header = '';
+      $scope.description = '';
+      $scope.image = '';
+      $scope.dt1 = new Date();
+      $scope.dt2 = new Date();
+      $scope.isEdit = false;
+      
     }
 
 
@@ -69,6 +69,23 @@ angular.module('familyCarsApp')
 
     };
 
+    $scope.update = function() {
+
+      var saveObj = {};
+      saveObj.id = $scope.id;
+      saveObj.title = $scope.title;
+      saveObj.header = $scope.header;
+      saveObj.description = $scope.description;
+      saveObj.images = $scope.image;
+      saveObj.startDate = $scope.dt1;
+      saveObj.endDate = $scope.dt2;
+
+      EventService.update(saveObj).then(function(article) {
+              addAlert('success', 'Success! article saved.');
+      });
+
+    };
+
     function getEvents() {
       EventService.events().then(function(events) {
 
@@ -87,10 +104,23 @@ angular.module('familyCarsApp')
       });
     };
 
-    $scope.submit = function(isEdit) {
-    	if(isEdit) {
+    // alerts
+    function addAlert(type, message) {
+      $scope.alerts = [];
+      $scope.alerts.push({type: type, msg: message});
+    }
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
+    $scope.submit = function() {
+        
+        $scope.alerts = [];
+
+    	if($scope.isEdit) {
     		$scope.update();
-    	} else if (!isEdit){
+    	} else if (!$scope.isEdit){
     		$scope.add();
     	}
     }

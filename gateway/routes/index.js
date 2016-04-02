@@ -16,6 +16,7 @@ var services = require('./services');
 var offers = require('./offers');
 var news = require('./news');
 var events = require('./events');
+var testdrive = require('./testdrive');
 
 // parse application/x-www-form-urlencoded
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -40,7 +41,7 @@ router.get('/cars/makes', cars.makes);
 router.get('/cars/models', cars.models);
 router.get('/cars/cars', cars.cars);
 router.post('/cars/add', cars.add);
-router.get('/cars/get/:id', auth.check, cars.get);
+router.get('/cars/get/:id', cars.get);
 router.put('/cars/update/:id', auth.check, cars.update);
 router.delete('/cars/delete/:id', auth.check, cars.delete);
 
@@ -48,7 +49,7 @@ router.delete('/cars/delete/:id', auth.check, cars.delete);
 router.post('/suppliers/add', suppliers.add);
 router.get('/suppliers/suppliers', suppliers.suppliers);
 router.get('/suppliers/get/:id', auth.check, suppliers.get);
-router.put('/suplliers/update/:id', auth.check, suppliers.update);
+router.put('/suppliers/update/:id', auth.check, suppliers.update);
 router.delete('/suppliers/delete/:id', auth.check, suppliers.delete);
 
 
@@ -86,6 +87,9 @@ router.get('/events/events', events.events);
 router.get('/events/event/:id', auth.check, events.get);
 router.put('/events/update/:id', auth.check, events.update);
 router.delete('/events/delete/:id', auth.check, events.delete);
+
+// testdrive
+router.post('/testdrives/add', testdrive.add);
 
 // image processing
 router.post('/images/upload', multipartMiddleware, function(req, resp) {

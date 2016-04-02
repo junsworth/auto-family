@@ -11,13 +11,34 @@ exports.get = function(req, res) {
           db.Make.findById(model.MakeId)
             .then(function(make){              
               db.Supplier.findById(result.SupplierId)
-                .then(function(supplier){                  
-                  var arrayResult = [];
-                  arrayResult.push({'Car':result});
-                  arrayResult.push({'Make':make});
-                  arrayResult.push({'Model':model});
-                  arrayResult.push({'Supplier':supplier});
-                  res.send(JSON.stringify(arrayResult));
+                .then(function(supplier){
+
+                  if(result.CustomerId!=null) {
+                    
+                    db.Customer.findById(result.CustomerId)
+                    .then(function(customer){
+                      
+                      var arrayResult = [];
+                      arrayResult.push({'Car':result});
+                      arrayResult.push({'Make':make});
+                      arrayResult.push({'Model':model});
+                      arrayResult.push({'Supplier':supplier});
+                      arrayResult.push({'Customer':customer});
+                      res.send(JSON.stringify(arrayResult));
+
+                    });
+
+                  } else {
+                    var arrayResult = [];
+                    arrayResult.push({'Car':result});
+                    arrayResult.push({'Make':make});
+                    arrayResult.push({'Model':model});
+                    arrayResult.push({'Supplier':supplier});
+                    res.send(JSON.stringify(arrayResult));
+                  }
+
+                                  
+                  
                 });
             });
         });      
@@ -73,11 +94,11 @@ exports.add = function(req, res, next) {
     purchasePrice: req.body.purchasePrice,
     salePrice: req.body.salePrice,
     insertDate: req.body.insertDate,
-    saleDate: req.body.saleDate,
     images: req.body.images,
     ModelId: req.body.ModelId,
     SupplierId: req.body.SupplierId
   }).catch(function(error){
+    console.log('' + error);
     next('ERROR_ADDING_CAR');
   }).then(function(car){
     if (car) {
@@ -102,6 +123,10 @@ exports.cars = function(req, res) {
 
 // update car
 exports.update = function(req, res) {
+
+  console.log('--------------------------' + JSON.stringify(req.body));
+  console.log('--------------------------');
+
   db.Car.findById(req.params.id)
     .then(function(result) {
       return result.updateAttributes(req.body);

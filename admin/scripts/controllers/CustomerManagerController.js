@@ -8,12 +8,12 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('CustomerManagerCtrl', function ($scope, $rootScope, $location, request, $routeParams, SupplierService) {
+  .controller('CustomerManagerCtrl', function ($scope, $rootScope, $location, request, $routeParams, CustomerService) {
     
     if($routeParams.id) {
-        request.get('/customers/get/:id', {
-            id: $routeParams.id
-        }).then(function(customer) {
+
+        CustomerService.customer($routeParams.id).then(function(customer){
+            $scope.id = customer.id;
             $scope.name = customer.name;
             $scope.address = customer.address;
             $scope.addresstwo = customer.addresstwo;
@@ -22,6 +22,7 @@ angular.module('familyCarsApp')
             $scope.phone = customer.phone;
             $scope.isEdit = true;
         });
+
     } else {
         $scope.name = "";
         $scope.address = "";
@@ -36,27 +37,44 @@ angular.module('familyCarsApp')
 
     $scope.add = function() {
 
-        request.post('/customers/add', {
-	      name: $scope.name,
-	      address: $scope.address,
-	      addresstwo: $scope.addresstwo,
-	      city: $scope.city,
-	      email: $scope.email,
-	      phone: $scope.phone
-	    }).then(function(customer) {
-	      console.log('customer ' + JSON.stringify(customer));
-	      $location.path('/customers');
-	    });
+        CustomerService.create(
+            $scope.name, 
+            $scope.address,
+            $scope.addresstwo,
+            $scope.city,
+            $scope.email,
+            $scope.phone)
+        .then(function(customer){
+
+        }).then($location.path('/customers'));
+
   	};
+
+    $scope.save = function() {
+
+      var saveObj = {};
+      saveObj.id = $scope.id;
+      saveObj.name = $scope.name;
+      saveObj.address = $scope.address;
+      saveObj.addresstwo = $scope.addresstwo;
+      saveObj.city = $scope.city;
+      saveObj.email = $scope.email;
+      saveObj.phone = $scope.phone;
+
+      CustomerService.update(saveObj).then(function(customer) {
+        addAlert('success', 'Success! customer saved.');
+      });
+
+    };
 
     $scope.edit = function(customer) {
         $location.path('/addcustomer').search({id: customer.id});
     };
 
     $scope.delete = function(customer) {
-      request.delete('/customer/delete/:id', {
-        id: customer.id
-      }).then(customers).then($location.path('/customers'));
+        CustomerService.delete(customer.id).then(function(){
+
+        }).then(customers).then($location.path('/customers'));
     };
 
   	function customers() {
@@ -87,10 +105,28 @@ angular.module('familyCarsApp')
 	$scope.setItemsPerPage = function(num) {
 	  $scope.itemsPerPage = num;
 	  $scope.currentPage = 1; //reset to first page
-	}
+	};
 
-	$scope.getCarPhotos = function(str) {
-    	return JSON.parse(str);
+    // alerts
+    function addAlert(type, message) {
+      $scope.alerts = [];
+      $scope.alerts.push({type: type, msg: message});
+    }
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
+    $scope.submit = function() {
+      
+      $scope.alerts = [];
+
+      if(!$scope.isEdit) {
+        $scope.add();
+      } else if ($scope.isEdit) {
+        $scope.save();
+      }
+
     };
 
   });

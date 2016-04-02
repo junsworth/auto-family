@@ -16,7 +16,6 @@ angular.module('familyCarsApp')
     if($routeParams.id) {
 
 		ServicesService.service($routeParams.id).then(function(service){
-			console.log(JSON.stringify(service));
 			$scope.id = service.id;
 			$scope.title = service.title;
 			$scope.header = service.header;
@@ -56,7 +55,7 @@ angular.module('familyCarsApp')
     	saveObj.description = $scope.description;
 
 		ServicesService.update(saveObj).then(function() {
-
+            addAlert('success', 'Success! service saved.');
 		});
 
     };
@@ -79,13 +78,27 @@ angular.module('familyCarsApp')
       });
     };
 
-    $scope.submit = function(isEdit) {
-    	if(isEdit) {
+    // alerts
+    function addAlert(type, message) {
+      $scope.alerts = [];
+      $scope.alerts.push({type: type, msg: message});
+    }
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
+    $scope.submit = function() {
+        
+        $scope.alerts = [];
+
+    	if($scope.isEdit) {
     		$scope.update();
-    	} else if (!isEdit){
+    	} else if (!$scope.isEdit){
     		$scope.add();
     	}
-    }
+
+    };
 
     // upload file
     $scope.uploadFiles = function(file, errFiles) {

@@ -1,0 +1,529 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"nav",
+				"navBrand"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"su",
+				"supplier"
+			],
+			[
+				"get",
+				"getEvents"
+			],
+			[
+				"artc",
+				"article"
+			],
+			[
+				"im",
+				"image"
+			],
+			[
+				"ser",
+				"services"
+			],
+			[
+				"cel",
+				"cellpadding	Attr"
+			],
+			[
+				"cell",
+				"cellspacing	Attr"
+			],
+			[
+				"argin",
+				"margin-top"
+			],
+			[
+				"for",
+				"form	Tag"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"make",
+				"makeSelect"
+			],
+			[
+				"Su",
+				"SupplierId"
+			],
+			[
+				"Make",
+				"MakeId"
+			],
+			[
+				"sal",
+				"salePrice"
+			],
+			[
+				"pu",
+				"purchasePrice"
+			],
+			[
+				"m",
+				"mileage"
+			],
+			[
+				"Model",
+				"ModelId"
+			],
+			[
+				"find",
+				"findById"
+			],
+			[
+				"add",
+				"addresstwo"
+			],
+			[
+				"tmp",
+				"tmp2"
+			],
+			[
+				"di",
+				"div	Tag"
+			],
+			[
+				"t",
+				"tbody	Tag"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"se",
+				"modelSelect"
+			],
+			[
+				"sale",
+				"saleDate"
+			],
+			[
+				"image",
+				"imageUrl"
+			],
+			[
+				"User",
+				"UserType"
+			],
+			[
+				"bow",
+				"bower_components"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/scripts/controllers/EventsController.js",
+			"settings":
+			{
+				"buffer_size": 334,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/controllers/AppController.js",
+			"settings":
+			{
+				"buffer_size": 2284,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/index.html",
+			"settings":
+			{
+				"buffer_size": 9818,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/bugzilla/Documents/Development/auto-family",
+		"/home/bugzilla/Documents/Development/auto-family/admin",
+		"/home/bugzilla/Documents/Development/auto-family/app",
+		"/home/bugzilla/Documents/Development/auto-family/app/scripts",
+		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers",
+		"/home/bugzilla/Documents/Development/auto-family/app/views",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin",
+		"/home/bugzilla/Documents/Development/auto-family/views"
+	],
+	"file_history":
+	[
+		"/home/bugzilla/Documents/Development/auto-family/admin/index.html",
+		"/home/bugzilla/Documents/Development/auto-family/views/contact.html",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/about.html",
+		"/home/bugzilla/Documents/Development/auto-family/app/views/services.html",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/admin.js",
+		"/home/bugzilla/Documents/Development/auto-family/app/views/events.html",
+		"/home/bugzilla/Documents/Development/auto-family/app/views/about.html",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/app.js",
+		"/home/bugzilla/Documents/Development/auto-family/app/views/news.html",
+		"/home/bugzilla/Documents/Development/auto-family/app/views/offers.html",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/ContactController.js",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/navigation-spec.js",
+		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers/NewsController.js",
+		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers/EventsController.js",
+		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers/OffersController.js",
+		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers/ServicesController.js",
+		"/home/bugzilla/Documents/Development/auto-family/app/index.html",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/auto-family-admin-conf.js",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/spec.js",
+		"/home/bugzilla/Documents/Development/auto-family/views/forms/user_form.html",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/main.js",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/navigation-spec.js",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/auto-family-conf.js",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/sign-in-spec.js",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/sign-in-spec.js",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/auto-family-spec.js",
+		"/home/bugzilla/Documents/Development/auto-family/test/karma.conf.js",
+		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/conf.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/CarManagerController.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/car_form.html",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/services/suppliers.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/suppliers.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/services/customers.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/CustomerManagerController.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/customers.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/SupplierManagerController.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/events.html",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/form-event.html",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/services/offers.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/SpecialOffersManagerController.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/index.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/EventsManagerController.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/about.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/events.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/services/events.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/form-article.html",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/articles.html",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/news.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/NewsManagerController.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/AppController.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/form-offer.html",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/article.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/services/news.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/offers.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/offers.html",
+		"/home/bugzilla/Documents/Development/auto-family/styles/main.css",
+		"/home/bugzilla/Documents/Development/auto-family/app/views/main.html",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/offer.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/event.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/testdrive.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/car.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/user.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/form-service.html",
+		"/home/bugzilla/Documents/Development/auto-family/app.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/cars.html",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/customers.html",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/users.html",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/suppliers.html",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/services.html",
+		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/ServicesManagerController.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/services.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/services/services.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/service.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/database.js",
+		"/home/bugzilla/Documents/Development/auto-family/views/dialogs/error-dialog.html",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/supplier.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/Constants.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/cars.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/main.html",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/supplier_form.html",
+		"/home/bugzilla/Documents/Development/auto-family/views/user_form.html",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/UserController.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/customer_form.html",
+		"/home/bugzilla/Documents/Development/auto-family/views/cars.html",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/auth.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/LoginController.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/users.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/CarController.js",
+		"/home/bugzilla/Documents/Development/auto-family/images/1457436885.jpeg",
+		"/home/bugzilla/Documents/Development/auto-family/.gitignore",
+		"/home/bugzilla/Documents/Development/auto-family/bower_components/bootstrap/dist/css/bootstrap.css",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/model.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/customer.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/make.js",
+		"/home/bugzilla/Documents/Development/auto-family/gateway/models/usertype.js",
+		"/home/bugzilla/Documents/Development/auto-family/admin/favicon.ico",
+		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/CarManagerController.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/ErrorDialogController.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/services/request.js",
+		"/home/bugzilla/Documents/Development/auto-family/scripts/ui-bootstrap-tpls-1.2.1.js",
+		"/home/bugzilla/Documents/Development/auto-family/views/loginPopoverTemplate.html",
+		"/home/bugzilla/Documents/FamilyCars/app/index.html",
+		"/home/bugzilla/Documents/FamilyCars/admin/index.html",
+		"/home/bugzilla/Documents/FamilyCars/app.js",
+		"/home/bugzilla/Documents/FamilyCars/gateway/routes/index.js",
+		"/home/bugzilla/Documents/FamilyCars/app2/index.html",
+		"/home/bugzilla/Documents/FamilyCars/scripts/app.js",
+		"/home/bugzilla/Documents/FamilyCars/app/scripts/app.js",
+		"/home/bugzilla/Documents/FamilyCars/app/views/admin/index.html",
+		"/home/bugzilla/Documents/FamilyCars/gateway/models/database.js"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"dateOptions",
+			"supplier",
+			"offerForm",
+			"supplierForm",
+			"userForm"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"customer",
+			"eventForm",
+			"articleForm",
+			"customerForm",
+			"supplierForm"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/scripts/controllers/EventsController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 334,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								205,
+								205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripts/controllers/AppController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2109,
+								2109
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 1071.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9818,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2099,
+								2099
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1938.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "auto-family.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 206.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

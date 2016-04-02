@@ -1,0 +1,80 @@
+<div class="container">
+
+<!-- 	<button id="loginButton" type="submit" class="btn btn-success" style="float: right;" ng-click="login()">Sign in</button> -->
+
+	<h1 class="page-header">Car Details
+
+		<a class="btn btn-success btn-md pull-right" href="" ng-click="edit(id, 'md')">
+              <span class="glyphicon glyphicon-plus">Request Test Drive</span>
+        </a>
+
+	</h1>
+
+	<div class="row">
+
+		<div class="col-sm-6">
+        <a href="" ng-click="viewCar(car)">
+          <h4>{{header}}</h4> 
+        </a>            
+            <h4>{{salePrice}}</h4>
+            <p>{{description}}</p>
+        </div>
+		
+		<div class="col-sm-6" ng-init="photos = getCarPhotos(car.images)">
+        
+        <div id="carousel_{{id}}" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="item active">
+              <img ng-src="{{slides[0].image}}">              
+            </div>
+
+            <div class="item" ng-repeat="slide in slides" ng-if="$index >= 1">
+              <img ng-src="{{slide.image}}">
+            </div>
+
+          </div>
+        </div>
+
+        <div class="clearfix">
+
+          <div id="thumbcarousel_{{id}}" class="carousel slide" data-interval="false">
+
+            <div class="carousel-inner">
+
+              <div class="item active">
+
+                <div data-target="#carousel_{{id}}" ng-repeat="photo in slides track by $index" data-slide-to="{{$index}}" class="thumb">
+                
+                <img ng-src="{{photo.image}}">
+                </div>
+                
+              </div>
+
+              <!-- <div class="item" ng-repeat="photoArray in slides track by $index" ng-if="$index >= 1"> -->
+              <div class="item" ng-if="$index >= 1">
+                
+                <div data-target="#carousel_{{id}}" ng-repeat="photo in slides track by $index" data-slide-to="{{$index}}" class="thumb">
+                
+                <img ng-src="{{photo.image}}">
+                </div>
+
+              </div>
+              
+            </div>
+
+            <!-- <a class="left carousel-control" href="" role="button" data-target="#thumbcarousel_{{id}}" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a class="right carousel-control" href="" role="button" data-slide="next" data-target="#thumbcarousel_{{id}}">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a> -->
+          </div>
+          
+        </div>
+
+      </div>
+
+	</div>
+
+</div>

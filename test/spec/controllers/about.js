@@ -14,6 +14,7 @@ describe('Controller: AboutCtrl', function () {
     AboutCtrl = $controller('AboutCtrl', {
       $scope: scope
       // place here mocked dependencies
+      
     });
   }));
 

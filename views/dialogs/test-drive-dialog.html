@@ -1,0 +1,68 @@
+<div class="modal-header">
+    <h3 class="modal-title">Book A Test Drive</h3>
+</div>
+<div class="modal-body">
+
+    <form name="testDriveForm" ng-submit="add()">
+            
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group" ng-class="{ 'has-error' : testDriveForm.name.$invalid && !testDriveForm.name.$pristine }">
+                  <label for="name">Name*:</label>
+                  <input type="text" ng-model="name" class="form-control" name="name" id="name" placeholder="Enter name" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group" ng-class="{ 'has-error' : testDriveForm.phone.$invalid && !testDriveForm.phone.$pristine }">
+                  <label for="phone">Phone*:</label>
+                  <input type="text" ng-model="phone" class="form-control" name="phone" id="phone" placeholder="Enter phone" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8">
+
+                <div class="form-group" ng-class="{ 'has-error' : testDriveForm.email.$invalid && !testDriveForm.email.$pristine }">
+                <label for="email">Email:</label>
+                <input type="email" ng-model="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+                <p ng-show="testDriveForm.email.$invalid && !testDriveForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <hr>
+        <div class="row">
+
+            <div class="col-md-6">
+                <button class="btn btn-primary pull-right" type="submit">OK</button>    
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-warning pull-right" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+
+            
+
+            <div class="col-md-4">
+                <!-- <button class="btn btn-warning pull-right" type="button" ng-click="cancel()">Cancel</button> -->
+            </div>
+            
+            
+            
+        </div>
+        
+        <hr>
+
+    </form>
+</div>
+<!-- <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div> -->

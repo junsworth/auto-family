@@ -11,9 +11,7 @@
   </h4>
   </div>  
 <div class="panel-body">
-  <form name="userForm" ng-submit="add(UserToRegisterType)">
-      
-      
+  <form name="userForm" ng-submit="add(UserToRegisterType)">     
 
       <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
         <label for="email">Email:</label>
@@ -39,7 +37,7 @@
       
       <hr>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
 
       <hr>
 

@@ -21,24 +21,64 @@ angular
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
+        title: 'Auto Family',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
       .when('/about', {
+        title: 'About',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/contact', {
+        title: 'Contact',
+        templateUrl: '/common/views/contact.html',
+        controller: 'ContactCtrl',
+        controllerAs: 'contact'
+      })
       .when('/user', {
+        title: 'Registration',
         templateUrl: '/common/views/forms/user_form.html',
         controller: 'UserCtrl',
         controllerAs: 'user'
       })
       .when('/cars', {
+        title: 'Cars',
         templateUrl: '/common/views/cars.html',
         controller: 'CarCtrl',
         controllerAs: 'cars'
+      })
+      .when('/cars/detail', {
+        title: 'Car Detail',
+        templateUrl: '/common/views/car-detail.html',
+        controller: 'CarDetailCtrl',
+        controllerAs: 'cars'
+      })
+      .when('/services', {
+        title: 'Services',
+        templateUrl: 'views/services.html',
+        controller: 'ServicesCtrl',
+        controllerAs: 'services'
+      })
+      .when('/offers', {
+        title: 'Offer',
+        templateUrl: 'views/offers.html',
+        controller: 'OffersCtrl',
+        controllerAs: 'offers'
+      })
+      .when('/news', {
+        title: 'News',
+        templateUrl: 'views/news.html',
+        controller: 'NewsCtrl',
+        controllerAs: 'news'
+      })
+      .when('/events', {
+        title: 'Events',
+        templateUrl: 'views/events.html',
+        controller: 'EventsCtrl',
+        controllerAs: 'events'
       })
       .otherwise({
         redirectTo: '/'
@@ -63,4 +103,8 @@ angular
       };
     });
 
-  });
+  }).run(['$rootScope', function($rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.title = current.$$route.title;
+    });
+}]);

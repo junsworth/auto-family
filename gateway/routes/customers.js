@@ -67,7 +67,7 @@ exports.update = function(req, res) {
 
 exports.delete = function(req, res, next) {
   db.sequelize.transaction().then(function(t) {
-    db.Customer.find(req.params.id, {
+    db.Customer.findById(req.params.id, {
       transaction: t
     }).then(function(result) {
       return result.destroy({

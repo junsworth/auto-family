@@ -10,7 +10,11 @@
 
 	<div class="panel-body">
 
-		<form name="supplierForm" ng-submit="add()">
+	<div class="row">
+      <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>	
+
+		<form name="supplierForm" ng-submit="submit()">
 
 			<div class="form-group" ng-class="{ 'has-error' : supplierForm.name.$invalid && !supplierForm.name.$pristine }">
 		      <label for="name">Name*:</label>

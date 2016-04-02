@@ -79,14 +79,17 @@ angular.module('familyCarsApp')
           url: '#cars',
           name: 'Cars'
         }, {
-          url: '#event',
-          name: 'Events'
+          url: '#news',
+          name: 'News'
         }, {
-          url: '#specials',
-          name: 'Specials'
+          url: '#events',
+          name: 'Events'
         }, {
           url: '#services',
           name: 'Services'
+        }, {
+          url: '#offers',
+          name: 'Offers'
         }, {
           url: '#contact',
           name: 'Contact'
