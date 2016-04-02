@@ -102,4 +102,12 @@ angular.module('familyCarsApp')
 
 	}
 
+    $scope.displayText = function(str) {
+        var mystring = String(str);
+
+        var length_half = mystring.length / 2;
+
+        return mystring.slice(0, length_half) + '...';
+    }
+
   });

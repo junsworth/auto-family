@@ -4,19 +4,22 @@
 
 	<h1 class="page-header">Car Details
 
-		<a class="btn btn-success btn-md pull-right" href="" ng-click="edit(id, 'md')">
-              <span class="glyphicon glyphicon-plus">Request Test Drive</span>
-        </a>
+		<a class="btn btn-warning pull-right" href="" ng-click="edit(id, 'md')">
+      Request Test Drive
+    </a>
 
 	</h1>
 
 	<div class="row">
 
 		<div class="col-sm-6">
-        <a href="" ng-click="viewCar(car)">
-          <h4>{{header}}</h4> 
-        </a>            
-            <h4>{{salePrice}}</h4>
+          <h4 class="page-header">{{header}}</h4> 
+                    
+            <h4>$ {{salePrice}}</h4>
+
+          <h4 class="text-muted">Price</h4>
+          <span class="">$ {{salePrice}}</span>
+
             <p>{{description}}</p>
         </div>
 		
@@ -26,11 +29,11 @@
           <div class="carousel-inner">
 
             <div class="item active">
-              <img ng-src="{{slides[0].image}}">              
+              <img class="thumbnail" ng-src="{{slides[0].image}}">              
             </div>
 
             <div class="item" ng-repeat="slide in slides" ng-if="$index >= 1">
-              <img ng-src="{{slide.image}}">
+              <img class="thumbnail" ng-src="{{slide.image}}">
             </div>
 
           </div>
