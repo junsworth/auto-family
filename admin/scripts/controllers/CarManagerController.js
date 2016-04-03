@@ -8,7 +8,8 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('CarManagerCtrl', function ($scope, $rootScope, request, $location, filterFilter, $timeout, Upload, cfg, $routeParams, CarService, CustomerService, SupplierService) {
+  .controller('CarManagerCtrl', function ($scope, $rootScope, request, $location, filterFilter,
+   $timeout, Upload, cfg, $routeParams, CarService, CustomerService, SupplierService, $uibModal, $log) {
     
     $scope.alerts = [];
 
@@ -31,8 +32,10 @@ angular.module('familyCarsApp')
             $scope.supplierSelect = car[3].Supplier;
 
             if(car.length == 5) {
+              $scope.isSold = true;
               $scope.customerSelect = car[4].Customer;
             } else {
+              $scope.isSold = false;
               $scope.customerSelect = -1;
             }
 
@@ -57,9 +60,7 @@ angular.module('familyCarsApp')
             models();
             customers();
             suppliers();
-            cars();
-            
-            
+            cars();          
 
             $scope.dt1 = new Date($scope.insertDate);
 
@@ -276,18 +277,80 @@ angular.module('familyCarsApp')
       saveObj.images = JSON.stringify($scope.slides);
       saveObj.ModelId = $scope.modelSelect.id;
 
-      console.log('-----' + JSON.stringify($scope.slides) + '-------');
-
-      if($scope.isChanged) {
-        saveObj.saleDate = $scope.dt2;
-        saveObj.CustomerId = $scope.customerSelect.id;
-      }
-
       CarService.update(saveObj).then(function(car) {
-        addAlert('success', 'Success! Car saved.---' + $scope.customerSelect + ' -- ' + $scope.dt2);
+        addAlert('success', 'Success! Car details saved.' + $scope.customerSelect + ' -- ' + $scope.dt2);
       });
 
     };
+
+    $scope.sell = function (size) {
+
+      var saveObj = {};
+      saveObj.id = $scope.id;
+      // saveObj.header = $scope.header;
+      // saveObj.subHeader = $scope.subHeader;
+      // saveObj.description = $scope.description;
+      // saveObj.mileage = $scope.mileage;
+      // saveObj.year = $scope.year;
+      // saveObj.purchasePrice = $scope.purchasePrice;
+      // saveObj.salePrice = $scope.salePrice;
+      // saveObj.insertDate = $scope.dt1;
+      
+      // saveObj.images = JSON.stringify($scope.slides);
+      // saveObj.ModelId = $scope.modelSelect.id;
+      
+      // saveObj.SupplierId = $scope.supplierSelect.id;
+
+      saveObj.saleDate = $scope.dt2;
+      saveObj.CustomerId = $scope.customerSelect.id;
+
+
+      var modalInstance = $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'views/dialogs/dialog-confirm-sale.html',
+        controller: 'ConfirmSaleDialogCtrl',
+        size: size,
+        resolve: {
+          car: function () {
+            return saveObj;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (isSold) {
+        if(isSold){
+          CarService.update(saveObj).then(function(car) {
+            addAlert('success', 'Success! CAR SOLD!' + $scope.customerSelect + ' -- ' + $scope.dt2);
+          });
+        }
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+    };
+
+    // $scope.sell = function() {
+
+    //   var saveObj = {};
+    //   saveObj.id = $scope.id;
+    //   saveObj.header = $scope.header;
+    //   saveObj.subHeader = $scope.subHeader;
+    //   saveObj.description = $scope.description;
+    //   saveObj.mileage = $scope.mileage;
+    //   saveObj.year = $scope.year;
+    //   saveObj.purchasePrice = $scope.purchasePrice;
+    //   saveObj.salePrice = $scope.salePrice;
+    //   saveObj.insertDate = $scope.dt1;
+    //   saveObj.saleDate = $scope.dt2;
+    //   saveObj.images = JSON.stringify($scope.slides);
+    //   saveObj.ModelId = $scope.modelSelect.id;
+    //   saveObj.CustomerId = $scope.customerSelect.id;
+    //   saveObj.SupplierId = $scope.supplierSelect.id;
+
+    //   CarService.update(saveObj).then(function(car) {
+    //     addAlert('success', 'Success! CAR SOLD!' + $scope.customerSelect + ' -- ' + $scope.dt2);
+    //   });
+
+    // };
 
     $scope.add = function() {
 

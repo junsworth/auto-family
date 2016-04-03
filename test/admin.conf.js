@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on 2016-02-26
+// Generated on 2016-02-29
 
 module.exports = function(config) {
   'use strict';
@@ -31,8 +31,10 @@ module.exports = function(config) {
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/ng-file-upload/ng-file-upload-shim.min.js',
+      'bower_components/ng-file-upload/ng-file-upload.min.js',
       // endbower
-      'app/scripts/**/*.js',
+      'admin/scripts/**/*.js',
       'scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
@@ -53,9 +55,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: [
-      'Firefox'
-    ],
+    browsers: ['Firefox'],
 
     // Which plugins to enable
     plugins: [
@@ -90,5 +90,6 @@ module.exports = function(config) {
       nameFormatter: undefined, // function (browser, result) to customize the name attribute in xml testcase element 
       classNameFormatter: undefined // function (browser, result) to customize the classname attribute in xml testcase element 
     }
+
   });
 };

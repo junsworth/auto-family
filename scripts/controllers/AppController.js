@@ -53,6 +53,9 @@ angular.module('familyCarsApp')
           url: '#services',
           name: 'Services'
         }, {
+          url: '#reports',
+          name: 'Reports'
+        }, {
           url: '#settings',
           name: 'Settings'
         }];
@@ -68,6 +71,9 @@ angular.module('familyCarsApp')
         }, {
           url: '#news',
           name: 'News'
+        }, {
+          url: '#testdrives',
+          name: 'Test Drives'
         }, {
           url: '#settings',
           name: 'Settings'

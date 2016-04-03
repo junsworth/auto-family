@@ -10,12 +10,12 @@ exports.get = function(req, res) {
     });
 };
 
-exports.offers = function(req, res) {
+exports.testdrives = function(req, res) {
   db.TestDrive.findAll({
     id: ['id']
   }).then(function(results) {
     res.send(lodash.map(results, function(element, index, list) {
-      return lodash.pick(element.toJSON(), ['id', 'email', 'name','phone', 'requestDate', 'completeDate']);
+      return lodash.pick(element.toJSON(), ['id', 'email', 'name','phone', 'requestDate', 'completeDate', 'CarId', 'UserId']);
     }));
   });
 };

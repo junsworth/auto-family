@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('TestDriveCtrl', function ($scope, $rootScope, request, $location, $uibModalInstance, $routeParams, carId, TestDriveService) {
+  .controller('TestDriveDialogCtrl', function ($scope, $rootScope, request, $location, $uibModalInstance, $routeParams, carId, TestDriveService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

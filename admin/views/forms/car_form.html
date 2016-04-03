@@ -160,7 +160,11 @@
 
 	      <hr>
 
-		    <button type="submit" class="btn btn-primary">Submit</button>
+		    <button ng-if="!isSold" type="submit" class="btn btn-primary">Submit</button>
+
+		    <button ng-if="!isSold" type="button" class="btn btn-warning" ng-click="sell('sm')">SELL</button>
+
+		    <button ng-if="isSold" type="button" class="btn btn-warning" disabled>SOLD</button>
 
 		  <hr>
 

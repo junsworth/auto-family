@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('MainCtrl', function ($scope, $rootScope, request, filterFilter) {
+  .controller('MainCtrl', function ($scope, request, filterFilter) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

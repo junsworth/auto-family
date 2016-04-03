@@ -61,7 +61,7 @@ angular.module('familyCarsApp')
 
       var modalInstance = $uibModal.open({
         templateUrl: '/common/views/dialogs/test-drive-dialog.html',
-        controller: 'TestDriveCtrl',
+        controller: 'TestDriveDialogCtrl',
         size: size,
         resolve: {
           carId: function() {

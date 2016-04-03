@@ -1,0 +1,42 @@
+<h1 class="page-header">Test Drive Manager
+		
+</h1>
+<input class="form-control" ng-model="search.title" placeholder="Search phrase.."/>
+
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="col-md-12">
+
+	          <div class="table-responsive">
+
+	            <table class="table table-striped">
+	              <thead>
+	                <tr>
+	                  <th>#</th>
+	                  <th>Name</th>
+	                  <th>Email</th>
+	                  <th>Phone</th>
+	                  <th>Date Request</th>
+	                </tr>
+	              </thead>
+	              <tbody>
+
+	                <tr ng-repeat="testdrive in testdrives.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::testdrive.id" ng-click="edit(testdrive)">
+
+	                  <td>{{testdrive.id}}</td>
+	                  <td>{{testdrive.name}}</td>
+	                  <td>{{testdrive.email}}</td>
+	                  <td>{{testdrive.phone}}</td>
+	                  <td ng-init="dateFormatted = formatDate(testdrive.requestDate)">{{dateFormatted}}</td>
+	                </tr>
+
+	              </tbody>
+	            </table>
+
+	          </div>
+
+	      </div>
+
+	    </div>
+	</div>
+</div>

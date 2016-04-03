@@ -90,6 +90,8 @@ router.delete('/events/delete/:id', auth.check, events.delete);
 
 // testdrive
 router.post('/testdrives/add', testdrive.add);
+router.get('/testdrives/testdrive/:id', auth.check, testdrive.get);
+router.get('/testdrives/testdrives', testdrive.testdrives);
 
 // image processing
 router.post('/images/upload', multipartMiddleware, function(req, resp) {

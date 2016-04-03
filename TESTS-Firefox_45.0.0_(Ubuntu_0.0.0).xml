@@ -1,32 +1,10 @@
 <?xml version="1.0"?>
-<testsuite name="Firefox 45.0.0 (Ubuntu 0.0.0)" package="unit" timestamp="2016-04-01T23:06:31" id="0" hostname="bugzilla-VirtualBox" tests="2" errors="1" failures="2" time="0.038">
+<testsuite name="Firefox 45.0.0 (Ubuntu 0.0.0)" package="unit" timestamp="2016-04-03T12:55:26" id="0" hostname="bugzilla-VirtualBox" tests="2" errors="0" failures="0" time="0.068">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"/>
   </properties>
-  <testcase name="Controller: AboutCtrl should attach a list of awesomeThings to the scope" time="0.024" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: AboutCtrl">
-    <failure type="">minErr/&lt;@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:68:12
-loadModules/&lt;@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:4526:15
-forEach@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:321:11
-loadModules@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:4487:5
-createInjector@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:4409:19
-workFn@/home/bugzilla/Documents/Development/auto-family/bower_components/angular-mocks/angular-mocks.js:2799:44
-</failure>
-    <failure type="">TypeError: AboutCtrl is undefined in /home/bugzilla/Documents/Development/auto-family/test/spec/controllers/about.js (line 22)
-@/home/bugzilla/Documents/Development/auto-family/test/spec/controllers/about.js:22:5
-</failure>
-  </testcase>
-  <testcase name="Controller: MainCtrl should attach a list of awesomeThings to the scope" time="0.014" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: MainCtrl">
-    <failure type="">minErr/&lt;@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:68:12
-loadModules/&lt;@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:4526:15
-forEach@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:321:11
-loadModules@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:4487:5
-createInjector@/home/bugzilla/Documents/Development/auto-family/bower_components/angular/angular.js:4409:19
-workFn@/home/bugzilla/Documents/Development/auto-family/bower_components/angular-mocks/angular-mocks.js:2799:44
-</failure>
-    <failure type="">TypeError: MainCtrl is undefined in /home/bugzilla/Documents/Development/auto-family/test/spec/controllers/main.js (line 21)
-@/home/bugzilla/Documents/Development/auto-family/test/spec/controllers/main.js:21:5
-</failure>
-  </testcase>
+  <testcase name="Controller: AboutCtrl should attach a list of awesomeThings to the scope" time="0.038" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: AboutCtrl"/>
+  <testcase name="Controller: MainCtrl should attach a list of awesomeThings to the scope" time="0.03" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: MainCtrl"/>
   <system-out>
     <![CDATA[
 ]]>
