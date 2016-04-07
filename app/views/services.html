@@ -1,4 +1,39 @@
-<div class="panel panel-default">
+<div class="container">
+
+	<h1 class="page-header">Services Offered
+    <div align="center">
+      <input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
+    </div>
+    </h1>
+
+    <div class="row">
+
+    	<div class="col-md-12">
+
+			<div class="row" ng-repeat="service in services.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::service.id">
+
+				<div class="col-sm-6">
+					<img class="pull-right" ng-src="{{service.images}}" width="40%" height="40%">
+				</div>
+
+				<div class="col-sm-6">
+					<h3>{{service.title}}</h3>	
+					<h4>{{service.header}}</h4>
+					<p>{{service.description}}</p>
+				</div>
+
+			</div>
+
+		</div>
+    		
+    </div>
+
+    <br>
+
+</div>
+
+
+<!-- <div class="panel panel-default">
 	<div class="panel-heading">
 		<h4>Services</h4>
         <input class="form-control" ng-model="search.title" placeholder="Search Name.."/>
@@ -29,4 +64,4 @@
 	<div class="panel-footer">
 		<h4>Services Footer</h4>
 	</div>
-</div>
+</div> -->

@@ -1,31 +1,50 @@
 <div class="container">
 	
 	<h1 class="page-header">Events
-      <input class="form-control" ng-model="search.title" placeholder="Search Name.."/>
-    </h1>
+	<div align="center">
+	<input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
+	</div>
 
-    <div class="panel-body">
+	</h1>
 
+    <div class="row">
 
-		<div class="row" ng-repeat="event in events.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) track by ::event.id">
+    	<div class="col-md-12">
+		
+		<div class="row" ng-repeat="event in events.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::event.id">
+
+			<div class="col-sm-4" align="center">
+				<img ng-src="{{event.images}}" width="60%" height="60%">
+			</div>
 
 			<div class="col-sm-4">
-				<a href="">
-					<h4>{{event.title}}</h4>	
-				</a>		        
-		        <h4>{{event.header}}</h4>
-		        <p>{{event.description}}</p>
-		    </div>
-
-		    <div class="col-sm-8">
+				<h3>{{event.title}}</h3>	
+				<h4>{{event.header}}</h4>
+				<p>{{event.description}}</p>
 				
-	       		<img ng-src="{{event.images}}" ng-if="event.images" width="70%" height="70%">
+			</div>
 
+			<div class="col-sm-4">
+				<h4 class="muted-text">Start Date:</h4>
+				<span ng-init="dateFormatted = formatDate(event.startDate)">{{dateFormatted}}</span>
+				<h4 class="muted-text">End Date:</h4>
+				<span ng-init="endDateFormatted = formatDate(event.endDate)">{{endDateFormatted}}</span>
 			</div>
 			
 		</div>
+		</div>
 
 	</div>
+
+	<div class="row" align="center">
+
+      <div class="col-sm-12">
+
+        <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></uib-pagination>
+        
+      </div>
+      
+    </div>
 
 </div>
 

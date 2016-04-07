@@ -70,8 +70,8 @@
 
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#/"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a ng-href="#/about">About</a></li>
-                <li><a ng-href="#/contact">Contact</a></li>
+                <li><a id="About" ng-href="#/about">About</a></li>
+                <li><a id="Contact" ng-href="#/contact">Contact</a></li>
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
@@ -139,10 +139,10 @@
                 <li class="active"><a href="#/"><span class="glyphicon glyphicon-home"></span></a></li>
 
                 <li ng-repeat="menuItem in menuItems track by ::menuItem.url" ng-class="{active: isActive(menuItem)}">
-                  <a id="nav-{{menuItem.name}}" ng-href="{{::menuItem.url}}">{{menuItem.name}}</a>
+                  <a id="{{menuItem.name}}" ng-href="{{::menuItem.url}}">{{menuItem.name}}</a>
                 </li>
-                <li><a ng-href="#/about">About</a></li>
-                <li><a ng-href="#/contact">Contact</a></li>
+                <li><a id="About" ng-href="#/about">About</a></li>
+                <li><a id="Contact" ng-href="#/contact">Contact</a></li>
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
@@ -151,7 +151,7 @@
                 <li ng-click="logout()">
                   <a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> -->
 
-                  <li class="dropdown" style="margin-right: 20px;"><a class="dropdown-toggle" data-toggle="dropdown" h><span disabled="true" class="glyphicon glyphicon-user"></span> {{principal.email}}<span class="caret"></span></a>
+                  <li class="dropdown" style="margin-right: 20px;"><a class="dropdown-toggle" data-toggle="dropdown"><span disabled="true" class="glyphicon glyphicon-user"></span> {{principal.email}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li ng-click="logout()"><a href=""><span class="glyphicon glyphicon-log-out"></span> Logout</a></a></li>
                     </ul>

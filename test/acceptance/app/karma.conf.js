@@ -1,7 +1,7 @@
 exports.config = {
   framework: 'jasmine',
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['admin-user-add-supplier-spec.js'],
+  specs: ['user-navigation-spec.js', 'user-sign-in-spec.js'],
   capabilities: {
     browserName: 'firefox'
   }

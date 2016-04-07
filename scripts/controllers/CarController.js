@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('CarCtrl', function ($scope, $rootScope, request, $location, CarService) {
+  .controller('CarCtrl', function ($scope, $route, $rootScope, request, $location, CarService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -25,6 +25,11 @@ angular.module('familyCarsApp')
     	console.log('----- ' + str + '------');
     	return JSON.parse(str);
     };
+
+    $scope.switchStyle = function() {
+        $rootScope.isStyle =! $rootScope.isStyle;
+        $route.reload();
+    }
 
     $scope.getCarThumbnails = function(str) {
     	var array = JSON.parse(str);

@@ -1,12 +1,29 @@
 <?xml version="1.0"?>
-<testsuite name="Firefox 45.0.0 (Ubuntu 0.0.0)" package="unit" timestamp="2016-04-03T12:55:26" id="0" hostname="bugzilla-VirtualBox" tests="2" errors="0" failures="0" time="0.068">
+<testsuite name="Firefox 45.0.0 (Ubuntu 0.0.0)" package="unit" timestamp="2016-04-06T20:46:37" id="0" hostname="bugzilla-VirtualBox" tests="6" errors="0" failures="3" time="0.175">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"/>
   </properties>
-  <testcase name="Controller: AboutCtrl should attach a list of awesomeThings to the scope" time="0.038" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: AboutCtrl"/>
-  <testcase name="Controller: MainCtrl should attach a list of awesomeThings to the scope" time="0.03" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: MainCtrl"/>
+  <testcase name="Controller: AboutCtrl should attach a list of awesomeThings to the scope" time="0.053" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: AboutCtrl"/>
+  <testcase name="Controller: MainCtrl should attach a list of awesomeThings to the scope" time="0.036" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: MainCtrl"/>
+  <testcase name="Service: UserService should login in user" time="0.055" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService"/>
+  <testcase name="Service: UserService should return a list of users" time="0.023" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService">
+    <failure type="">Expected Object({ data: [ User({ id: 1, email: 'jonathan@bubbleworks.co.za', password: 'admin', UserTypeId: 1 }), User({ id: 1, email: 'jono@bubbleworks.co.za', password: 'staff', UserTypeId: 2 }), User({ id: 1, email: 'jono@gmail.co.za', password: 'user', UserTypeId: 3 }), User({ id: 1, email: 'louise@bubbleworks.co.za', password: 'user', UserTypeId: 3 }), User({ id: 1, email: 'gareth@bubbleworks.co.za', password: 'user', UserTypeId: 3 }), User({ id: 1, email: 'zenna@bubbleworks.co.za', password: 'user', UserTypeId: 3 }), User({ id: 1, email: 'lisa@bubbleworks.co.za', password: 'user', UserTypeId: 3 }), User({ id: 1, email: 'jonathan@bubbleworks.co.za', password: 'admin', UserTypeId: 1 }), User({ id: 1, email: 'jono@bubbleworks.co.za', password: 'staff', UserTypeId: 2 }), User({ id: 1, email: 'jono@gmail.co.za', password: 'user', UserTypeId: 3 }), User({ id: 1, email: 'louise@bubbleworks.co.za', password: 'user', UserTypeId: 3 }), User({ id: 1, email: 'gareth@bubbleworks.co.za', password: 'user', UserTypeId: 3 }), User({ id: 1, email: 'zenna@bubbleworks.co.za', password: 'user', UserTypeId: 3 }), User({ id: 1, email: 'lisa@bubbleworks.co.za', password: 'user', UserTypeId: 3 }) ], status: 200, headers: Function, config: Object({ method: 'GET', transformRequest: [ Function ], transformResponse: [ Function ], paramSerializer: Function, url: '/auth/users', headers: Object({ Accept: 'application/json, text/plain, */*' }) }), statusText: '' }) to be [  ].
+@/home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/auth-service-spec.js:60:5
+</failure>
+  </testcase>
+  <testcase name="Service: UserService should login in user" time="0.005" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService">
+    <failure type="">TypeError: UserService.login is not a function in /home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/user-service-spec.js (line 39)
+@/home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/user-service-spec.js:39:5
+</failure>
+  </testcase>
+  <testcase name="Service: UserService should return a list of users" time="0.003" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService">
+    <failure type="">TypeError: UserService.users is not a function in /home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/user-service-spec.js (line 55)
+@/home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/user-service-spec.js:55:5
+</failure>
+  </testcase>
   <system-out>
-    <![CDATA[
+    <![CDATA[Firefox 45.0.0 (Ubuntu 0.0.0) LOG: '{"data":{"id":1,"email":"jonathan@bubbleworks.co.za","password":"admin","UserTypeId":1},"status":200,"config":{"method":"POST","transformRequest":[null],"transformResponse":[null],"url":"/auth/login","data":{"email":"jonathan@bubbleworks.co.za","password":"admin"},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json;charset=utf-8"}},"statusText":""}'
+
 ]]>
   </system-out>
   <system-err/>

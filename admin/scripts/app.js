@@ -52,86 +52,103 @@ angular
         controllerAs: 'adduser'
       })
       .when('/cars', {
+        title: 'Cars',
         templateUrl: 'views/cars.html',
         controller: 'CarManagerCtrl',
         controllerAs: 'cars'
       })
       .when('/addcar', {
+        title: 'Add Car',
         templateUrl: 'views/forms/car_form.html',
         controller: 'CarManagerCtrl',
         controllerAs: 'addcar'
       })
       .when('/customers', {
+        title: 'Customers',
         templateUrl: 'views/customers.html',
         controller: 'CustomerManagerCtrl',
         controllerAs: 'customers'
       })
       .when('/addcustomer', {
+        title: 'Add Customer',
         templateUrl: 'views/forms/customer_form.html',
         controller: 'CustomerManagerCtrl',
         controllerAs: 'addcustomer'
       })
       .when('/suppliers', {
+        title: 'Suppliers',
         templateUrl: 'views/suppliers.html',
         controller: 'SupplierManagerCtrl',
         controllerAs: 'suppliers'
       })
       .when('/addsupplier', {
+        title: 'Add Supplier',
         templateUrl: 'views/forms/supplier_form.html',
         controller: 'SupplierManagerCtrl',
         controllerAs: 'addsupplier'
       })
       .when('/services', {
+        title: 'Services',
         templateUrl: 'views/services.html',
         controller: 'ServicesManagerCtrl',
         controllerAs: 'services'
       })
       .when('/addservice', {
+        title: 'Add Service',
         templateUrl: 'views/forms/form-service.html',
         controller: 'ServicesManagerCtrl',
         controllerAs: 'addservice'
       })
       .when('/offers', {
+        title: 'Offers',
         templateUrl: 'views/offers.html',
         controller: 'SpecialOffersCtrl',
         controllerAs: 'offers'
       })
       .when('/offers/edit', {
+        title: 'Edit Offer',
         templateUrl: 'views/forms/form-offer.html',
         controller: 'SpecialOffersCtrl',
         controllerAs: 'offersedit'
       })
       .when('/news', {
+        title: 'News',
         templateUrl: 'views/articles.html',
         controller: 'NewsManagerCtrl',
         controllerAs: 'offers'
       })
       .when('/news/edit', {
+        title: 'Edit Article',
         templateUrl: 'views/forms/form-article.html',
         controller: 'NewsManagerCtrl',
         controllerAs: 'offersedit'
       })
       .when('/events', {
+        title: 'Events',
         templateUrl: 'views/events.html',
         controller: 'EventManagerCtrl',
         controllerAs: 'event'
       })
       .when('/events/edit', {
+        title: 'Edit Event',
         templateUrl: 'views/forms/form-event.html',
         controller: 'EventManagerCtrl',
         controllerAs: 'event'
       })
       .when('/testdrives', {
+        title: 'Test Drives',
         templateUrl: 'views/test-drives.html',
         controller: 'TestDriveCtrl',
         controllerAs: 'testdrive'
       })
       .when('/testdrives/edit', {
+        title: 'Edit Test Drive',
         templateUrl: 'views/forms/form-test-drive.html',
         controller: 'TestDriveCtrl',
         controllerAs: 'testdrive'
       })
       .when('/reports', {
+        title: 'Reports',
         templateUrl: 'views/reports.html',
         controller: 'ReportsCtrl',
         controllerAs: 'reports'

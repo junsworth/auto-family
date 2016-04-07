@@ -5,22 +5,22 @@
 
 var app = angular.module('familyCarsApp');
 
-app.controller('LoginCtrl', function($scope, $rootScope, request, UserType) {
+app.controller('LoginCtrl', function($scope, $rootScope, request, UserType, UserService) {
+  
   $scope.email = ''
   $scope.password = '';
 
   $rootScope.siteType = -1;
   $scope.UserType = UserType;
 
+  $rootScope.isStyle = false;
+
   $scope.login = function() {
-    request.post('/auth/login', {
-      email: $scope.email,
-      password: $scope.password
-    }).then(function(principal) {
-      console.log('principal ' + JSON.stringify(principal));
-      $rootScope.principal = principal;
+    UserService.login($scope.email, $scope.password).then(function(user){
+      console.log('principal user - ' + JSON.stringify(user));
+      $rootScope.principal = user;
     });
-  };
+  }
 
   $scope.setSiteType = function(type) {
     $rootScope.siteType = type;

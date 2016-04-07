@@ -10,6 +10,18 @@
 angular.module('familyCarsApp')
   .controller('UserCtrl', function ($scope, $rootScope, request, $location, UserType, $routeParams) {
     
+    $scope.items = [ {
+        id: 1,
+        title: 'Admin'
+      }, {
+        id: 2,
+        title: 'Staff'
+      }, {
+        id: 3,
+        title: 'User'
+      }
+    ];
+
   if($routeParams.id) {
         request.get('/users/get/:id', {
             id: $routeParams.id
@@ -17,15 +29,14 @@ angular.module('familyCarsApp')
 
             $scope.email = user.email;
             $scope.password = user.password;
-            $scope.UserToRegisterType = user.UserTypeId;
-
+            $scope.UsersType = $scope.items[user.UserTypeId-1];;
             $scope.UserType = UserType;
             $scope.isEdit = true;
         });
     } else {
         $scope.email = ''
         $scope.password = '';
-        $scope.UserToRegisterType = 3;
+        $scope.UsersType = $scope.items[1];;
         $scope.UserType = UserType;
         users();
         $scope.isEdit = false;
@@ -37,11 +48,18 @@ angular.module('familyCarsApp')
     request.post('/auth/add', {
       email: $scope.email,
       password: $scope.password,
-      UserTypeId: type
+      UserTypeId: type.id
     }).then(function(principal) {
+
       console.log('principal ' + JSON.stringify(principal));
-      //$rootScope.principal = principal;
-      $location.path('/users');
+
+      if($rootScope.principal && $rootScope.principal.UserTypeId == $scope.UserType.Admin) {
+        $location.path('/users');
+      } else {
+        $rootScope.principal = principal;
+        $location.path('/');
+      }
+      
     });
   };
 

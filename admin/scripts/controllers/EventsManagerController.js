@@ -89,20 +89,24 @@ angular.module('familyCarsApp')
     function getEvents() {
       EventService.events().then(function(events) {
 
-		$scope.events = events;
+  		$scope.events = events;
 
-		$scope.viewby = 4;
+  		$scope.viewby = 4;
 
-		$scope.totalItems = $scope.events.length;
+  		$scope.totalItems = $scope.events.length;
 
-		$scope.currentPage = 1;
+  		$scope.currentPage = 1;
 
-		$scope.itemsPerPage = $scope.viewby;
+  		$scope.itemsPerPage = $scope.viewby;
 
-		$scope.maxSize = 5; //Number of pager buttons to show
+  		$scope.maxSize = 5; //Number of pager buttons to show
 
       });
     };
+
+    $scope.formatDate = function(date) {
+      return moment(date).format('DD/MM/YYYY');
+    } 
 
     // alerts
     function addAlert(type, message) {

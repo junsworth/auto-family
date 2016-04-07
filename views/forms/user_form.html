@@ -11,8 +11,8 @@
   </h4>
   </div>  
 <div class="panel-body">
-  <form name="userForm" ng-submit="add(UserToRegisterType)">     
-
+  <form name="userForm" ng-submit="add(UsersType)">     
+    
       <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
         <label for="email">Email:</label>
         <input type="email" ng-model="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
@@ -27,11 +27,8 @@
       <div class="form-group" ng-show="principal.UserTypeId == UserType.Admin">
 
       <label>User Type</label>
-      <select name="usertype" class="form-control" ng-model="UserToRegisterType">
-          <option value="" selected>---Please select user type---</option>
-          <option value="1">Admin</option>
-          <option value="2">Staff</option>
-          <option value="3">User</option>
+      <select name="usertype" class="form-control" ng-options="item as item.title for item in items track by item.id" ng-model="UsersType">
+        <option value="">--- Please select user type ---</option>
       </select>
       </div>
       
