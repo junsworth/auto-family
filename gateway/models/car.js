@@ -41,13 +41,13 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: false
     },
     purchasePrice: {
-      type: DataTypes.STRING,
+      type: DataTypes.DOUBLE,
       allowNull: false,
       unique: false,
       primaryKey: false
     },
     salePrice: {
-      type: DataTypes.STRING,
+      type: DataTypes.DOUBLE,
       allowNull: false,
       unique: false,
       primaryKey: false

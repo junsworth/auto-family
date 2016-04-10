@@ -26,11 +26,13 @@
             <th>#</th>
             <th>Email</th>
             <th>Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
 
-          <tr ng-repeat="user in users.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::user.id" ng-click="edit(user)">
+          <tr ng-repeat="user in users.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::user.id">
 
             <td>{{user.id}}</td>
             <td>{{user.email}}</td> 

@@ -34,7 +34,6 @@ module.exports = function(config) {
       // endbower
       'app/scripts/**/*.js',
       'scripts/**/*.js',
-      'scripts/controllers/LoginController.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],

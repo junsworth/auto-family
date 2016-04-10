@@ -8,49 +8,44 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('UserCtrl', function ($scope, $rootScope, request, $location, UserType, $routeParams) {
+  .controller('UserCtrl', function ($scope, $rootScope, request, $location, UserType, $routeParams, UserService) {
     
-    $scope.items = [ {
-        id: 1,
-        title: 'Admin'
-      }, {
-        id: 2,
-        title: 'Staff'
-      }, {
-        id: 3,
-        title: 'User'
-      }
-    ];
+  $scope.items = [ {
+      id: 1,
+      title: 'Admin'
+    }, {
+      id: 2,
+      title: 'Staff'
+    }, {
+      id: 3,
+      title: 'User'
+    }
+  ];
 
   if($routeParams.id) {
-        request.get('/users/get/:id', {
-            id: $routeParams.id
-        }).then(function(user) {
 
-            $scope.email = user.email;
-            $scope.password = user.password;
-            $scope.UsersType = $scope.items[user.UserTypeId-1];;
-            $scope.UserType = UserType;
-            $scope.isEdit = true;
-        });
-    } else {
-        $scope.email = ''
-        $scope.password = '';
-        $scope.UsersType = $scope.items[1];;
-        $scope.UserType = UserType;
-        users();
-        $scope.isEdit = false;
-    }
+    UserService.user($routeParams.id)
+    .then(function(user){
+      $scope.email = user.email;
+      $scope.password = user.password;
+      $scope.UsersType = $scope.items[user.UserTypeId-1];
+      $scope.UserType = UserType;
+      $scope.isEdit = true;
+    });
 
-  
+  } else {
+      $scope.email = ''
+      $scope.password = '';
+      $scope.UsersType = $scope.items[1];
+      $scope.UserType = UserType;
+      users();
+      $scope.isEdit = false;
+  }
 
   $scope.add = function(type) {
-    request.post('/auth/add', {
-      email: $scope.email,
-      password: $scope.password,
-      UserTypeId: type.id
-    }).then(function(principal) {
 
+    UserService.create($scope.email, $scope.password, type.id)
+    .then(function(principal){
       console.log('principal ' + JSON.stringify(principal));
 
       if($rootScope.principal && $rootScope.principal.UserTypeId == $scope.UserType.Admin) {
@@ -59,12 +54,14 @@ angular.module('familyCarsApp')
         $rootScope.principal = principal;
         $location.path('/');
       }
-      
     });
+
   };
 
   function users() {
-    request.get('/auth/users').then(function(users) {
+
+    UserService.users()
+    .then(function(users){
       $scope.users = users;
 
       $scope.viewby = 4;
@@ -78,6 +75,7 @@ angular.module('familyCarsApp')
       $scope.maxSize = 5; //Number of pager buttons to show
 
     });
+
   };
 
   $scope.edit = function(user) {
@@ -85,9 +83,12 @@ angular.module('familyCarsApp')
   };
 
   $scope.delete = function(user) {
-    request.delete('/user/delete/:id', {
-      id: user.id
-    }).then(users).then($location.path('/users'));
+
+    UserService.delete(user.id)
+    .then(function(status){
+
+    }).then(users);
+
   };
 
   $scope.setPage = function (pageNo) {

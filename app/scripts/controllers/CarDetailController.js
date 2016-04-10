@@ -9,11 +9,6 @@
  */
 angular.module('familyCarsApp')
   .controller('CarDetailCtrl', function ($scope, $rootScope, request, $location, filterFilter, cfg, $routeParams, CarService, $uibModal) {
-    // this.awesomeThings = [
-    //   'HTML5 Boilerplate',
-    //   'AngularJS',
-    //   'Karma'
-    // ];
 
     if($routeParams.id) {
 
@@ -33,7 +28,13 @@ angular.module('familyCarsApp')
 				$scope.modelSelect = car[2].Model;
 				$scope.supplierSelect = car[3].Supplier;
 
-				$scope.isEditGallery = false;
+				if(car.length == 5) {
+	              $scope.isSold = true;
+	              $scope.customerSelect = car[4].Customer;
+	            } else {
+	              $scope.isSold = false;
+	              $scope.customerSelect = -1;
+	            }
 
 				$scope.id = car[0].Car.id;
 				$scope.header = car[0].Car.header;

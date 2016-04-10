@@ -150,13 +150,13 @@ exports.update = function(req, res) {
     .then(function(result) {
       return result.updateAttributes(req.body);
     }).then(function() {
-      res.status(204).send();
+      res.status(200).send();
     });
 };
 
 exports.delete = function(req, res, next) {
   db.sequelize.transaction().then(function(t) {
-    db.User.find(req.params.id, {
+    db.User.findById(req.params.id, {
       transaction: t
     }).then(function(result) {
       return result.destroy({
@@ -165,7 +165,7 @@ exports.delete = function(req, res, next) {
     }).then(function() {
       return t.commit();
     }).then(function() {
-      res.status(204).send();
+      res.status(200).send();
     }, function(err) {
       t.rollback();
       next(err);

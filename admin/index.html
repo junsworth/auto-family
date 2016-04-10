@@ -78,7 +78,7 @@
 
                   <li class="dropdown" style="margin-right: 20px;">
 
-                    <a class="dropdown-toggle" id="signin-dropdown" data-toggle="dropdown" h><!-- <span disabled="true" class="glyphicon glyphicon-user"></span> -->Sign in / Join<span class="caret"></span></a>
+                    <a class="dropdown-toggle" id="signin-dropdown" data-toggle="dropdown" h><!-- <span disabled="true" class="glyphicon glyphicon-user"></span> -->Sign in <span class="caret"></span></a>
                     
                     <ul class="dropdown-menu">
 
@@ -126,7 +126,7 @@
               </button>
 
               <a id="nav-brand" class="navbar-brand" href="#/" ng-show="principal.UserTypeId == UserType.Admin">Auto Family IMS</a>
-              <a  id="nav-brand" class="navbar-brand" href="#/" ng-show="principal.UserTypeId == UserType.Staff">Auto Family CMS</a>
+              <a  id="nav-brand-cms" class="navbar-brand" href="#/" ng-show="principal.UserTypeId == UserType.Staff">Auto Family CMS</a>
             </div>
 
             <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -210,6 +210,7 @@
     <script src="/common/scripts/controllers/about.js"></script>
     <script src="/common/scripts/controllers/ContactController.js"></script>
     <script src="/common/scripts/controllers/AppController.js"></script>
+    <script src="/common/scripts/controllers/SettingsController.js"></script>
     <script src="/common/scripts/controllers/LoginController.js"></script>
     <script src="/common/scripts/controllers/UserController.js"></script>
     <script src="scripts/controllers/CarManagerController.js"></script>
@@ -234,6 +235,7 @@
     <script type="text/javascript" src="/common/scripts/services/customers.js"></script>
     <script type="text/javascript" src="/common/scripts/services/cars.js"></script>
     <script type="text/javascript" src="/common/scripts/services/users.js"></script>
+    <script type="text/javascript" src="/common/scripts/services/reports.js"></script>
     <script type="text/javascript" src="/common/scripts/services/testdrives.js"></script>
 
 </body>

@@ -4,8 +4,12 @@
 
 	<h1 class="page-header">Car Details
 
-		<a class="btn btn-warning pull-right" href="" ng-click="edit(id, 'md')">
+		<a ng-if="!isSold" class="btn btn-warning pull-right" href="" ng-click="edit(id, 'md')">
       Request Test Drive
+    </a>
+
+    <a ng-if="isSold" class="btn btn-warning pull-right" href="">
+      SOLD!
     </a>
 
 	</h1>

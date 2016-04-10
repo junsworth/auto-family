@@ -17,6 +17,7 @@ var offers = require('./offers');
 var news = require('./news');
 var events = require('./events');
 var testdrive = require('./testdrive');
+var reports = require('./reports');
 
 // parse application/x-www-form-urlencoded
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -93,6 +94,9 @@ router.post('/testdrives/add', testdrive.add);
 router.get('/testdrives/testdrive/:id', auth.check, testdrive.get);
 router.get('/testdrives/testdrives', testdrive.testdrives);
 
+// reports
+router.get('/report/sales/total', reports.getSalesTotal);
+router.get('/report/purchases/total', reports.getPurchasesTotal);
 // image processing
 router.post('/images/upload', multipartMiddleware, function(req, resp) {
   

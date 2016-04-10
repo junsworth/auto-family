@@ -1,14 +1,14 @@
 
-	<div ng-if="!isEdit">
+	<div ng-show="!isEdit">
 		<h2 class="page-header">Add Car
-		<a class="btn btn-success btn-xs pull-right" ng-click="editGallery()" href="">
+		<a id="editGallery" class="btn btn-success btn-xs pull-right" ng-click="editGallery()" href="">
                   <span class="glyphicon glyphicon-picture"></span>
         </a>
 		</h2>
 	</div>
-	<div ng-if="isEdit">
+	<div ng-show="isEdit">
 		<h2 class="page-header">Edit Car
-		<a class="btn btn-success btn-xs pull-right" ng-click="editGallery()" href="">
+		<a id="editGallery" class="btn btn-success btn-xs pull-right" ng-click="editGallery()" href="">
                   <span class="glyphicon glyphicon-picture"></span>
         </a>
 		</h2>
@@ -160,7 +160,7 @@
 
 	      <hr>
 
-		    <button ng-if="!isSold" type="submit" class="btn btn-primary">Submit</button>
+		    <button id="submitBtn" ng-if="!isSold" type="submit" class="btn btn-primary">Submit</button>
 
 		    <button ng-if="!isSold" type="button" class="btn btn-warning" ng-click="sell('sm')">SELL</button>
 
@@ -197,7 +197,7 @@
 
 				<div class="col-md-6">
 
-					<a class="btn btn-success btn-xs pull-right" type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+					<a id="uploadBtn" class="btn btn-success btn-xs pull-right" type="file" ngf-select="uploadFiles($file, $invalidFiles)"
 				          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB" href="">
                   	<span class="glyphicon glyphicon-upload">Upload image</span></a>
 

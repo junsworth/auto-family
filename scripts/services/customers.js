@@ -35,12 +35,16 @@ factory('CustomerService', function(request){
 		update: function(customer) {
 			var promise = request.put('/customers/update/:id', customer, {
 	        	id: customer.id
+	      	}).then(function(status){
+	      		return status;
 	      	});
 			return promise;
 		},
 		delete: function(id) {
 			var promise = request.delete('/customers/delete/:id', {
 		        id: id
+		    }).then(function(status){
+		    	return status;
 		    });
 		    return promise;
 		}

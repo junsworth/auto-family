@@ -38,6 +38,12 @@ angular
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })
+      .when('/settings', {
+        title: 'Settings',
+        templateUrl: '/common/views/settings.html',
+        controller: 'SettingsCtrl',
+        controllerAs: 'settings'
+      })
       .when('/user', {
         title: 'Registration',
         templateUrl: '/common/views/forms/user_form.html',

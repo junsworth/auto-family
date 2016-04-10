@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('ReportsCtrl', function ($scope, $rootScope, $location, request, $routeParams, UserService, TestDriveService, CarService) {
+  .controller('ReportsCtrl', function ($scope, $rootScope, $location, request, filterFilter, $routeParams, ReportService, UserService, TestDriveService, CarService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -31,9 +31,13 @@ angular.module('familyCarsApp')
 
     getTestDrives();
 
-    $scope.formatDate = function(date) {
+    $scope.formatDateTime = function(date) {
 		return moment(date).format('DD/MM/YYYY, h:mm:ss a');
-	} 
+	}
+
+    $scope.formatDate = function(date) {
+        return moment(date).format('DD/MM/YYYY');
+    } 
 
     $scope.reportSelectChanged = function() {
     	console.log(JSON.stringify($scope.reportType));
@@ -41,8 +45,10 @@ angular.module('familyCarsApp')
     	if($scope.reportType.id == 1) {
     		getTestDrives();
     	} else if($scope.reportType.id == 2) {
-    		getCars();
-    	}
+    		getSales();
+    	} else if($scope.reportType.id == 3) {
+            getPurchases();
+        }
     }
 
     function getCars() {
@@ -61,9 +67,25 @@ angular.module('familyCarsApp')
         });
     }
 
-    function getSale() {
+    function getSalesTotal() {
+        ReportService.getSalesTotal()
+        .then(function(total){
+            $scope.salesTotal = total;
+        })
+    }
+
+    function getPurchaseTotal() {
+        ReportService.getPurchaseTotal()
+        .then(function(total){
+            $scope.purchaseTotal = total;
+        })
+    }
+
+    function getSales() {
     	CarService.cars().then(function(cars){
             $scope.cars = cars;
+
+            $scope.cars = filterFilter($scope.cars, {'CustomerId':undefined});
 
             $scope.viewby = 4;
 
@@ -74,10 +96,16 @@ angular.module('familyCarsApp')
             $scope.itemsPerPage = $scope.viewby;
 
             $scope.maxSize = 5; //Number of pager buttons to show
+            
+            getSalesTotal();
+
         });
     }
 
     function getPurchases() {
+
+        $scope.total = 0;
+
     	CarService.cars().then(function(cars){
             $scope.cars = cars;
 
@@ -90,6 +118,7 @@ angular.module('familyCarsApp')
             $scope.itemsPerPage = $scope.viewby;
 
             $scope.maxSize = 5; //Number of pager buttons to show
+            getPurchaseTotal();
         });
     }
 

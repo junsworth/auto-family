@@ -39,6 +39,12 @@ angular
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })
+      .when('/settings', {
+        title: 'Settings',
+        templateUrl: '/common/views/settings.html',
+        controller: 'SettingsCtrl',
+        controllerAs: 'settings'
+      })
       .when('/users', {
         title: 'Users',
         templateUrl: 'views/users.html',

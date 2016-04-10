@@ -1,0 +1,57 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+  <h4>Settings
+  
+  </h4>
+  </div>
+
+<div class="panel-body">
+
+  <form name="userForm" ng-submit="add(UsersType)">     
+    
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+        <label for="email">Email:</label>
+        <input type="email" ng-model="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div>
+        </div>
+        
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="form-group" ng-class="{ 'has-error' : userForm.pwd.$invalid && !userForm.pwd.$pristine }">
+            <label for="pwd">Password:</label>
+            <input type="password" ng-model="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" required>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="row" ng-show="principal.UserTypeId == UserType.Admin || principal.UserTypeId == UserType.Staff">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="checkbox-inline"><input type="checkbox" value="" ng-model="style">Select Style</label>
+          </div>
+        </div>        
+      </div>     
+      
+      <hr>
+
+      <button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
+
+      <hr>
+
+  </form>
+</div>
+
+<div class="panel-footer">
+  <h4>Settings</h4>
+</div>
+
+</div> 

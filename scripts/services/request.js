@@ -10,7 +10,12 @@ app.factory('request', function($http, $q) {
 
         $http(config)
             .success(function(data, status, headers, config) {
-                deferred.resolve(data);
+                if(data){
+                    deferred.resolve(data);    
+                } else {
+                    deferred.resolve(status);
+                }
+                
             })
             .error(function(data, status, headers, config) {
                 deferred.reject(status);

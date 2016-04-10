@@ -51,6 +51,10 @@ angular.module('familyCarsApp')
         $location.path('/news/edit').search({id: article.id});
     };
 
+    $scope.formatDate = function(date) {
+      return moment(date).format('DD/MM/YYYY');
+    }
+    
     $scope.add = function() {
 
       NewsService.create($scope.title, $scope.header, $scope.description, $scope.image, $scope.dt1).then(function(article){
