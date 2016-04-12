@@ -37,7 +37,8 @@ exports.login = function(req, res, next) {
           id: user.id,
           email: user.email,
           password: user.password,
-          UserTypeId: user.UserTypeId
+          UserTypeId: user.UserTypeId,
+          data: user.data
         };
         res.json(req.session.user);
       });
@@ -59,10 +60,14 @@ exports.add = function(req, res, next) {
     if(user) {
       next('USER_ALREADY_EXISTS');
     } else {
+
+      var data = {style:false};
+
       db.User.create({
         email: req.body.email,
         password: hashPassword(req.body.password),
-        UserTypeId: req.body.UserTypeId
+        UserTypeId: req.body.UserTypeId,
+        data: JSON.stringify(data)
       }).catch(function(error){
         console.log('Error adding user');
         next('ERROR_ADDING_REGISTRATION');
@@ -74,7 +79,8 @@ exports.add = function(req, res, next) {
               id: user.id,
               email: user.email,
               password: user.password,
-              UserTypeId: user.UserTypeId
+              UserTypeId: user.UserTypeId,
+              data: user.data
             };
             res.json(req.session.user);
           });
@@ -93,6 +99,9 @@ exports.add = function(req, res, next) {
 }
 
 exports.reset = function(req, res, next) {
+  
+  console.log(JSON.stringify(req.body));
+
   db.User.find({
     where: {
       email: req.body.email,
@@ -101,7 +110,7 @@ exports.reset = function(req, res, next) {
   }).then(function(user) {
     
     if(user) {
-      return user.updateAttributes({password : hashPassword(req.body.newPassword)}); 
+      return user.updateAttributes({password : hashPassword(req.body.newPassword), data:req.body.data}); 
     } else {
       next('INVALID_PASSWORD_RESET');
     }
@@ -133,7 +142,7 @@ exports.users = function(req, res) {
     id: ['id']
   }).then(function(results) {
     res.send(lodash.map(results, function(element, index, list) {
-      return lodash.pick(element.toJSON(), ['id', 'email', 'password','UserTypeId']);
+      return lodash.pick(element.toJSON(), ['id', 'email', 'password', 'data', 'UserTypeId']);
     }));
   });
 };

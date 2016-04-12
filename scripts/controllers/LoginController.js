@@ -14,11 +14,14 @@ app.controller('LoginCtrl', function($scope, $rootScope, request, UserType, User
   $scope.UserType = UserType;
 
   $rootScope.isStyle = false;
+  $rootScope.isGridStyle = false;
 
   $scope.login = function() {
     UserService.login($scope.email, $scope.password).then(function(user){
       console.log('principal user - ' + JSON.stringify(user));
       $rootScope.principal = user;
+      $rootScope.principal.data = angular.fromJson($rootScope.principal.data);
+      $rootScope.isStyle = $rootScope.principal.data.style;
     });
   }
 

@@ -1,9 +1,9 @@
-<div class="panel panel-default">
+<div ng-if="!isStyle" class="panel panel-default">
   
   <div class="panel-heading">
     
-    <h4>News Manager
-            <a id="addBtn" class="btn btn-success btn-xs pull-right" href="#/addcustomer">
+    <h4>Auto News Manager
+            <a id="addBtn" class="btn btn-success btn-xs pull-right" href="#/news/edit">
                   <span class="glyphicon glyphicon-plus"></span>
             </a>
     </h4>
@@ -19,6 +19,8 @@
     <div class="row">
 
       <div class="col-md-12">
+
+      <div class="table-responsive">
 
         <table class="table table-striped">
         <thead>
@@ -53,6 +55,7 @@
 
         </tbody>
       </table>
+      </div>
         
     </div>
     
@@ -79,10 +82,10 @@
 
 <!-- DIFF STLYE -->
 
-<div class="container">
+<div ng-if="isStyle" class="container">
 
   <h1 class="page-header">News Manager
-    <a id="supplierAddBtn" class="btn btn-success btn-xs pull-right" href="#/addcustomer">
+    <a id="supplierAddBtn" class="btn btn-success btn-xs pull-right" href="#/news/edit">
         <span class="glyphicon glyphicon-plus"></span>
     </a>
   </h1>

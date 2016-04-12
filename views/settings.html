@@ -8,16 +8,25 @@
 
 <div class="panel-body">
 
-  <form name="userForm" ng-submit="add(UsersType)">     
-    
+  <form name="settingsForm" ng-submit="submit()">     
+      
+      <div class="row">
+        <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+      </div>
       <div class="row">
 
         <div class="col-md-4">
-          <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+          
+        <h4 class="page-header">Email</h4>
+        <span class="text-muted">{{email}}</span>
+
+          <!-- <div class="form-group" ng-class="{ 'has-error' : settingsForm.email.$invalid && !settingsForm.email.$pristine }">
         <label for="email">Email:</label>
-        <input type="email" ng-model="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
-        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
-        </div>
+        <span class="text-muted">{{email}}</span>
+        <input type="email" ng-model="email" class="form-control" name="email" id="email" placeholder="Enter email">
+        <p ng-show="settingsForm.email.$invalid && !settingsForm.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div> -->
+
         </div>
         
       </div>
@@ -25,15 +34,27 @@
       <div class="row">
 
         <div class="col-md-4">
-          <div class="form-group" ng-class="{ 'has-error' : userForm.pwd.$invalid && !userForm.pwd.$pristine }">
-            <label for="pwd">Password:</label>
-            <input type="password" ng-model="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" required>
+          <div class="form-group" ng-class="{ 'has-error' : settingsForm.oldpwd.$invalid && !settingsForm.oldpwd.$pristine }">
+          <!-- <h4 class="page-header">Old Password</h4> -->
+            <label class="page-header" for="oldpwd"> Old Password:</label>
+            <input type="password" ng-model="oldPassword" class="form-control" id="oldpwd" name="oldpwd" placeholder="Enter old password">
           </div>
         </div>
         
       </div>
 
-      <div class="row" ng-show="principal.UserTypeId == UserType.Admin || principal.UserTypeId == UserType.Staff">
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="form-group" ng-class="{ 'has-error' : settingsForm.pwd.$invalid && !settingsForm.pwd.$pristine }">
+            <label class="page-header" for="pwd">New Password:</label>
+            <input type="password" ng-model="newPassword" class="form-control" id="pwd" name="pwd" placeholder="Enter new password">
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="row">
         <div class="col-md-4">
           <div class="form-group">
             <label class="checkbox-inline"><input type="checkbox" value="" ng-model="style">Select Style</label>
@@ -43,7 +64,7 @@
       
       <hr>
 
-      <button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
+      <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
 
       <hr>
 

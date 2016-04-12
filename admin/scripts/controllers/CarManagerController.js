@@ -52,7 +52,7 @@ angular.module('familyCarsApp')
             $scope.insertDate = car[0].Car.insertDate;
             $scope.saleDate = car[0].Car.saleDate;
             
-            if(car[0].Car.images.lengt > 0) {
+            if(car[0].Car.images.length > 0) {
               $scope.slides = JSON.parse(car[0].Car.images);  
             }            
 
@@ -116,6 +116,14 @@ angular.module('familyCarsApp')
         $scope.isChanged = true;
     });
 
+    $scope.displayText = function(str) {
+        var mystring = String(str);
+
+        var length_half = mystring.length / 2;
+
+        return mystring.slice(0, length_half) + '...';
+    }
+    
     $scope.popup1 = {
       opened: false
     };
@@ -169,7 +177,7 @@ angular.module('familyCarsApp')
     };
 
     $scope.pageChanged = function() {
-      console.log('Page changed to: ' + $scope.currentPage);
+      //console.log('Page changed to: ' + $scope.currentPage);
     };
 
     $scope.setItemsPerPage = function(num) {
@@ -386,10 +394,10 @@ angular.module('familyCarsApp')
         
         tmp.push(array[i]);
 
-        console.log('Push id - ' + array[i].id);
+        //console.log('Push id - ' + array[i].id);
         if( i!= 0 && ((i+1)%4 == 0)) {
           tmp2.push(tmp);
-          console.log('Push array length -' + tmp.length);
+          //console.log('Push array length -' + tmp.length);
           tmp = [];
         }
 

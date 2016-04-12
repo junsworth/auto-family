@@ -4,7 +4,11 @@
 		<span class="glyphicon glyphicon-plus"></span>
 		</a>
 	</h1>
-	<input class="form-control" ng-model="search.title" placeholder="Search phrase.."/>
+	<div align="center">
+		<input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
+	</div>
+	<br>
+	<hr>
 
 <div class="panel panel-default">
 	<!-- <div class="panel-heading">
@@ -92,8 +96,18 @@
 					<h4>{{car.header}}</h4>	
 				</a>		        
 		        <h4>$ {{car.salePrice}}</h4>
-		        <p>{{car.description}}</p>
+		        <p ng-init="text = displayText(car.description)">{{text}}</p>
 		    </div>
+
+		</div>
+
+		<div class="row" align="center">
+
+			<div class="col-sm-12">
+
+				<uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></uib-pagination>
+
+			</div>
 
 		</div>
 	</div>

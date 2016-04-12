@@ -116,7 +116,7 @@ exports.cars = function(req, res) {
     id: ['id']
   }).then(function(results) {
     res.send(lodash.map(results, function(element, index, list) {
-      return lodash.pick(element.toJSON(), ['id', 'header', 'subHeader', 'description', 'mileage', 'year', 'purchasePrice', 'salePrice', 'insertDate', 'saleDate', 'images']);
+      return lodash.pick(element.toJSON(), ['id', 'header', 'subHeader', 'description', 'mileage', 'year', 'purchasePrice', 'salePrice', 'insertDate', 'saleDate', 'images', 'CustomerId', 'ModelId', 'SupplierId']);
     }));
   });
 };

@@ -81,30 +81,32 @@ describe('Service: SupplierService', function(){
 
 	it('it should update a supplier', function(){
 		var result;
+		
 		var supplierToUpdate = new Supplier(1, 'Hertz Rentals', '235 Marine Drive', 'Walmer, 6756', 'Port Elizabeth', 'info@hertz.co.za', '041 234 6789');
 
-		$httpBackend.expectPUT('/suppliers/update/' + supplierToUpdate.id, supplierToUpdate).respond(supplierToUpdate);
+		$httpBackend.expectPUT('/suppliers/update/' + supplierToUpdate.id, supplierToUpdate)
+		.respond(200);
 
-		SupplierService.update(supplierToUpdate).then(function(supplier){
-			result = supplier;
+		SupplierService.update(supplierToUpdate).then(function(status){
+			result = status;
 		});
 
 		$httpBackend.flush();
 
-		expect(result).toEqual(supplierToUpdate);
+		expect(result).toEqual(200);
 	});
 
 	it('it should delete a supplier', function(){
 		var result;
-		$httpBackend.expectDELETE('/suppliers/delete/' + 1).respond(204, '');
+		$httpBackend.expectDELETE('/suppliers/delete/' + 1).respond(200);
 
-		SupplierService.delete(aSupplier.id).then(function(){
-			//console.log(JSON.stringify(result));
+		SupplierService.delete(aSupplier.id).then(function(status){
+			result = status;
 		});
 
 		$httpBackend.flush();
 		
-		//expect().toEqual(204, '');
+		expect(result).toEqual(200);
 	})
 
 });

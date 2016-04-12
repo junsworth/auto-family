@@ -8,28 +8,38 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('CarCtrl', function ($scope, $route, $rootScope, request, $location, CarService) {
+  .controller('CarCtrl', function ($scope, $route, $rootScope, $routeParams, filterFilter, request, $location, CarService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
-    cars();
+    $scope.predicate = 'salePrice'
+    if($routeParams.id) {
+        filterCars($routeParams.id);
+    } else {
+        cars(); 
+    }
 
     $scope.viewCar = function(car) {
         $location.path('/cars/detail').search({id: car.id});
     };
 
     $scope.getCarPhotos = function(str) {
-    	console.log('----- ' + str + '------');
+    	//console.log('----- ' + str + '------');
     	return JSON.parse(str);
     };
 
     $scope.switchStyle = function() {
-        $rootScope.isStyle =! $rootScope.isStyle;
+        $rootScope.isGridStyle =! $rootScope.isGridStyle;
         $route.reload();
     }
+
+    $scope.order = function(predicate) {
+        //$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+        $scope.predicate = predicate;
+    };
 
     $scope.getCarThumbnails = function(str) {
     	var array = JSON.parse(str);
@@ -41,10 +51,10 @@ angular.module('familyCarsApp')
     		
     		tmp.push(array[i]);
 
-    		console.log('Push id - ' + array[i].id);
+    		//console.log('Push id - ' + array[i].id);
     		if( i!= 0 && ((i+1)%4 == 0)) {
     			tmp2.push(tmp);
-    			console.log('Push array length -' + tmp.length);
+    			//console.log('Push array length -' + tmp.length);
     			tmp = [];
     		}
 
@@ -71,6 +81,26 @@ angular.module('familyCarsApp')
 
         CarService.cars().then(function(cars){
             $scope.cars = cars;
+
+            $scope.viewby = 4;
+
+            $scope.totalItems = $scope.cars.length;
+
+            $scope.currentPage = 1;
+
+            $scope.itemsPerPage = $scope.viewby;
+
+            $scope.maxSize = 5; //Number of pager buttons to show
+        });
+
+    };
+
+    function filterCars(id) {
+        
+        CarService.cars().then(function(cars){
+            $scope.cars = cars;
+
+            $scope.cars = filterFilter($scope.cars, {'ModelId':id});
 
             $scope.viewby = 4;
 

@@ -2,7 +2,7 @@ var path = require('path');
 
 describe('Auto Family staff user add a car', function(){
 
-	var emailToSignIn = 'joe@gmail.com';
+	var emailToSignIn = 'jono@gmail.com';
   	var passwordToSignIn = 'admin';
 
   	// sign in form models
@@ -26,7 +26,7 @@ describe('Auto Family staff user add a car', function(){
   	var uploadImageBtn = element(by.id('uploadBtn'));
 
 	beforeEach(function() {
-		browser.get('http://10.0.0.9:3000/admin');
+		browser.get('http://10.0.0.11:3000/admin');
 	});
 
 	it('should add a car', function(){

@@ -1,42 +1,138 @@
-<h1 class="page-header">Test Drive Manager
-		
-</h1>
-<input class="form-control" ng-model="search.title" placeholder="Search phrase.."/>
+<div ng-if="!isStyle" class="panel panel-default">
+  
+  <div class="panel-heading">
+    
+    <h4>Test Drives Manager
+            <a id="addBtn" class="btn btn-success btn-xs pull-right" href="#/adduser">
+                  <span class="glyphicon glyphicon-plus"></span>
+            </a>
+    </h4>
 
-<div class="panel panel-default">
-	<div class="panel-body">
+    <div align="center">
+      <input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
+    </div>
+
+  </div>
+  
+  <div class="panel-body">
+
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="table-responsive">
+        <table class="table table-striped">
+        <thead>
+          <tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Date Request</th>
+			<th>Completion Date</th>
+			<th>User Id</th>
+			<th>Edit</th>
+			<!-- <th>Delete</th> -->
+          </tr>
+        </thead>
+        <tbody>
+
+			<tr ng-repeat="testdrive in testdrives.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::testdrive.id">
+				<td>{{testdrive.id}}</td>
+				<td>{{testdrive.name}}</td>
+				<td>{{testdrive.email}}</td>
+				<td>{{testdrive.phone}}</td>
+				<td ng-init="dateFormatted = formatDate(testdrive.requestDate)">{{dateFormatted}}</td>
+				<td ng-init="completeDateFormatted = formatDate(testdrive.completeDate)">{{completeDateFormatted}}</td>
+				<td>{{testdrive.UserId}}</td>
+				<td>
+					<button class="btn btn-primary btn-xs" ng-click="edit(testdrive)">
+					<span class="glyphicon glyphicon-edit"></span>
+					</button>
+				</td>  
+				<!-- <td>
+					<button class="btn btn-danger btn-xs" ng-click="delete(testdrive)">
+					<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				</td> -->
+			</tr>
+
+        </tbody>
+      </table>
+      </div>
+        
+    </div>
+    
+  </div>
+
+
+  <div class="row" align="center">
+
+    <div class="col-sm-12">
+
+      <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></uib-pagination>
+      
+    </div>
+
+  </div>
+    
+  </div>
+
+  <div class="panel-footer">
+    <h4>User Manager</h4>
+  </div>
+
+</div>
+
+<div ng-if="isStyle" class="container">
+	<h1 class="page-header">Test Drive Manager
+			
+	</h1>
+
+	<div class="row">
+
 		<div class="col-md-12">
 
-	          <div class="table-responsive">
+			<div align="center">
+				<input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
+			</div>
 
-	            <table class="table table-striped">
-	              <thead>
-	                <tr>
-	                  <th>#</th>
-	                  <th>Name</th>
-	                  <th>Email</th>
-	                  <th>Phone</th>
-	                  <th>Date Request</th>
-	                </tr>
-	              </thead>
-	              <tbody>
+		</div>
 
-	                <tr ng-repeat="testdrive in testdrives.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::testdrive.id" ng-click="edit(testdrive)">
+	</div>
 
-	                  <td>{{testdrive.id}}</td>
-	                  <td>{{testdrive.name}}</td>
-	                  <td>{{testdrive.email}}</td>
-	                  <td>{{testdrive.phone}}</td>
-	                  <td ng-init="dateFormatted = formatDate(testdrive.requestDate)">{{dateFormatted}}</td>
-	                </tr>
+	<div class="row">
 
-	              </tbody>
-	            </table>
+		<div class="col-md-12">
 
-	          </div>
+		          <div class="table-responsive">
 
-	      </div>
+		            <table class="table table-striped">
+		              <thead>
+		                <tr>
+		                  <th>#</th>
+		                  <th>Name</th>
+		                  <th>Email</th>
+		                  <th>Phone</th>
+		                  <th>Date Request</th>
+		                </tr>
+		              </thead>
+		              <tbody>
 
-	    </div>
+		                <tr ng-repeat="testdrive in testdrives.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::testdrive.id" ng-click="edit(testdrive)">
+
+		                  <td>{{testdrive.id}}</td>
+		                  <td>{{testdrive.name}}</td>
+		                  <td>{{testdrive.email}}</td>
+		                  <td>{{testdrive.phone}}</td>
+		                  <td ng-init="dateFormatted = formatDate(testdrive.requestDate)">{{dateFormatted}}</td>
+		                </tr>
+
+		              </tbody>
+		            </table>
+
+		          </div>
+
+		      </div>
+		
 	</div>
 </div>

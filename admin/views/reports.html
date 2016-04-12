@@ -1,8 +1,10 @@
 <h1 class="page-header">Reports
 		
 </h1>
-<input class="form-control" ng-model="search.title" placeholder="Search phrase.."/>
-
+<div align="center">
+<input class="form-control" style="width: 80%;" ng-model="searchText" placeholder="Search phrase.."/>
+</div>
+<br>
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="row">
@@ -32,6 +34,8 @@
 	                  <th>Email</th>
 	                  <th>Phone</th>
 	                  <th>Date Request</th>
+	                  <th>Completion Date</th>
+	                  <th>Completed By</th>
 	                </tr>
 	              </thead>
 	              <tbody>
@@ -43,6 +47,8 @@
 	                  <td>{{testdrive.email}}</td>
 	                  <td>{{testdrive.phone}}</td>
 	                  <td ng-init="dateFormatted = formatDate(testdrive.requestDate)">{{dateFormatted}}</td>
+	                  <td ng-init="completeDateFormatted = formatDate(testdrive.completeDate)">{{completeDateFormatted}}</td>
+	                  <td>{{testdrive.UserId}}</td>
 	                </tr>
 
 	              </tbody>
@@ -65,9 +71,9 @@
 	                <tr>
 	                  <th>#</th>
 	                  <th>Title</th>
-	                  <th>Sales Price</th>
 	                  <th>Purchase Date</th>
 	                  <th>Sale Date</th>
+	                  <th>Sales Price</th>
 	                </tr>
 	              </thead>
 	              <tbody>
@@ -89,6 +95,9 @@
 	                </tr>
 
 	                <tr>
+	                	<td>
+	                		&nbsp;
+	                	</td>
 	                	<td>
 	                		&nbsp;
 	                	</td>

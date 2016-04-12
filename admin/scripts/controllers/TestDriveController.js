@@ -51,8 +51,12 @@ angular.module('familyCarsApp')
       });
 	}
 
-	$scope.formatDate = function(date) {
+	$scope.formatDateTime = function(date) {
 		return moment(date).format('DD/MM/YYYY, h:mm:ss a');
+	} 
+
+	$scope.formatDate = function(date) {
+		return moment(date).format('DD/MM/YYYY');
 	} 
 
   });

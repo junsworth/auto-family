@@ -1,4 +1,59 @@
-<div class="container">
+<div ng-if="!isStyle" class="panel panel-default">
+  
+  <div class="panel-heading">
+    
+    <h4>Auto-Family News</h4>
+
+    <div align="center">
+      <input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
+    </div>
+
+  </div>
+  
+  <div class="panel-body">
+
+    <div class="row">
+
+      <div class="col-md-12">
+
+			<div class="row" ng-repeat="article in news.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::article.id">
+
+				<div class="col-sm-6">
+					<img class="pull-right" ng-src="{{article.images}}" width="40%" height="40%">
+				</div>
+
+				<div class="col-sm-6">
+					<h3>{{article.title}}</h3>	
+					<h4>{{article.header}}</h4>
+					<p>{{article.description}}</p>
+				</div>
+
+			</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="row" align="center">
+
+      <div class="col-sm-12">
+
+        <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></uib-pagination>
+
+      </div>
+
+    </div>
+    
+  </div>
+
+  <div class="panel-footer">
+    <h4>Auto News</h4>
+  </div>
+
+</div>
+
+<div ng-if="isStyle" class="container">
 
 	<h1 class="page-header">Auto News
     <div align="center">
@@ -31,77 +86,3 @@
     <br>
 
 </div>
-
-
-
-<!-- <div class="container">
-
-	<h1 class="page-header">News
-    <div align="center">
-      <input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
-    </div>
-
-    <div class="row">
-
-    	<div class="col-md-12">
-
-			<div class="row" ng-repeat="article in news.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) track by ::article.id">
-
-				<div class="col-sm-6" ng-init="photos = getCarPhotos(car.images)">
-
-				<img ng-src="{{article.images}}">
-
-				</div>
-
-				<div class="col-sm-6">
-				<a href="">
-				<h4>{{article.title}}</h4>	
-				</a>		        
-				<h4>{{article.header}}</h4>
-				<p>{{article.description}}</p>
-				</div>
-
-				</div>
-
-			</div>
-    		
-    	</div>
-    	
-    </div>
-    
-  </h1>
-	
-</div> -->
-
-<!-- <div class="panel panel-default">
-	<div class="panel-heading">
-		<h4>News</h4>
-        <input class="form-control" ng-model="search.title" placeholder="Search Name.."/>
-	</div>
-	<div class="panel-body">
-
-
-		<div class="row" ng-repeat="article in news.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) track by ::article.id">
-
-			<div class="col-sm-6" ng-init="photos = getCarPhotos(car.images)">
-				
-        <img ng-src="{{article.images}}">
-
-			</div>
-
-			<div class="col-sm-6">
-				<a href="">
-					<h4>{{article.title}}</h4>	
-				</a>		        
-		        <h4>{{article.header}}</h4>
-		        <p>{{article.description}}</p>
-		    </div>
-			
-		</div>
-
-	</div> -->
-
-<!-- 	<div class="panel-footer">
-		<h4>News Footer</h4>
-	</div> -->
-<!-- </div> -->

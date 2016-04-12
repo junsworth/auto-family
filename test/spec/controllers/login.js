@@ -8,7 +8,7 @@ describe('Controller: LoginCtrl', function () {
   // load the controller's module
   beforeEach(module('familyCarsApp'));
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($injector, $controller, $rootScope, _$httpBackend_) {
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
     
     scope = $rootScope.$new();
     $httpBackend = _$httpBackend_;

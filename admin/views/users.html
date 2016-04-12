@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div ng-if="!isStyle" class="panel panel-default">
   
   <div class="panel-heading">
     
@@ -19,7 +19,7 @@
     <div class="row">
 
       <div class="col-md-12">
-
+        <div class="table-responsive">
         <table class="table table-striped">
         <thead>
           <tr>
@@ -51,6 +51,7 @@
 
         </tbody>
       </table>
+      </div>
         
     </div>
     
@@ -77,7 +78,7 @@
 
 <!-- DIFF STLYE -->
 
-<div class="container">
+<div ng-if="isStyle" class="container">
 
   <h1 class="page-header">User Manager
     <a id="supplierAddBtn" class="btn btn-success btn-xs pull-right" href="#/adduser">

@@ -97,6 +97,7 @@ router.get('/testdrives/testdrives', testdrive.testdrives);
 // reports
 router.get('/report/sales/total', reports.getSalesTotal);
 router.get('/report/purchases/total', reports.getPurchasesTotal);
+
 // image processing
 router.post('/images/upload', multipartMiddleware, function(req, resp) {
   

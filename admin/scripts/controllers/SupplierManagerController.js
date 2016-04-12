@@ -10,90 +10,94 @@
 angular.module('familyCarsApp')
   .controller('SupplierManagerCtrl', function ($scope, $rootScope, $location, request, $routeParams, SupplierService) {
     
-    if($routeParams.id) {
+  $scope.suppliers = [];
 
-    	SupplierService.supplier($routeParams.id).then(function(supplier){
-    		$scope.id = supplier.id;
-    		$scope.name = supplier.name;
-		    $scope.address = supplier.address;
-		    $scope.addresstwo = supplier.addresstwo;
-		    $scope.city = supplier.city;
-		    $scope.email = supplier.email;
-		    $scope.phone = supplier.phone;
-		    $scope.isEdit = true;
-    	});
+  $scope.suppliers = function() {
 
-    } else {
-    	$scope.name = "";
-	    $scope.address = "";
-	    $scope.addresstwo = "";
-	    $scope.city = "";
-	    $scope.email = "";
-	    $scope.phone = "";
-	    $scope.isEdit = false;
-	    suppliers();
-    }
+    SupplierService.suppliers()
+    .then(function(suppliers){
+      $scope.suppliers = suppliers;
 
-    $scope.add = function() {
+      $scope.viewby = 4;
 
-    	SupplierService.create(
-    		$scope.name, 
-            $scope.address,
-            $scope.addresstwo, 
-            $scope.city, 
-            $scope.email, 
-            $scope.phone)
-        .then(function(supplier){
+      $scope.totalItems = $scope.suppliers.length;
 
-        }).then($location.path('/suppliers'));
+      $scope.currentPage = 1;
 
-  	};
+      $scope.itemsPerPage = $scope.viewby;
 
-  	$scope.save = function() {
+      $scope.maxSize = 5; //Number of pager buttons to show
+    });
 
-      var saveObj = {};
-      saveObj.id = $scope.id;
-      saveObj.name = $scope.name;
-      saveObj.address = $scope.address;
-      saveObj.addresstwo = $scope.addresstwo;
-      saveObj.city = $scope.city;
-      saveObj.email = $scope.email;
-      saveObj.phone = $scope.phone;
+  }
 
-      SupplierService.update(saveObj).then(function(supplier) {
-        addAlert('success', 'Success! supplier saved.');
-      });
+  if($routeParams.id) {
 
-    };
+  	SupplierService.supplier($routeParams.id).then(function(supplier){
+  		$scope.id = supplier.id;
+  		$scope.name = supplier.name;
+	    $scope.address = supplier.address;
+	    $scope.addresstwo = supplier.addresstwo;
+	    $scope.city = supplier.city;
+	    $scope.email = supplier.email;
+	    $scope.phone = supplier.phone;
+	    $scope.isEdit = true;
+  	});
 
-  	$scope.edit = function(supplier) {
-  		$location.path('/addsupplier').search({id: supplier.id});
-  	};
+  } else {
+  	$scope.name = "";
+    $scope.address = "";
+    $scope.addresstwo = "";
+    $scope.city = "";
+    $scope.email = "";
+    $scope.phone = "";
+    $scope.isEdit = false;
+    $scope.suppliers();
+  }
 
-  	$scope.delete = function(supplier) {
+  $scope.add = function() {
 
-  		SupplierService.delete(supplier.id).then(function(){
+  	SupplierService.create(
+  		$scope.name, 
+      $scope.address,
+      $scope.addresstwo, 
+      $scope.city, 
+      $scope.email, 
+      $scope.phone)
+      .then(function(supplier){
 
-  		}).then(suppliers).then($location.path('/suppliers'));
+      }).then($location.path('/suppliers'));
 
-    };
+	};
 
-  	function suppliers() {
-	    request.get('/suppliers/suppliers').then(function(suppliers) {
-	      $scope.suppliers = suppliers;
+	$scope.save = function() {
 
-	      $scope.viewby = 4;
+    var saveObj = {};
+    saveObj.id = $scope.id;
+    saveObj.name = $scope.name;
+    saveObj.address = $scope.address;
+    saveObj.addresstwo = $scope.addresstwo;
+    saveObj.city = $scope.city;
+    saveObj.email = $scope.email;
+    saveObj.phone = $scope.phone;
 
-	      $scope.totalItems = $scope.suppliers.length;
+    SupplierService.update(saveObj).then(function(supplier) {
+      addAlert('success', 'Success! supplier saved.');
+    });
 
-	      $scope.currentPage = 1;
+  };
 
-	      $scope.itemsPerPage = $scope.viewby;
+	$scope.edit = function(supplier) {
+		$location.path('/addsupplier').search({id: supplier.id});
+	};
 
-	      $scope.maxSize = 5; //Number of pager buttons to show
+	$scope.delete = function(supplier) {
 
-	    });
-	}
+		SupplierService.delete(supplier.id).then(function(){
+
+		}).then(suppliers).then($location.path('/suppliers'));
+
+  };
 
 	$scope.setPage = function (pageNo) {
 	  $scope.currentPage = pageNo;

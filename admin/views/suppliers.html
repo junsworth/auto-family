@@ -1,4 +1,84 @@
-<div class="container">
+<div ng-if="!isStyle" class="panel panel-default">
+  
+  <div class="panel-heading">
+    
+    <h4>Supplier Manager
+            <a id="addBtn" class="btn btn-success btn-xs pull-right" href="#/addsupplier">
+                  <span class="glyphicon glyphicon-plus"></span>
+            </a>
+    </h4>
+
+    <div align="center">
+      <input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
+    </div>
+
+  </div>
+  
+  <div class="panel-body">
+
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="table-responsive">
+        <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr ng-repeat="supplier in suppliers.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::supplier.id" ng-click="edit(supplier)">
+
+            <td>{{supplier.id}}</td>
+            <td>{{supplier.name}}</td>
+            <td>{{supplier.email}}</td>
+            <td>{{supplier.phone}}</td>  
+            <td>
+              <button class="btn btn-primary btn-xs" ng-click="edit(supplier)">
+                <span class="glyphicon glyphicon-edit"></span>
+              </button>
+            </td>  
+            <td>
+              <button class="btn btn-danger btn-xs" ng-click="delete(supplier)">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+            </td>                  
+          </tr>
+
+        </tbody>
+      </table>
+        
+    </div>
+    </div>
+    
+  </div>
+
+
+  <div class="row" align="center">
+
+    <div class="col-sm-12">
+
+      <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></uib-pagination>
+      
+    </div>
+
+  </div>
+    
+  </div>
+
+  <div class="panel-footer">
+    <h4>Supplier Manager</h4>
+  </div>
+
+</div>
+
+<div ng-if="isStyle" class="container">
 
   <h1 class="page-header">Supplier Manager
     <a id="supplierAddBtn" class="btn btn-success btn-xs pull-right" href="#/addsupplier">
@@ -62,85 +142,5 @@
     </div>
 
     <br>
-
-</div>
-
-<!-- DIFF STYLE -->
-<div class="panel panel-default">
-  
-  <div class="panel-heading">
-    
-    <h4>Supplier Manager
-            <a id="addBtn" class="btn btn-success btn-xs pull-right" href="#/addsupplier">
-                  <span class="glyphicon glyphicon-plus"></span>
-            </a>
-    </h4>
-
-    <div align="center">
-      <input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
-    </div>
-
-  </div>
-  
-  <div class="panel-body">
-
-    <div class="row">
-
-      <div class="col-md-12">
-
-        <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr ng-repeat="supplier in suppliers.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::supplier.id" ng-click="edit(supplier)">
-
-            <td>{{supplier.id}}</td>
-            <td>{{supplier.name}}</td>
-            <td>{{supplier.email}}</td>
-            <td>{{supplier.phone}}</td>  
-            <td>
-              <button class="btn btn-primary btn-xs" ng-click="edit(supplier)">
-                <span class="glyphicon glyphicon-edit"></span>
-              </button>
-            </td>  
-            <td>
-              <button class="btn btn-danger btn-xs" ng-click="delete(supplier)">
-                <span class="glyphicon glyphicon-remove"></span>
-              </button>
-            </td>                  
-          </tr>
-
-        </tbody>
-      </table>
-        
-    </div>
-    
-  </div>
-
-
-  <div class="row" align="center">
-
-    <div class="col-sm-12">
-
-      <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></uib-pagination>
-      
-    </div>
-
-  </div>
-    
-  </div>
-
-  <div class="panel-footer">
-    <h4>Supplier Manager</h4>
-  </div>
 
 </div>

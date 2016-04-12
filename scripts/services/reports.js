@@ -5,13 +5,15 @@ factory('ReportService', function(request){
 
 	var service = {
 		getSalesTotal: function() {
-			var promise = request.get('/report/sales/total').then(function(total) {
+			var promise = request.get('/report/sales/total')
+			.then(function(total) {
 	      		return total;
 	    	});
 	    	return promise;
 		},
 		getPurchaseTotal: function() {
-			var promise = request.get('/report/purchases/total').then(function(total) {
+			var promise = request.get('/report/purchases/total')
+			.then(function(total) {
 	      		return total;
 	    	});
 	    	return promise;

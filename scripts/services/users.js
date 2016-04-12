@@ -46,6 +46,16 @@ factory('UserService', function(request){
 	      	});
 			return promise;
 		},
+		reset: function(user) {
+
+			var promise = request.post('/auth/reset', user)
+			.then(function(status){
+	      		return status;
+	      	});
+
+			return promise;
+
+		},
 		delete: function(id) {
 			var promise = request.delete('/users/delete/:id', {
 		        id: id

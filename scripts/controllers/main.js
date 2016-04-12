@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('MainCtrl', function ($scope, request, filterFilter) {
+  .controller('MainCtrl', function ($scope, request, filterFilter, $location, $rootScope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -17,8 +17,8 @@ angular.module('familyCarsApp')
 
     $scope.makeSelect = -1;
     $scope.modelSelect = -1;
-  	$scope.minPrice = '';
-  	$scope.maxPrice = '';
+  	$scope.minPrice = '0';
+  	$scope.maxPrice = '0';
     $scope.prices = [{'id':1, 'price':'R10000'}, {'id':2, 'price':'R15000'}, {'id':3, 'price':'R20000'}, {'id':4, 'price':'R25000'}
     , {'id':5, 'price':'R30000'}, {'id':6, 'price':'R35000'}, {'id':7, 'price':'R40000'}, {'id':8, 'price':'R45000'}, {'id':9, 'price':'R50000'}
     , {'id':9, 'price':'R55000'}, {'id':10, 'price':'R60000'}, {'id':11, 'price':'R65000'}, {'id':12, 'price':'R70000'}
@@ -44,5 +44,10 @@ angular.module('familyCarsApp')
     $scope.filterModels = function(id) {
       $scope.filteredModels = filterFilter($scope.models, {'MakeId':id});
     };
+
+    $scope.searchCars = function() {
+      //$location.path('/cars/search').search({modelId: $scope.modelSelect.id, maxPrice:$scope.maxPrice, minPrice: $scope.minPrice});
+      $location.path('/cars/search').search({id: $scope.modelSelect.id});
+    }
 
   });

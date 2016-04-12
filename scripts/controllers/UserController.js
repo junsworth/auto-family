@@ -36,7 +36,7 @@ angular.module('familyCarsApp')
   } else {
       $scope.email = ''
       $scope.password = '';
-      $scope.UsersType = $scope.items[1];
+      $scope.UsersType = $scope.items[2];
       $scope.UserType = UserType;
       users();
       $scope.isEdit = false;

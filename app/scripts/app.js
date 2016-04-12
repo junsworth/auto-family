@@ -56,6 +56,12 @@ angular
         controller: 'CarCtrl',
         controllerAs: 'cars'
       })
+      .when('/cars/search', {
+        title: 'Car Search',
+        templateUrl: '/common/views/cars.html',
+        controller: 'CarCtrl',
+        controllerAs: 'cars'
+      })
       .when('/cars/detail', {
         title: 'Car Detail',
         templateUrl: '/common/views/car-detail.html',
