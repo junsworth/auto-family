@@ -100,11 +100,14 @@ db.sequelize.authenticate().then(function () {
                         
                     }
                     
+                    var data = {style:false};
+
                     // create admin user
                     db.User.create({
                         email: process.env.DEFAUL_USERNAME,
                         password: auth.hashPassword(process.env.DEFAUL_PASSWORD),
-                        UserTypeId: 1
+                        UserTypeId: 1,
+                        data: JSON.stringify(data)
                     });
 
                 }

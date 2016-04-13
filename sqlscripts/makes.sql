@@ -1,4 +1,4 @@
-INSERT INTO `family-cars`.Makes (`id`, `title`) VALUES 
+INSERT INTO `auto-family`.Makes (`id`, `title`) VALUES 
 (1, 'ABARTH'),
 (2, 'AC'),
 (3, 'AXIAM'),

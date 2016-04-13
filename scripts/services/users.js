@@ -5,6 +5,15 @@ factory('UserService', function(request){
 
 	var service = {
 
+		login: function(email, password) {
+			var promise = request.post('/auth/login', {
+		      email: email,
+		      password: password
+		    }).then(function(user) {
+		    	return user;
+		    });
+		    return promise;
+		},
 		create: function(email, password, type) {
 			var promise = request.post('/auth/add', {
 				email: email,
@@ -14,15 +23,6 @@ factory('UserService', function(request){
 				return user;
 			});
 			return promise;
-		},
-		login: function(email, password) {
-			var promise = request.post('/auth/login', {
-		      email: email,
-		      password: password
-		    }).then(function(user) {
-		    	return user;
-		    });
-		    return promise;
 		},
 		user: function(id) {
 			var promise = request.get('/users/get/:id', {

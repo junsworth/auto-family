@@ -1,4 +1,4 @@
-INSERT INTO `family-cars`.Models (`title`,`MakeId`) VALUES
+INSERT INTO `auto-family`.Models (`title`,`MakeId`) VALUES
 ('100',7),
 ('200',7),
 ('80',7),
