@@ -59,6 +59,8 @@ app.use(function(err, req, res, next) {
     console.error(err);
     res.status(500);
     if (err instanceof Error) {
+        console('ERROR! ' + JSON.stringify(err));
+
         res.send({
             code: 'UKNOW_ERROR',
             name: err.name,
@@ -66,6 +68,13 @@ app.use(function(err, req, res, next) {
             stack: err.stack
         });
     } else {
+
+        var errToSend = {
+            code: typeof err === 'string' ? err : 'UKNOW_ERROR'
+        };
+
+        console.log(JSON.stringify(errToSend) + '  ERROR! ' + JSON.stringify(err));
+
         res.send({
             code: typeof err === 'string' ? err : 'UKNOW_ERROR'
         });

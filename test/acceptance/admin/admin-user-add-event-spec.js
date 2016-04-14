@@ -32,7 +32,7 @@ describe('Auto Family Admin User Sign In', function() {
   var description = element(by.model('description'));
   
   beforeEach(function() {
-    browser.get('http://10.0.0.9:3000/admin');
+    browser.get('http://10.0.0.12:3000/admin');
   });
 
   it('should have a title', function() {

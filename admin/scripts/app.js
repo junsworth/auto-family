@@ -163,24 +163,8 @@ angular
         redirectTo: '/'
       });
 
-      $httpProvider.interceptors.push(function($q, $injector) {
-      return {
-        responseError: function(rejection) {
-          $injector.invoke(function($uibModal) {
-            $uibModal.open({
-              templateUrl: '/common/views/dialogs/error-dialog.html',
-              controller: 'ErrorDialogController',
-              resolve: {
-                error: function() {
-                  return rejection.data;
-                }
-              }
-            });
-          });
-          return $q.reject(rejection);
-        }
-      };
-    });
+      $httpProvider.interceptors.push('ServiceInterceptor');
+
   }).run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         $rootScope.title = current.$$route.title;

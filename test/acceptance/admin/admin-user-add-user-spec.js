@@ -3,7 +3,7 @@ describe('Auto Family Admin User Sign In', function() {
   var emailToSignIn = 'jonathan@bubbleworks.co.za';
   var passwordToSignIn = 'admin';
 
-  var emailToReg = 'johanness@gmail.com';
+  var emailToReg = 'jane@gmail.com';
   var passwordToReg = 'admin';
 
   // elements
@@ -24,7 +24,7 @@ describe('Auto Family Admin User Sign In', function() {
   var principalEmail = element(by.binding('principal.email'));
 
   beforeEach(function() {
-    browser.get('http://10.0.0.11:3000/admin');
+    browser.get('http://10.0.0.12:3000/admin');
   });
 
   it('should have a title', function() {

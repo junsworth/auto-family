@@ -1,32 +1,39 @@
 <?xml version="1.0"?>
-<testsuite name="Firefox 45.0.0 (Ubuntu 0.0.0)" package="unit" timestamp="2016-04-10T18:41:11" id="0" hostname="bugzilla-VirtualBox" tests="22" errors="0" failures="0" time="0.554">
+<testsuite name="Firefox 45.0.0 (Ubuntu 0.0.0)" package="unit" timestamp="2016-04-14T17:55:38" id="0" hostname="bugzilla-VirtualBox" tests="24" errors="0" failures="1" time="0.713">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"/>
   </properties>
-  <testcase name="Controller: AboutCtrl should attach a list of awesomeThings to the scope" time="0.021" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: AboutCtrl"/>
-  <testcase name="Controller: MainCtrl should attach a list of awesomeThings to the scope" time="0.021" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: MainCtrl"/>
-  <testcase name="Controller: SupplierManagerCtrl should have empty array list" time="0.041" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: SupplierManagerCtrl"/>
-  <testcase name="Controller: SupplierManagerCtrl should attach a list of suppliers to the scope" time="0.016" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: SupplierManagerCtrl"/>
-  <testcase name="Controller: SupplierManagerCtrl should add supplier" time="0.012" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: SupplierManagerCtrl"/>
-  <testcase name="Service: CustomerService should create new customer" time="0.019" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
-  <testcase name="Service: CustomerService it should get a customer by id" time="0.009" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
-  <testcase name="Service: CustomerService it should get a list of customers" time="0.006" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
-  <testcase name="Service: CustomerService it should update a customer" time="0.009" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
-  <testcase name="Service: CustomerService it should delete a customer" time="0.006" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
-  <testcase name="Service: ReportService it should get a sales total" time="0.01" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: ReportService"/>
-  <testcase name="Service: SupplierService should create new supplier" time="0.014" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
-  <testcase name="Service: SupplierService it should get a supplier by id" time="0.04" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
-  <testcase name="Service: SupplierService it should get a list of suppliers" time="0.082" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
-  <testcase name="Service: SupplierService it should update a supplier" time="0.067" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
-  <testcase name="Service: SupplierService it should delete a supplier" time="0.032" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
-  <testcase name="Service: UserService should login in user" time="0.057" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService"/>
-  <testcase name="Service: UserService should create a new user" time="0.025" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService"/>
-  <testcase name="Service: UserService should return a list of users" time="0.007" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService"/>
-  <testcase name="Service: UserService should return user by id" time="0.018" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService"/>
-  <testcase name="Service: UserService it should update a user" time="0.018" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService"/>
-  <testcase name="Service: UserService it should delete a user" time="0.024" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: UserService"/>
+  <testcase name="Controller: AboutCtrl should attach a list of awesomeThings to the scope" time="0.049" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: AboutCtrl"/>
+  <testcase name="Controller: MainCtrl should attach a list of awesomeThings to the scope" time="0.034" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: MainCtrl"/>
+  <testcase name="Controller: SupplierManagerCtrl should have empty array list" time="0.022" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: SupplierManagerCtrl"/>
+  <testcase name="Controller: SupplierManagerCtrl should attach a list of suppliers to the scope" time="0.032" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: SupplierManagerCtrl"/>
+  <testcase name="Controller: SupplierManagerCtrl should add supplier" time="0.016" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Controller: SupplierManagerCtrl"/>
+  <testcase name="Service: CustomerService should create new customer" time="0.039" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
+  <testcase name="Service: CustomerService it should get a customer by id" time="0.026" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
+  <testcase name="Service: CustomerService it should get a list of customers" time="0.027" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
+  <testcase name="Service: CustomerService it should update a customer" time="0.029" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
+  <testcase name="Service: CustomerService it should delete a customer" time="0.018" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: CustomerService"/>
+  <testcase name="Service: ReportService it should get a sales total" time="0.042" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: ReportService"/>
+  <testcase name="Service: ReportService it should get a sales total" time="0.041" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: ReportService"/>
+  <testcase name="Service: SupplierService should create new supplier" time="0.061" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
+  <testcase name="Service: SupplierService it should get a supplier by id" time="0.031" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
+  <testcase name="Service: SupplierService it should get a list of suppliers" time="0.086" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
+  <testcase name="Service: SupplierService it should update a supplier" time="0.037" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
+  <testcase name="Service: SupplierService it should delete a supplier" time="0.01" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service: SupplierService"/>
+  <testcase name="Service Unit Test: UserService should have UserService be defined" time="0.019" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service Unit Test: UserService"/>
+  <testcase name="Service Unit Test: UserService should login in user" time="0.015" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service Unit Test: UserService"/>
+  <testcase name="Service Unit Test: UserService should create a new user" time="0.018" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service Unit Test: UserService">
+    <failure type="">Expected 5 to be less than 4.
+@/home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/user-service-spec.js:59:5
+</failure>
+  </testcase>
+  <testcase name="Service Unit Test: UserService should return a list of users" time="0.032" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service Unit Test: UserService"/>
+  <testcase name="Service Unit Test: UserService should return user by id" time="0.014" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service Unit Test: UserService"/>
+  <testcase name="Service Unit Test: UserService it should update a user" time="0.006" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service Unit Test: UserService"/>
+  <testcase name="Service Unit Test: UserService it should delete a user" time="0.009" classname="Firefox_45_0_0_(Ubuntu_0_0_0).unit.Service Unit Test: UserService"/>
   <system-out>
-    <![CDATA[
+    <![CDATA[Firefox 45.0.0 (Ubuntu 0.0.0) LOG: 'Total Response 65400'
+
 ]]>
   </system-out>
   <system-err/>

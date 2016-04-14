@@ -7,6 +7,9 @@ exports.getSalesTotal = function(req, res) {
 	db.Car.sum('salePrice', { where: ["CustomerId > ?", 0] }).then(function(sum) {
 		//res.send(sum);
 		console.log('sum -- ' + sum);
+		if(!sum) {
+			sum = 0;
+		}
 		res.json(sum);
 	});
 };

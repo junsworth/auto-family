@@ -17,21 +17,40 @@ describe('Service: ReportService', function() {
 
   it('it should get a sales total', function() {
 
-    var total = 65400;
+    var total = '65400';
 		var result;
 
-		// $httpBackend.expectGET('/report/sales/total')
-  //   .respond(total);
+		$httpBackend.expectGET('/report/sales/total')
+    .respond(total);
 
-		// ReportService.getSalesTotal()
-  //   .then(function(total){
-		// 	result = total;
-		// });
+		ReportService.getSalesTotal()
+    .then(function(total){
+			result = total;
+		});
 
-		// $httpBackend.flush();
+		$httpBackend.flush();
 
-		// expect(result).toEqual(total);
+		expect(result).toEqual(total);
 
 	});
+
+    it('it should get a sales total', function() {
+
+    var total = '65400';
+    var result;
+
+    $httpBackend.expectGET('/report/purchases/total')
+    .respond(total);
+
+    ReportService.getPurchaseTotal()
+    .then(function(total){
+      result = total;
+    });
+
+    $httpBackend.flush();
+
+    expect(result).toEqual(total);
+
+  });
 
 });

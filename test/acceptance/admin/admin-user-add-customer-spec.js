@@ -3,12 +3,12 @@ describe('Auto Family Admin User Sign In', function() {
   var emailToSignIn = 'jonathan@bubbleworks.co.za';
   var passwordToSignIn = 'admin';
 
-  var nameToReg = 'Max Mattison';
+  var nameToReg = 'Mary Mattison';
   var addressToReg = '235 Marine Drive';
   var addressTwoToReg = 'Summerstrand, 6001';
   var cityToReg = 'Port Elizabeth';
   var phoneToReg = '041 345 6788';
-  var emailToReg = 'jonn@supplier.com';
+  var emailToReg = 'mary@cust.com';
 
   // elements
   var navBrand = element(by.id('nav-brand'));
@@ -35,7 +35,7 @@ describe('Auto Family Admin User Sign In', function() {
   var phone = element(by.model('phone'));
 
   beforeEach(function() {
-    browser.get('http://10.0.0.11:3000/admin');
+    browser.get('http://10.0.0.12:3000/admin');
   });
 
   it('should have a title', function() {

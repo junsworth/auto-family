@@ -7,6 +7,8 @@ factory('ReportService', function(request){
 		getSalesTotal: function() {
 			var promise = request.get('/report/sales/total')
 			.then(function(total) {
+
+				console.log('Total Response ' + total);
 	      		return total;
 	    	});
 	    	return promise;

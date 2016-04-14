@@ -295,7 +295,7 @@ angular.module('familyCarsApp')
 
       var saveObj = {};
       saveObj.id = $scope.id;
-      // saveObj.header = $scope.header;
+      saveObj.header = $scope.header;
       // saveObj.subHeader = $scope.subHeader;
       // saveObj.description = $scope.description;
       // saveObj.mileage = $scope.mileage;
@@ -311,6 +311,7 @@ angular.module('familyCarsApp')
 
       saveObj.saleDate = $scope.dt2;
       saveObj.CustomerId = $scope.customerSelect.id;
+      saveObj.UserId = $rootScope.principal.id;
 
 
       var modalInstance = $uibModal.open({

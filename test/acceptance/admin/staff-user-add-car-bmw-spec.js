@@ -26,7 +26,7 @@ describe('Auto Family staff user add a car', function(){
   	var uploadImageBtn = element(by.id('uploadBtn'));
 
 	beforeEach(function() {
-		browser.get('http://10.0.0.11:3000/admin');
+		browser.get('http://10.0.0.12:3000/admin');
 	});
 
 	it('should add a car', function(){
@@ -38,39 +38,36 @@ describe('Auto Family staff user add a car', function(){
 		//   callback();
 		// });
 
-		var fileToUploadOne = '../../../stock/bmw/series3/black/bmw_black.jpeg',
-		absolutePathOne = path.resolve(__dirname, fileToUploadOne);
-		var fileToUploadTwo = '../../../stock/bmw/series3/black/bmw_black2.jpeg',
-		absolutePathTwo = path.resolve(__dirname, fileToUploadTwo);
-		var fileToUploadThree = '../../../stock/bmw/series3/black/bmw_black3.jpeg',
-		absolutePathThree = path.resolve(__dirname, fileToUploadThree);
-		var fileToUploadFour = '../../../stock/bmw/series3/black/bmw_black4.jpeg',
-		absolutePathFour = path.resolve(__dirname, fileToUploadFour);
-		var fileToUploadFive = '../../../stock/bmw/series3/black/bmw_black5.jpeg',
-		absolutePathFive = path.resolve(__dirname, fileToUploadFive);
-		var fileToUploadSix = '../../../stock/bmw/series3/black/bmw_black6.jpeg',
-		absolutePathSix = path.resolve(__dirname, fileToUploadSix);
-		// var fileToUploadSeven = '../../../stock/audia3/grey/audi_grey7.jpeg',
-		// absolutePathSeven = path.resolve(__dirname, fileToUploadSeven);
-		// var fileToUploadEight = '../../../stock/audia3/grey/audi_grey8.jpeg',
-		// absolutePathEight = path.resolve(__dirname, fileToUploadEight);
-
-		// var fileToUploadOne = '../../../stock/bmw/series3/white/bmw_white.jpeg',
+		// var fileToUploadOne = '../../../stock/bmw/series3/black/bmw_black.jpeg',
 		// absolutePathOne = path.resolve(__dirname, fileToUploadOne);
-		// var fileToUploadTwo = '../../../stock/bmw/series3/white/bmw_white2.jpeg',
+		// var fileToUploadTwo = '../../../stock/bmw/series3/black/bmw_black2.jpeg',
 		// absolutePathTwo = path.resolve(__dirname, fileToUploadTwo);
-		// var fileToUploadThree = '../../../stock/bmw/series3/white/bmw_white3.jpeg',
+		// var fileToUploadThree = '../../../stock/bmw/series3/black/bmw_black3.jpeg',
 		// absolutePathThree = path.resolve(__dirname, fileToUploadThree);
-		// var fileToUploadFour = '../../../stock/bmw/series3/white/bmw_white4.jpeg',
+		// var fileToUploadFour = '../../../stock/bmw/series3/black/bmw_black4.jpeg',
 		// absolutePathFour = path.resolve(__dirname, fileToUploadFour);
-		// var fileToUploadFive = '../../../stock/bmw/series3/white/bmw_white5.jpeg',
+		// var fileToUploadFive = '../../../stock/bmw/series3/black/bmw_black5.jpeg',
 		// absolutePathFive = path.resolve(__dirname, fileToUploadFive);
-		// var fileToUploadSix = '../../../stock/bmw/series3/white/bmw_white6.jpeg',
+		// var fileToUploadSix = '../../../stock/bmw/series3/black/bmw_black6.jpeg',
 		// absolutePathSix = path.resolve(__dirname, fileToUploadSix);
-		// var fileToUploadSeven = '../../../stock/bmw/series3/white/bmw_white7.jpeg',
-		// absolutePathSeven = path.resolve(__dirname, fileToUploadSeven);
-		// var fileToUploadEight = '../../../stock/bmw/series3/white/bmw_white8.jpeg',
-		// absolutePathEight = path.resolve(__dirname, fileToUploadEight);
+		
+
+		var fileToUploadOne = '../../../stock/bmw/series3/white/bmw_white.jpeg',
+		absolutePathOne = path.resolve(__dirname, fileToUploadOne);
+		var fileToUploadTwo = '../../../stock/bmw/series3/white/bmw_white2.jpeg',
+		absolutePathTwo = path.resolve(__dirname, fileToUploadTwo);
+		var fileToUploadThree = '../../../stock/bmw/series3/white/bmw_white3.jpeg',
+		absolutePathThree = path.resolve(__dirname, fileToUploadThree);
+		var fileToUploadFour = '../../../stock/bmw/series3/white/bmw_white4.jpeg',
+		absolutePathFour = path.resolve(__dirname, fileToUploadFour);
+		var fileToUploadFive = '../../../stock/bmw/series3/white/bmw_white5.jpeg',
+		absolutePathFive = path.resolve(__dirname, fileToUploadFive);
+		var fileToUploadSix = '../../../stock/bmw/series3/white/bmw_white6.jpeg',
+		absolutePathSix = path.resolve(__dirname, fileToUploadSix);
+		var fileToUploadSeven = '../../../stock/bmw/series3/white/bmw_white7.jpeg',
+		absolutePathSeven = path.resolve(__dirname, fileToUploadSeven);
+		var fileToUploadEight = '../../../stock/bmw/series3/white/bmw_white8.jpeg',
+		absolutePathEight = path.resolve(__dirname, fileToUploadEight);
 
 		// click drop button
 	    signInNavButton.click();
@@ -107,8 +104,8 @@ describe('Auto Family staff user add a car', function(){
 		$('input[type="file"]').sendKeys(absolutePathFour);
 		$('input[type="file"]').sendKeys(absolutePathFive);
 		$('input[type="file"]').sendKeys(absolutePathSix);
-		// $('input[type="file"]').sendKeys(absolutePathSeven);
-		// $('input[type="file"]').sendKeys(absolutePathEight);
+		$('input[type="file"]').sendKeys(absolutePathSeven);
+		$('input[type="file"]').sendKeys(absolutePathEight);
 
   		//$('#uploadBtn').click();
   		browser.sleep(1000);
@@ -130,7 +127,7 @@ describe('Auto Family staff user add a car', function(){
 		element(by.model('year')).sendKeys('2013');
 		element(by.model('purchasePrice')).sendKeys('13500');
 		element(by.model('salePrice')).sendKeys('15560');
-		supplierSelect.$('[label="Hello Motors"]').click();
+		supplierSelect.$('[label="Hertz Rentals"]').click();
 
 		submitBtn.click();
 

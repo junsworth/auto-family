@@ -5,7 +5,7 @@ var util = require('util');
 var path = require('path');
 var Sequelize = require('sequelize');
 var lodash = require('lodash');
-var sequelize = new Sequelize('family-cars', 'root', 'bug@2016', {
+var sequelize = new Sequelize('auto-family', 'root', 'bug@2016', {
   host: 'localhost',
   port: 3306,
   dialect: 'mysql',

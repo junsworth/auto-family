@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Service: UserService', function () {
+describe('Service Unit Test: UserService', function () {
 
   var aUser;
   var aUserList = [];
@@ -12,7 +12,7 @@ describe('Service: UserService', function () {
     $httpBackend = _$httpBackend_;
 
     // place here mocked dependencies
-    aUser = new User(1, 'jonathan@bubbleworks.co.za', 'admin', 1);
+    aUser = new User(1, 'jonathan@bubbleworks.co.za', 'admin', 5);
 
     aUserList.push(new User(1, 'jonathan@bubbleworks.co.za', 'admin', 1));
     aUserList.push(new User(1, 'jono@bubbleworks.co.za', 'staff', 2));
@@ -25,6 +25,10 @@ describe('Service: UserService', function () {
   }));
 
   var UserService, $httpBackend;
+
+  it('should have UserService be defined', function(){
+    expect(UserService).toBeDefined();
+  });
 
   it('should login in user', function () {
     
@@ -50,6 +54,9 @@ describe('Service: UserService', function () {
 
   it('should create a new user', function (){
     var principal;
+
+    expect(aUser.UserTypeId > 0).toBeTruthy();
+    expect(aUser.UserTypeId).toBeLessThan(4);
 
     $httpBackend
     .expectPOST('/auth/add', {
