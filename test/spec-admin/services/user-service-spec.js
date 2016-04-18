@@ -6,13 +6,14 @@ describe('Service Unit Test: UserService', function () {
   var aUserList = [];
   // load the service's module
   beforeEach(module('familyCarsApp'));
-  beforeEach(inject(function (_UserService_, _$httpBackend_) {
+  beforeEach(inject(function (_UserService_, _ServiceInterceptor_, _$httpBackend_) {
 
     UserService = _UserService_;
     $httpBackend = _$httpBackend_;
+    ServiceInterceptor = _ServiceInterceptor_;
 
     // place here mocked dependencies
-    aUser = new User(1, 'jonathan@bubbleworks.co.za', 'admin', 5);
+    aUser = new User(1, 'jonathan@bubbleworks.co.za', 'admin', 1);
 
     aUserList.push(new User(1, 'jonathan@bubbleworks.co.za', 'admin', 1));
     aUserList.push(new User(1, 'jono@bubbleworks.co.za', 'staff', 2));
@@ -24,10 +25,15 @@ describe('Service Unit Test: UserService', function () {
     
   }));
 
-  var UserService, $httpBackend;
+  var UserService, $httpBackend, ServiceInterceptor;
 
   it('should have UserService be defined', function(){
     expect(UserService).toBeDefined();
+    expect(ServiceInterceptor).toBeDefined();
+  });
+
+  it('should have a handler for responseError', function () {
+    expect(angular.isFunction(ServiceInterceptor.responseError)).toBe(true);
   });
 
   it('should login in user', function () {
@@ -48,6 +54,7 @@ describe('Service Unit Test: UserService', function () {
 
     $httpBackend.flush();
 
+    expect(principal).toBeDefined();
     expect(principal).toEqual(aUser);
 
   });
@@ -73,6 +80,7 @@ describe('Service Unit Test: UserService', function () {
 
     $httpBackend.flush();
 
+    expect(principal).toBeDefined();
     expect(principal).toEqual(aUser);
 
   });
@@ -89,7 +97,9 @@ describe('Service Unit Test: UserService', function () {
 
     $httpBackend.flush();
 
+    expect(userList).toBeDefined();
     expect(userList).toEqual(aUserList);
+    expect(userList.length).toBe(aUserList.length);
 
   });
 
@@ -111,18 +121,34 @@ describe('Service Unit Test: UserService', function () {
 
   it('it should update a user', function(){
     
-    var result;
-    var userToUpdate = new User(1, 'jonathan@bubbleworks.co.za', '654321', 'Walmer, 6756', 1);
+    // var result;
 
-    $httpBackend.expectPUT('/users/update/' + userToUpdate.id, userToUpdate).respond(200);
+    // var rejection = {"status":401,"config":{"method":"PUT","transformRequest":[null],"transformResponse":[null],"id":-1,"url":"/users/update/-1","data":{"email":"jonathan@bubbleworks.co.za","password":"654321","UserTypeId":"Walmer, 6756"},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json;charset=utf-8"}},"statusText":""};
 
-    UserService.update(userToUpdate).then(function(status){
-      result = status;
-    });
+    // var response = {
+    //       status: 401,
+    //       config: {}
+    //   };
 
-    $httpBackend.flush();
+    // var userToUpdate = new User(-1, 'jonathan@bubbleworks.co.za', '654321', 'Walmer, 6756', 1);
 
-    expect(result).toEqual(200);
+    // $httpBackend.expectPUT('/users/update/' + userToUpdate.id, userToUpdate).respond(rejection.status);
+
+    // UserService.update(userToUpdate).then(function(status){
+    //   result = status;
+    //   console.log('status' + JSON.stringify(result));
+    // });
+
+    // $httpBackend.expectGET('/common/views/dialogs/error-dialog.html').respond(rejection);
+
+
+    // $httpBackend.flush();
+
+    
+      
+      //var promise = ServiceInterceptor.responseError(response);
+//console.log(JSON.stringify(promise));
+  //  expect(result).toEqual(rejection);
 
   });
 

@@ -1,8 +1,11 @@
 
 
 	<h2 class="page-header">Test Drive Request
-	<a class="btn btn-success pull-right" ng-click="editGallery()" href="">
+	<a ng-if="!UserId" class="btn btn-success pull-right" ng-click="complete('md')" href="">
               Complete Test Drive
+    </a>
+    <a ng-if="UserId" class="btn btn-danger pull-right" href="">
+              Test Drive Completed
     </a>
 	</h2>
 

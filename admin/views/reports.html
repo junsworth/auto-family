@@ -40,7 +40,7 @@
 	              </thead>
 	              <tbody>
 
-	                <tr ng-repeat="testdrive in testdrives.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::testdrive.id" ng-click="edit(testdrive)">
+	                <tr ng-repeat="testdrive in testdrives.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::testdrive.id">
 
 	                  <td>{{testdrive.id}}</td>
 	                  <td>{{testdrive.name}}</td>
@@ -74,12 +74,12 @@
 	                  <th>Purchase Date</th>
 	                  <th>Sale Date</th>
 	                  <th>Sales Price</th>
+	                  <th>Sold By</th>
 	                </tr>
 	              </thead>
 	              <tbody>
 
-	                <tr ng-repeat="car in cars.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::car.id">
-
+	              	<tr ng-repeat="car in soldCars.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::car.id">
 	                  <td>{{car.id}}</td>
 	                  <td>{{car.header}}</td>
 	                  <td ng-init="dateFormatted = formatDate(car.purchaseDate)">{{dateFormatted}}</td>
@@ -90,8 +90,10 @@
 	                  	<div ng-if="!car.saleDate">
 	                  	&nbsp;
 	                  	</div>
-	                  	<td>{{car.salePrice}}</td>
+	                  	
 	                  </td>
+	                  <td>{{car.salePrice}}</td>
+	                  <td ng-init="user = filterUserById(car.UserId)">{{user[0].email}}</td>
 	                </tr>
 
 	                <tr>
@@ -105,10 +107,55 @@
 	                		&nbsp;
 	                	</td>
 	                	<td>
-	                		<label>Sales Total:</label>
+	                		<label>Subtotal(Excl. VAT)</label>
 	                	</td>
 	                	<td>
-	                		{{salesTotal}}
+	                		{{subTotal}}
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	
+	                </tr>
+	                <tr>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		<label>VAT@14%</label>
+	                	</td>
+	                	<td>
+	                		{{vat}}
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	
+	                </tr>
+	                <tr>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		<label>Total(Incl. VAT)</label>
+	                	</td>
+	                	<td>
+	                		{{total}}
+	                	</td>
+	                	<td>
+	                		&nbsp;
 	                	</td>
 	                	
 	                </tr>
@@ -158,11 +205,119 @@
 	                		&nbsp;
 	                	</td>
 	                	<td>
-	                		<label>Purchase Total:</label>
+	                		<label>Subtotal(Excl. VAT)</label>
 	                	</td>
 	                	<td>
-	                		{{purchaseTotal}}
+	                		{{subTotal}}
 	                	</td>
+	                </tr>
+
+	                <tr>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		<label>VAT@14%</label>
+	                	</td>
+	                	<td>
+	                		{{vat}}
+	                	</td>
+	                </tr>
+
+	                <tr>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		<label>Total:</label>
+	                	</td>
+	                	<td>
+	                		{{total}}
+	                	</td>
+	                </tr>
+	              </tbody>
+	            </table>
+
+	          </div>
+
+	        </div>
+
+	    </div>
+
+	    <div ng-if="reportType.id == 4"class="row">
+
+			<div class="col-md-12">
+
+	          <div class="table-responsive">
+
+	            <table class="table table-striped">
+	              <thead>
+	                <tr>
+	                  <th>#</th>
+	                  <th>Agent Email</th>
+	                  <th>Sales Total</th>
+	                  <th>Commission</th>
+	                </tr>
+	              </thead>
+	              <tbody>
+
+	              <tr ng-repeat="agent in agents.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::agent.id">
+	                  <td>{{agent.id}}</td>
+	                  <td>{{agent.email}}</td>
+	                  <td>{{agent.salesTotal}}</td>
+	                  <td>{{agent.commission}}</td>
+	                </tr>
+
+	                <tr>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		<label>Subtotal(Excl. VAT)</label>
+	                	</td>
+	                	<td>
+	                		{{subTotal}}
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	
+	                </tr>
+	                <tr>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		<label>VAT@14%</label>
+	                	</td>
+	                	<td>
+	                		{{vat}}
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	
+	                </tr>
+	                <tr>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	<td>
+	                		<label>Total:</label>
+	                	</td>
+	                	<td>
+	                		{{total}}
+	                	</td>
+	                	<td>
+	                		&nbsp;
+	                	</td>
+	                	
 	                </tr>
 
 	              </tbody>
@@ -173,6 +328,15 @@
 	        </div>
 
 	    </div>
+
+	    <div class="row" align="center">
+
+	    	<div class="col-md-12">
+	    		<uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></uib-pagination>	
+	    	</div>
+	    	
+	    </div>
+
 			
 		</div>
 		

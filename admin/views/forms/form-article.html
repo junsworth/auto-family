@@ -55,7 +55,7 @@
 		  </div>
 
 		    <div class="row" align="middle" style="margin-top: 6px;">
-			    <div class="col-md-8">
+			    <div class="col-md-6">
 			      <div style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
 			          <div ng-show="progressValue > 0">
 			              <uib-progressbar max="max" value="progressValue"><span style="color:white; white-space:nowrap;">{{progressValue}} / {{max}}</span></uib-progressbar>
@@ -66,7 +66,7 @@
 			</div>
 
 			<div class="row" align="middle">
-				<div class="col-md-8">
+				<div class="col-md-6">
 			          <div ngf-select="uploadFiles($file, $invalidFiles)" ngf-drop="uploadFiles($file, $invalidFiles)" class="my_drop-box"
 			          ngf-drag-over-class="my_dragover" ngf-multiple="false" 
 			          ngf-pattern="image/*">Drop image files here or click to upload</div>

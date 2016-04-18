@@ -13,7 +13,7 @@ describe('Controller: LoginCtrl', function () {
     scope = $rootScope.$new();
     $httpBackend = _$httpBackend_;
 
-    user = new User(1, 'jonathan@bubbleworks.co.za', 'admin', 1);
+    user = new User(1, 'jono@gmail.co.za', '654321', 2);
     // Get hold of a scope (i.e. the root scope)
     LoginCtrl = $controller('LoginCtrl', {
       $scope: scope

@@ -21,6 +21,18 @@ exports.getPurchasesTotal = function(req, res) {
 	});
 };
 
+exports.getSalesByAgent = function(req, res) {
+	db.Car.sum('salePrice',{
+		where:{
+			UserId:req.params.id
+		}
+	}).then(function(sum) {
+		//res.send(sum);
+		console.log('Agent Sales Total - ' + sum);
+		res.json(sum);
+	});
+};
+
 // Project.sum('age', { where: { age: { $gt: 5 } } }).then(function(sum) {
 //   // will be 50
 // })

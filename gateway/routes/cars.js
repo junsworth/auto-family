@@ -17,6 +17,20 @@ exports.get = function(req, res) {
                     
                     db.Customer.findById(result.CustomerId)
                     .then(function(customer){
+
+                      // db.User.findById(result.UserId)
+                      // .then(function(user){
+                        
+                      //   var arrayResult = [];
+                      //   arrayResult.push({'Car':result});
+                      //   arrayResult.push({'Make':make});
+                      //   arrayResult.push({'Model':model});
+                      //   arrayResult.push({'Supplier':supplier});
+                      //   arrayResult.push({'Customer':customer});
+                      //   arrayResult.push({'User':user});
+                      //   res.send(JSON.stringify(arrayResult));
+
+                      // });
                       
                       var arrayResult = [];
                       arrayResult.push({'Car':result});
@@ -116,7 +130,7 @@ exports.cars = function(req, res) {
     id: ['id']
   }).then(function(results) {
     res.send(lodash.map(results, function(element, index, list) {
-      return lodash.pick(element.toJSON(), ['id', 'header', 'subHeader', 'description', 'mileage', 'year', 'purchasePrice', 'salePrice', 'insertDate', 'saleDate', 'images', 'CustomerId', 'ModelId', 'SupplierId']);
+      return lodash.pick(element.toJSON(), ['id', 'header', 'subHeader', 'description', 'mileage', 'year', 'purchasePrice', 'salePrice', 'insertDate', 'saleDate', 'images', 'CustomerId', 'ModelId', 'SupplierId', 'UserId']);
     }));
   });
 };

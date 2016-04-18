@@ -146,6 +146,10 @@ angular.module('familyCarsApp')
                 file.progress = Math.min(100, parseInt(100.0 * 
                                          evt.loaded / evt.total));
 
+                $scope.max = 100;
+                $scope.progressValue = Math.min($scope.max, parseInt(100.0 * 
+                                                             evt.loaded / evt.total));
+
             }).success(function (data, status, headers, config) {
 
               var imageUrl = cfg.baseUrl + cfg.imageUrl + strFileName;

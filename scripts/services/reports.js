@@ -19,6 +19,14 @@ factory('ReportService', function(request){
 	      		return total;
 	    	});
 	    	return promise;
+		},
+		getSalesByAgent: function(id) {
+			var promise = request.get('/report/salesByAgent/:id', {
+				id: id
+			}).then(function(total) {
+	      		return total;
+	    	});
+	    	return promise;
 		}
 	};
 

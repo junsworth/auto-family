@@ -93,10 +93,12 @@ router.delete('/events/delete/:id', auth.check, events.delete);
 router.post('/testdrives/add', testdrive.add);
 router.get('/testdrives/testdrive/:id', auth.check, testdrive.get);
 router.get('/testdrives/testdrives', testdrive.testdrives);
+router.put('/testdrives/update/:id', auth.check, testdrive.update);
 
 // reports
 router.get('/report/sales/total', reports.getSalesTotal);
 router.get('/report/purchases/total', reports.getPurchasesTotal);
+router.get('/report/salesByAgent/:id', auth.check, reports.getSalesByAgent);
 
 // image processing
 router.post('/images/upload', multipartMiddleware, function(req, resp) {

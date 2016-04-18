@@ -1,5 +1,5 @@
 function Car(id, header, subHeader, description, mileage, year, purchasePrice, salePrice,
-	insertDate, saleDate, CustomerId, ModelId, SupplierId){
+	insertDate, saleDate, CustomerId, ModelId, SupplierId, UserId){
 	
 	this.id = id;
 	this.header = header;
@@ -14,10 +14,6 @@ function Car(id, header, subHeader, description, mileage, year, purchasePrice, s
 	this.CustomerId = CustomerId;
 	this.ModelId = ModelId;
 	this.SupplierId = SupplierId;
-
-
-	this.changeId = function (id) {
-		this.id = id;
-	};
+	this.UserId = UserId;
     
 }

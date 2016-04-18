@@ -1,25 +1,25 @@
 describe('Auto Family Admin User Sign In', function() {
 
-  var navBrand = element(by.id('nav-brand'));
-
+  // local variable
   var emailToSignIn = 'jonathan@bubbleworks.co.za';
   var passwordToSignIn = 'admin';
 
-  // elements
+  // model bindings
   var email = element(by.model('email'));
   var password = element(by.model('password'));
+  var principalEmail = element(by.binding('principal.email'));
 
+  // nav bar brand text
+  var navBrand = element(by.id('nav-brand'));
+
+  // buttons
   var suppliersButton = element(by.id('Suppliers'));
   var customersButton = element(by.id('Customers'));
   var eventsButton = element(by.id('Events'));
   var servicesButton = element(by.id('Services'));
-  var reportsButton = element(by.id('Reports'));
-  
+  var reportsButton = element(by.id('Reports'));  
   var loginButton = element(by.id('loginButton'));
-
   var signInDropdownButton = element(by.id('signin-dropdown'));
-
-  var principalEmail = element(by.binding('principal.email'));
 
   beforeEach(function() {
     browser.get('http://10.0.0.9:3000/admin');
