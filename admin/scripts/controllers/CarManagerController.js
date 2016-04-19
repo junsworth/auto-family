@@ -11,6 +11,7 @@ angular.module('familyCarsApp')
   .controller('CarManagerCtrl', function ($scope, $rootScope, request, $location, filterFilter,
    $timeout, Upload, cfg, $routeParams, CarService, CustomerService, SupplierService, $uibModal, $log) {
     
+    $scope.max = 100;
     $scope.alerts = [];
 
     // carasoul settings
@@ -220,6 +221,7 @@ angular.module('familyCarsApp')
     $scope.uploadFiles = function(file, errFiles) {
         $scope.f = file;
         $scope.errFile = errFiles && errFiles[0];
+        $scope.progressValue = 0;
         if (file) {
 
             var strFileName = file.name;
@@ -242,6 +244,9 @@ angular.module('familyCarsApp')
                         
                 file.progress = Math.min(100, parseInt(100.0 * 
                                          evt.loaded / evt.total));
+
+                $scope.progressValue = Math.min(100, parseInt(100.0 * 
+                                                             evt.loaded / evt.total));
 
             }).success(function (data, status, headers, config) {
 
