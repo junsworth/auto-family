@@ -3,7 +3,7 @@ describe('Auto Family Admin Add User', function() {
   var emailToSignIn = 'jonathan@bubbleworks.co.za';
   var passwordToSignIn = 'admin';
 
-  var emailToReg = 'jammie@gmail.com';
+  var emailToReg = 'jono@gmail.com';
   var passwordToReg = 'admin';
 
   
