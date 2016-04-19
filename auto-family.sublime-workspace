@@ -308,10 +308,10 @@
 	"buffers":
 	[
 		{
-			"file": "test/acceptance/admin/staff-user-add-article-spec.js",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 2256,
+				"buffer_size": 176,
 				"line_ending": "Unix"
 			}
 		}
@@ -348,14 +348,11 @@
 	},
 	"expanded_folders":
 	[
-		"/home/bugzilla/Documents/Development/auto-family",
-		"/home/bugzilla/Documents/Development/auto-family/scripts",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin"
+		"/home/bugzilla/Documents/Development/workspace/auto-family"
 	],
 	"file_history":
 	[
+		"/home/bugzilla/Documents/Development/workspace/auto-family/.gitingnore",
 		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/admin-user-navigate-spec.js",
 		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/staff-user-navigate-spec.js",
 		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/admin-user-add-event-spec.js",
@@ -482,8 +479,7 @@
 		"/home/bugzilla/Documents/Development/auto-family/app/scripts/apptest.js",
 		"/home/bugzilla/Documents/Development/auto-family/test/spec-admin/controllers/main.js",
 		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/about.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/admin.js",
-		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/ConfirmSaleDialogController.js"
+		"/home/bugzilla/Documents/Development/auto-family/scripts/admin.js"
 	],
 	"find":
 	{
@@ -537,29 +533,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "test/acceptance/admin/staff-user-add-article-spec.js",
-					"semi_transient": true,
+					"file": ".gitignore",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2256,
+						"buffer_size": 176,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								176,
+								176
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
-						"translation.x": -0.0,
-						"translation.y": 972.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

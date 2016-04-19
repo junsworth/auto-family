@@ -102,7 +102,7 @@ describe('Auto Family Add Car', function(){
 		element(by.model('year')).sendKeys('2014');
 		element(by.model('purchasePrice')).sendKeys('23589');
 		element(by.model('salePrice')).sendKeys('28795');
-		supplierSelect.$('[label="Hello Motors"]').click();
+		supplierSelect.$('[label="Hennie Motors"]').click();
 
 		// click submit form
 		submitBtn.click();
