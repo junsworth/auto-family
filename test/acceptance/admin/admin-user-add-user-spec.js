@@ -1,9 +1,9 @@
-describe('Auto Family Admin User Sign In', function() {
+describe('Auto Family Admin Sign In And Add User', function() {
 
   var emailToSignIn = 'jonathan@bubbleworks.co.za';
   var passwordToSignIn = 'admin';
 
-  var emailToReg = 'jane@gmail.com';
+  var emailToReg = 'james@gmail.com';
   var passwordToReg = 'admin';
 
   // elements
@@ -24,14 +24,14 @@ describe('Auto Family Admin User Sign In', function() {
   var principalEmail = element(by.binding('principal.email'));
 
   beforeEach(function() {
-    browser.get('http://10.0.0.12:3000/admin');
+    browser.get('http://197.85.186.242:3005/admin');
   });
 
   it('should have a title', function() {
     expect(browser.getTitle()).toEqual('Auto Family Admin');
   });
 
-  it('should sign in admin user', function() {
+  it('should sign in admin user and add a user', function() {
     // click drop button
     signInNavBtn.click();
 
@@ -60,7 +60,7 @@ describe('Auto Family Admin User Sign In', function() {
 
     email.sendKeys(emailToReg);
     password.sendKeys(passwordToReg);
-    element(by.cssContainingText('option', 'User')).click();
+    element(by.cssContainingText('option', 'Staff')).click();
 
     submitBtn.click();
 

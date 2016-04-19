@@ -20,12 +20,6 @@ angular.module('familyCarsApp')
 
     $scope.style = $scope.data.style;
 
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
     $scope.updateSettings = function() {
     	$rootScope.isStyle = $scope.style;
     }

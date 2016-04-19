@@ -1,7 +1,7 @@
-describe('Auto Family Admin User Sign In', function() {
+describe('Auto Family Staff User Sign In', function() {
 
   // local variables
-  var emailToSignIn = 'jonathan@bubbleworks.co.za';
+  var emailToSignIn = 'jon@gmail.com';
   var passwordToSignIn = 'admin';
 
   // sign in form models
@@ -11,13 +11,14 @@ describe('Auto Family Admin User Sign In', function() {
   var principalEmail = element(by.binding('principal.email'));
   
   // view elements
-  var navBrand = element(by.id('nav-brand'));
+  var navBrand = element(by.id('nav-brand-cms'));
 
   // buttons  
   var loginButton = element(by.id('loginButton'));
   var dropDownBtn = element(by.id('signin-dropdown'));
 
   it('should have a title', function() {
+    //browser.get('http://197.85.186.242:3005/admin');
     browser.get('http://10.0.0.12:3000/admin');
     expect(browser.getTitle()).toEqual('Auto Family Admin');
   });
@@ -32,7 +33,7 @@ describe('Auto Family Admin User Sign In', function() {
     loginButton.click();
     // confirm site location
     expect(browser.getTitle()).toEqual('Auto Family Admin');
-    expect(navBrand.getText()).toEqual('Auto Family IMS');
+    expect(navBrand.getText()).toEqual('Auto Family CMS');
     // compare emails
     expect(principalEmail.getText()).toEqual(emailToSignIn);
   });

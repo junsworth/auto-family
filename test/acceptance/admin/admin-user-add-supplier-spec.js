@@ -1,33 +1,20 @@
-describe('Auto Family Admin User Sign In', function() {
+describe('Auto Family Admin Add Supplier', function() {
 
-  var emailToSignIn = 'jonathan@bubbleworks.co.za';
-  var passwordToSignIn = 'admin';
-
-  var nameToReg = 'Euro Car';
-  var addressToReg = '235 Marine Drive';
-  var addressTwoToReg = 'Summerstrand, 6001';
+  // local variables
+  var nameToReg = 'London City Car Rentals - Airport Port Elizabeth';
+  var addressToReg = '235 Walmer Drive';
+  var addressTwoToReg = 'Walmer, 6001';
   var cityToReg = 'Port Elizabeth';
   var phoneToReg = '041 345 6788';
-  var emailToReg = 'jonn@supplier.com';
+  var emailToReg = 'jonn@eurocar.com';
 
-  // elements
-  var navBrand = element(by.id('nav-brand'));
-
+  // view elements
+  // buttons
   var navBtn = element(by.id('Suppliers'));
   var addBtn = element(by.id('addBtn'));
-  
-  var loginBtn = element(by.id('loginButton'));
-  var signInNavBtn = element(by.id('signin-dropdown'));
-
   var submitBtn = element(by.id('submitBtn'));
 
-  var principalEmail = element(by.binding('principal.email'));
-
-  // sign in form models
-  var email = element(by.model('email'));
-  var password = element(by.model('password'));
-
-  // register supplier form models
+  // supplier register form models
   var name = element(by.model('name'));
   var address = element(by.model('address'));
   var addresstwo = element(by.model('addresstwo'));
@@ -35,54 +22,33 @@ describe('Auto Family Admin User Sign In', function() {
   var email_for_form = element(by.model('email'));
   var phone = element(by.model('phone'));
 
-  beforeEach(function() {
-    browser.get('http://10.0.0.12:3000/admin');
-  });
-
-  it('should have a title', function() {
-    expect(browser.getTitle()).toEqual('Auto Family Admin');
-  });
-
-  it('should sign in admin user', function() {
-    // click drop button
-    signInNavBtn.click();
-
-    email.sendKeys(emailToSignIn);
+  it('should add supplier', function() {
     
-    password.sendKeys(passwordToSignIn);
-
-    loginBtn.click();
-
-    expect(browser.getTitle()).toEqual('Auto Family Admin');
-    expect(navBrand.getText()).toEqual('Auto Family IMS');
-
-    expect(principalEmail.getText()).toEqual(emailToSignIn);
-    
+    // click suppliers nav button
     navBtn.click();
-
+    // get current url and confirm it's the expected url
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/suppliers');
       });
-
+    // click add supplier button
     addBtn.click();
-
+    // get current url and confirm it's the expected url
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/addsupplier');
       });
-
+    // send values to form model elements
     name.sendKeys(nameToReg);
     address.sendKeys(addressToReg);
     addresstwo.sendKeys(addressTwoToReg);
     city.sendKeys(cityToReg);
     email_for_form.sendKeys(emailToReg);
     phone.sendKeys(phoneToReg);
-
+    // click submit form
     submitBtn.click();
-
+    // get current url and confirm it's the expected url
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/suppliers');
       });
 
   });
-
 });

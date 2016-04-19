@@ -52,6 +52,7 @@ angular.module('familyCarsApp')
         $location.path('/users');
       } else {
         $rootScope.principal = principal;
+        $rootScope.principal.data = angular.fromJson($rootScope.principal.data);
         $location.path('/');
       }
     });
