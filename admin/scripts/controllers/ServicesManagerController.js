@@ -10,7 +10,7 @@
 angular.module('familyCarsApp')
   .controller('ServicesManagerCtrl', function ($scope, $rootScope, $location, request, $routeParams, $timeout, Upload, ServicesService, cfg) {
     
-    
+    $scope.max = 100;
     getServices();
 
     if($routeParams.id) {
@@ -126,6 +126,9 @@ angular.module('familyCarsApp')
                         
                 file.progress = Math.min(100, parseInt(100.0 * 
                                          evt.loaded / evt.total));
+                
+                $scope.progressValue = Math.min(100, parseInt(100.0 * 
+                                                             evt.loaded / evt.total));
 
             }).success(function (data, status, headers, config) {
 

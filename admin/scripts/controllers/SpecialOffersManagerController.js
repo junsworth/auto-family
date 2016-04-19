@@ -10,6 +10,7 @@
 angular.module('familyCarsApp')
   .controller('SpecialOffersCtrl', function ($scope, $rootScope, $location, request, $routeParams, $timeout, Upload, OffersService, cfg) {
 
+    $scope.max = 100;
   	$scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
     $scope.altInputFormats = ['M!/d!/yyyy'];
@@ -158,6 +159,9 @@ angular.module('familyCarsApp')
                         
                 file.progress = Math.min(100, parseInt(100.0 * 
                                          evt.loaded / evt.total));
+                
+                $scope.progressValue = Math.min(100, parseInt(100.0 * 
+                                                             evt.loaded / evt.total));
 
             }).success(function (data, status, headers, config) {
 
