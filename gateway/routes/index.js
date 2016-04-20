@@ -107,7 +107,7 @@ router.post('/images/upload', multipartMiddleware, function(req, resp) {
   console.log(req.body, req.files);
   
   var file = req.files.file;
-  var newFilePath = "/home/bugzilla/Documents/Development/auto-family/images/" + file.name;
+  var newFilePath = "/home/bugzilla/Documents/Development/workspace/auto-family/images/" + file.name;
 
   console.log('----------------------------------');
   console.log('filePath' + file.path);

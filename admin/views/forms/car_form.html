@@ -175,6 +175,52 @@
 		<!-- Edit Photo Gallery -->
 		<div ng-show="isEditGallery">
 
+			<div class="row">
+				<div class="col-md-6">
+
+					<div class="row">
+
+						<div class="col-md-4">
+							<button 
+							id="uploadBtn"
+							class="btn btn-success pull-left"
+							type="file" 
+							ngf-select="uploadFiles($file, $invalidFiles)"
+						    accept="image/*" 
+						    ngf-max-height="1000" 
+						    ngf-max-size="1MB">
+		                  	<span class="glyphicon glyphicon-upload"></span> Upload image
+		                  	</button>                  	
+						</div>
+
+						<div class="col-md-8">
+							<!-- File: --> {{errFile.$error}} {{errFile.$errorParam}}<!-- {{errorMsg}} -->
+						  <div style="font:smaller"><!-- {{f.name}} --> {{errFile.name}} <!-- {{errFile.$error}} {{errFile.$errorParam}} -->
+						      <!-- <span class="progress" ng-show="f.progress >= 0">
+						          <div style="width:{{f.progress}}%"  
+						               ng-bind="f.progress + '%'"></div>
+						      </span> -->
+						  </div>     
+						  
+						</div>
+
+					</div>	
+					
+				</div>
+
+			</div>
+
+			<div class="row" align="center" style="margin-top: 6px;">
+			    <div class="col-md-6">
+			      <div style="font:smaller"><!-- {{f.name}} {{f.$error}} {{f.$errorParam}} -->
+			          <div ng-show="progressValue > 0">
+			              <uib-progressbar max="max" value="progressValue"><span style="color:white; white-space:nowrap;">{{progressValue}} / {{max}}</span></uib-progressbar>
+			          </div>
+			      </div>     
+			      {{errorMsg}}
+			    </div>
+			</div>
+
 			<div class="row" style="height: 305px">
 
 			<div class="col-md-6">
@@ -192,8 +238,9 @@
             </div>
 			  
 			</div>
+			<!-- {{slides | json}} -->
 
-			<div class="row">
+			<!-- <div class="row">
 
 				<div class="col-md-6">
 
@@ -213,7 +260,7 @@
 					
 				</div>
 				
-			</div>
+			</div> -->
 			
 		</div>
 

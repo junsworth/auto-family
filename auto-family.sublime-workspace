@@ -308,10 +308,18 @@
 	"buffers":
 	[
 		{
-			"file": "test/acceptance/admin/staff-user-add-article-spec.js",
+			"file": "test/acceptance/admin/admin-user-add-user-spec.js",
 			"settings":
 			{
-				"buffer_size": 2256,
+				"buffer_size": 1381,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/acceptance/admin/admin.karma.conf.js",
+			"settings":
+			{
+				"buffer_size": 385,
 				"line_ending": "Unix"
 			}
 		}
@@ -348,14 +356,20 @@
 	},
 	"expanded_folders":
 	[
-		"/home/bugzilla/Documents/Development/auto-family",
-		"/home/bugzilla/Documents/Development/auto-family/scripts",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin"
+		"/home/bugzilla/Documents/Development/workspace/auto-family",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin"
 	],
 	"file_history":
 	[
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/CarManagerController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/staff-user-add-car-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/gateway/routes/index.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/app.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/.gitignore",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/.gitingnore",
 		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/admin-user-navigate-spec.js",
 		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/staff-user-navigate-spec.js",
 		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/admin-user-add-event-spec.js",
@@ -477,13 +491,7 @@
 		"/home/bugzilla/Documents/Development/auto-family/test/index.html",
 		"/home/bugzilla/Documents/Development/auto-family/jasmine/index.html",
 		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers/main.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/spec/controllers/about.js",
-		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers/about.js",
-		"/home/bugzilla/Documents/Development/auto-family/app/scripts/apptest.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/spec-admin/controllers/main.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/about.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/admin.js",
-		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/ConfirmSaleDialogController.js"
+		"/home/bugzilla/Documents/Development/auto-family/test/spec/controllers/about.js"
 	],
 	"find":
 	{
@@ -532,24 +540,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "test/acceptance/admin/staff-user-add-article-spec.js",
-					"semi_transient": true,
+					"file": "test/acceptance/admin/admin-user-add-user-spec.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2256,
+						"buffer_size": 1381,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								166,
+								166
 							]
 						],
 						"settings":
@@ -558,8 +566,36 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 972.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "test/acceptance/admin/admin.karma.conf.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 385,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								385,
+								385
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -645,7 +681,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 311.0,
+	"side_bar_width": 273.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

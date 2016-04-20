@@ -2,15 +2,16 @@
 
 /**
  * @ngdoc function
- * @name familyCarsApp.controller:AboutCtrl
+ * @name familyCarsApp.controller:CarManagerCtrl
  * @description
- * # AboutCtrl
+ * # CarManagerCtrl
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
   .controller('CarManagerCtrl', function ($scope, $rootScope, request, $location, filterFilter,
    $timeout, Upload, cfg, $routeParams, CarService, CustomerService, SupplierService, $uibModal, $log) {
     
+    $scope.max = 100;
     $scope.alerts = [];
 
     // carasoul settings
@@ -53,8 +54,9 @@ angular.module('familyCarsApp')
             $scope.saleDate = car[0].Car.saleDate;
             
             if(car[0].Car.images.length > 0) {
-              $scope.slides = JSON.parse(car[0].Car.images);  
-            }            
+              $scope.slides = JSON.parse(car[0].Car.images); 
+              currIndex = $scope.slides.length; 
+            }    
 
             makes();
             models();
@@ -110,17 +112,13 @@ angular.module('familyCarsApp')
     $scope.format = $scope.formats[0];
     $scope.altInputFormats = ['M!/d!/yyyy'];
 
-
     $scope.$watch("dt2", function(newValue, oldValue) {
-        console.log("I've changed : ");
         $scope.isChanged = true;
     });
 
     $scope.displayText = function(str) {
         var mystring = String(str);
-
         var length_half = mystring.length / 2;
-
         return mystring.slice(0, length_half) + '...';
     }
     
@@ -214,8 +212,7 @@ angular.module('familyCarsApp')
     };
 
     $scope.addSlide = function(url) {
-      var newWidth = 600 + slides.length + 1;
-      slides.push({
+      $scope.slides.push({
         image: url,
         id: currIndex++
       });
@@ -224,6 +221,7 @@ angular.module('familyCarsApp')
     $scope.uploadFiles = function(file, errFiles) {
         $scope.f = file;
         $scope.errFile = errFiles && errFiles[0];
+        $scope.progressValue = 0;
         if (file) {
 
             var strFileName = file.name;
@@ -232,18 +230,6 @@ angular.module('familyCarsApp')
                 url: cfg.baseUrl + cfg.imageUploadUrl,
                 data: {file: file}
             });
-
-            // file.upload.then(function (response) {
-            //     $timeout(function () {
-            //         file.result = response.data;
-            //     });
-            // }, function (response) {
-            //     if (response.status > 0)
-            //         $scope.errorMsg = response.status + ': ' + response.data;
-            // }, function (evt) {
-            //     file.progress = Math.min(100, parseInt(100.0 * 
-            //                              evt.loaded / evt.total));
-            // });
 
             file.upload.then(function (response) {
                 $timeout(function () {
@@ -259,12 +245,14 @@ angular.module('familyCarsApp')
                 file.progress = Math.min(100, parseInt(100.0 * 
                                          evt.loaded / evt.total));
 
+                $scope.progressValue = Math.min(100, parseInt(100.0 * 
+                                                             evt.loaded / evt.total));
+
             }).success(function (data, status, headers, config) {
 
               var imageUrl = cfg.baseUrl + cfg.imageUrl + strFileName; 
 
               $scope.addSlide(imageUrl);
-              console.log('Images - ' + JSON.stringify($scope.slides));
                     
             });
         }   
@@ -296,23 +284,10 @@ angular.module('familyCarsApp')
       var saveObj = {};
       saveObj.id = $scope.id;
       saveObj.header = $scope.header;
-      // saveObj.subHeader = $scope.subHeader;
-      // saveObj.description = $scope.description;
-      // saveObj.mileage = $scope.mileage;
-      // saveObj.year = $scope.year;
-      // saveObj.purchasePrice = $scope.purchasePrice;
-      // saveObj.salePrice = $scope.salePrice;
-      // saveObj.insertDate = $scope.dt1;
       
-      // saveObj.images = JSON.stringify($scope.slides);
-      // saveObj.ModelId = $scope.modelSelect.id;
-      
-      // saveObj.SupplierId = $scope.supplierSelect.id;
-
       saveObj.saleDate = $scope.dt2;
       saveObj.CustomerId = $scope.customerSelect.id;
       saveObj.UserId = $rootScope.principal.id;
-
 
       var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
@@ -335,31 +310,8 @@ angular.module('familyCarsApp')
       }, function () {
         $log.info('Modal dismissed at: ' + new Date());
       });
+
     };
-
-    // $scope.sell = function() {
-
-    //   var saveObj = {};
-    //   saveObj.id = $scope.id;
-    //   saveObj.header = $scope.header;
-    //   saveObj.subHeader = $scope.subHeader;
-    //   saveObj.description = $scope.description;
-    //   saveObj.mileage = $scope.mileage;
-    //   saveObj.year = $scope.year;
-    //   saveObj.purchasePrice = $scope.purchasePrice;
-    //   saveObj.salePrice = $scope.salePrice;
-    //   saveObj.insertDate = $scope.dt1;
-    //   saveObj.saleDate = $scope.dt2;
-    //   saveObj.images = JSON.stringify($scope.slides);
-    //   saveObj.ModelId = $scope.modelSelect.id;
-    //   saveObj.CustomerId = $scope.customerSelect.id;
-    //   saveObj.SupplierId = $scope.supplierSelect.id;
-
-    //   CarService.update(saveObj).then(function(car) {
-    //     addAlert('success', 'Success! CAR SOLD!' + $scope.customerSelect + ' -- ' + $scope.dt2);
-    //   });
-
-    // };
 
     $scope.add = function() {
 
@@ -381,7 +333,6 @@ angular.module('familyCarsApp')
     };
 
     $scope.getCarPhotos = function(str) {
-      console.log('----- ' + str + '------');
       return JSON.parse(str);
     };
 
@@ -395,16 +346,15 @@ angular.module('familyCarsApp')
         
         tmp.push(array[i]);
 
-        //console.log('Push id - ' + array[i].id);
         if( i!= 0 && ((i+1)%4 == 0)) {
           tmp2.push(tmp);
-          //console.log('Push array length -' + tmp.length);
           tmp = [];
         }
 
       }
 
       return tmp2;
+      
     }
 
     $scope.isCorrectIndex = function(index) {
