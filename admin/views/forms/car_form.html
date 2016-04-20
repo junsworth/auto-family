@@ -194,8 +194,8 @@
 						</div>
 
 						<div class="col-md-8">
-							File: {{errFile.$error}} {{errFile.$errorParam}}<!-- {{errorMsg}} -->
-						  <div style="font:smaller">{{f.name}} {{errFile.name}} <!-- {{errFile.$error}} {{errFile.$errorParam}} -->
+							<!-- File: --> {{errFile.$error}} {{errFile.$errorParam}}<!-- {{errorMsg}} -->
+						  <div style="font:smaller"><!-- {{f.name}} --> {{errFile.name}} <!-- {{errFile.$error}} {{errFile.$errorParam}} -->
 						      <!-- <span class="progress" ng-show="f.progress >= 0">
 						          <div style="width:{{f.progress}}%"  
 						               ng-bind="f.progress + '%'"></div>
@@ -238,6 +238,7 @@
             </div>
 			  
 			</div>
+			<!-- {{slides | json}} -->
 
 			<!-- <div class="row">
 
