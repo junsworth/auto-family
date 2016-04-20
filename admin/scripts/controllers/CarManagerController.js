@@ -54,8 +54,9 @@ angular.module('familyCarsApp')
             $scope.saleDate = car[0].Car.saleDate;
             
             if(car[0].Car.images.length > 0) {
-              $scope.slides = JSON.parse(car[0].Car.images);  
-            }            
+              $scope.slides = JSON.parse(car[0].Car.images); 
+              currIndex = $scope.slides.length; 
+            }    
 
             makes();
             models();
@@ -211,8 +212,7 @@ angular.module('familyCarsApp')
     };
 
     $scope.addSlide = function(url) {
-      var newWidth = 600 + slides.length + 1;
-      slides.push({
+      $scope.slides.push({
         image: url,
         id: currIndex++
       });
