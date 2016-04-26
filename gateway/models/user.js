@@ -1,5 +1,5 @@
 /**
- * Created by jonathanunsworth on 15/01/14.
+ * Created by jonathanunsworth
  */
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {

@@ -75,3 +75,31 @@
   </div>
   
 </div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="page-header">News</h4>
+  </div>
+</div>
+<div class="jumbotron">
+<!-- {{news|json}} -->
+  <div class="row">
+    <div ng-if="$index < 3" class="col-md-4" style="background-color: lightgrey; margin-left: 5px;" ng-repeat="article in news track by ::article.id">
+
+      <div class="row">
+
+        <div class="col-md-2">
+          <img ng-src="{{article.images}}" ng-if="article.images" width="90%" height="90%">
+        </div>
+
+        <div class="col-md-4">
+          <h5 class="page-header">{{article.title}}</h5>  
+          <span class="text-muted">{{article.header}}</span>
+        </div>
+        
+      </div>          
+          
+    </div>
+  </div>
+</div>

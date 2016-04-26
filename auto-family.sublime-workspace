@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"get",
+				"getNews"
+			],
+			[
+				"toBe",
+				"toBeDefined"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
 				"tes",
 				"testdrive"
 			],
@@ -42,10 +62,6 @@
 			[
 				"aCa",
 				"aCarList"
-			],
-			[
-				"get",
-				"getTestDrives"
 			],
 			[
 				"sal",
@@ -90,10 +106,6 @@
 			[
 				"s",
 				"suppliers"
-			],
-			[
-				"ma",
-				"maxPrice"
 			],
 			[
 				"Repo",
@@ -308,18 +320,18 @@
 	"buffers":
 	[
 		{
-			"file": "test/acceptance/admin/admin-user-add-user-spec.js",
+			"file": "test/spec-admin/controllers/report.js",
 			"settings":
 			{
-				"buffer_size": 1381,
+				"buffer_size": 6517,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "test/acceptance/admin/admin.karma.conf.js",
+			"file": "admin/scripts/controllers/ReportsController.js",
 			"settings":
 			{
-				"buffer_size": 385,
+				"buffer_size": 4549,
 				"line_ending": "Unix"
 			}
 		}
@@ -357,16 +369,53 @@
 	"expanded_folders":
 	[
 		"/home/bugzilla/Documents/Development/workspace/auto-family",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/test",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin"
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin/controllers"
 	],
 	"file_history":
 	[
-		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/CarManagerController.js",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/staff-user-add-car-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/admin.conf.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/karma.conf.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/models/Car.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/gateway/models/user.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin-user-navigate-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/views/forms/user_form.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/controllers/UserController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/services/suppliers.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/controllers/main.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/views/contact.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/form-test-drive.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/form-offer.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/app/views/main.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/app/index.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/controllers/LoginController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/controllers/AppController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/reports.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/ReportsController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin/services/user-service-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin/controllers/report.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/factory/interceptor.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/gateway/routes/index.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/services/users.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin/services/report-service-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/Constants.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/car_form.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/CarManagerController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/ServicesManagerController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/SpecialOffersManagerController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/EventsManagerController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/customer_form.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/form-event.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/supplier_form.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/form-service.html",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin.karma.conf.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin-user-add-user-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/staff-user-add-car-spec.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/app.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/.gitignore",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/.gitingnore",
@@ -457,41 +506,7 @@
 		"/home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/supplier-service-spec.js",
 		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/form-event.html",
 		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/form-service.html",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/models/User.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/auth-service-spec.js",
-		"/home/bugzilla/Documents/Development/auto-family/gateway/models/car.js",
-		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/SpecialOffersManagerController.js",
-		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/form-offer.html",
-		"/home/bugzilla/Documents/Development/auto-family/test/karma.conf.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/models/Customer.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/services/customers.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/services/request.js",
-		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/users.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/customer-service-spec.js",
-		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/customers.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/mock/user-service.mock.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/add-car-karma.conf.js",
-		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/car_form.html",
-		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers/CarDetailController.js",
-		"/home/bugzilla/Documents/Development/auto-family/views/car-detail.html",
-		"/home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/car-service-spec.js",
-		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/suppliers.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/services/services.js",
-		"/home/bugzilla/Documents/Development/auto-family/admin/scripts/controllers/EventsManagerController.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/models/Supplier.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/app/user-sign-in-spec.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/auto-family-admin-conf.js",
-		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/supplier_form.html",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/app/user-navigation-spec.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/app/karma.conf.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/app/user-registration-spec.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/sign-in-spec.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/mock/User.js",
-		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers/EventsController.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/index.html",
-		"/home/bugzilla/Documents/Development/auto-family/jasmine/index.html",
-		"/home/bugzilla/Documents/Development/auto-family/app/scripts/controllers/main.js",
-		"/home/bugzilla/Documents/Development/auto-family/test/spec/controllers/about.js"
+		"/home/bugzilla/Documents/Development/auto-family/scripts/models/User.js"
 	],
 	"find":
 	{
@@ -499,7 +514,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 		]
@@ -509,6 +524,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"currIndex",
+			"$scope.slides",
 			"reportType",
 			"unHashedPassword",
 			"userForm",
@@ -545,19 +562,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "test/acceptance/admin/admin-user-add-user-spec.js",
+					"file": "test/spec-admin/controllers/report.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1381,
+						"buffer_size": 6517,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								166,
-								166
+								709,
+								709
 							]
 						],
 						"settings":
@@ -567,7 +584,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -575,27 +592,29 @@
 				},
 				{
 					"buffer": 1,
-					"file": "test/acceptance/admin/admin.karma.conf.js",
+					"file": "admin/scripts/controllers/ReportsController.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 385,
+						"buffer_size": 4549,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								385,
-								385
+								788,
+								788
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -681,7 +700,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 273.0,
+	"side_bar_width": 214.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

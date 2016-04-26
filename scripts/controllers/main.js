@@ -8,7 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('MainCtrl', function ($scope, request, filterFilter, $location, $rootScope) {
+  .controller('MainCtrl', function ($scope, request, filterFilter, $location, $rootScope, NewsService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -28,6 +28,7 @@ angular.module('familyCarsApp')
 
   	makes();
   	models();
+    getNews();
 
     function makes() {
       request.get('/cars/makes').then(function(makes) {
@@ -49,5 +50,11 @@ angular.module('familyCarsApp')
       //$location.path('/cars/search').search({modelId: $scope.modelSelect.id, maxPrice:$scope.maxPrice, minPrice: $scope.minPrice});
       $location.path('/cars/search').search({id: $scope.modelSelect.id});
     }
+
+    function getNews() {
+      NewsService.articles().then(function(news) {
+        $scope.news = news;
+      });
+    };
 
   });

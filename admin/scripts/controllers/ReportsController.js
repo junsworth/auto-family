@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name familyCarsApp.controller:AboutCtrl
+ * @name familyCarsApp.controller:ReportsCtrl
  * @description
- * # AboutCtrl
+ * # ReportsCtrl
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
@@ -171,7 +171,7 @@ angular.module('familyCarsApp')
         return UtilityService.formatDate(date);
     }
 
-    getTestDrives();
-    $scope.getCars();
-    $scope.getUsers();
+    //getTestDrives();
+    //$scope.getCars();
+    //$scope.getUsers();
   });

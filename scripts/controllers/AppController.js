@@ -9,12 +9,6 @@
  */
 angular.module('familyCarsApp')
   .controller('AppCtrl', function ($scope, $rootScope, $location, request, UserType) {
-    
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
     setMenu();
     $scope.UserType = UserType;
