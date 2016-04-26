@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name familyCarsApp.controller:AboutCtrl
+ * @name familyCarsApp.controller:ReportsCtrl
  * @description
- * # AboutCtrl
+ * # ReportsCtrl
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')

@@ -14,6 +14,8 @@ describe('Auto Family Admin Site Navigation', function() {
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/suppliers');
       });
+    
+    expect(browser.getTitle()).toEqual('Suppliers');
     // click customers nav button
     customersButton.click();
     // get current url and confirm it's the expected url

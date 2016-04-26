@@ -1,7 +1,7 @@
 describe('Auto Family Admin Add Supplier', function() {
 
   // local variables
-  var nameToReg = 'London City Car Rentals - Airport Port Elizabeth';
+  var nameToReg = 'Greece City Car Rentals - Airport Port Elizabeth';
   var addressToReg = '235 Walmer Drive';
   var addressTwoToReg = 'Walmer, 6001';
   var cityToReg = 'Port Elizabeth';

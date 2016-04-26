@@ -1,10 +1,7 @@
 'use strict';
-
 angular.module('familyCarsApp').
 factory('SupplierService', function(request){
-
 	var service = {
-
 		create: function(name, address, addresstwo, city, email, phone){
 			var promise = request.post('/suppliers/add', {
 				name: name,
@@ -44,9 +41,6 @@ factory('SupplierService', function(request){
 		    });
 		    return promise;
 		}
-
 	};
-
 	return service;
-
 });

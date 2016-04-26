@@ -73,8 +73,9 @@ describe('Controller: ReportsCtrl', function () {
 
     $httpBackend.flush();
 
+    expect($scope.cars).toBeDefined();
     expect($scope.cars).toEqual(aCarList);
-    expect($scope.cars.length).toBe(5);
+    expect($scope.cars.length).toBe(aCarList.length);
 
   });
 
