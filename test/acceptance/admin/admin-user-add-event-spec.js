@@ -3,7 +3,7 @@ var path = require('path');
 describe('Auto Family Add Event', function() {
 
   // local variables
-  var titleToReg = 'New Citreon C3';
+  var titleToReg = 'New BM3 Z3';
   var headerToReg = 'Citreon C3 2017';
   var descriptionToReg = 'Latest C3 2017 coming in early this and drives well.';
 

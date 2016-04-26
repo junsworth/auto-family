@@ -2,7 +2,7 @@ var path = require('path');
 
 describe('Auto Family staff user add a car', function(){
 
-	var emailToSignIn = 'jono@gmail.com';
+	var emailToSignIn = 'jon@gmail.com';
   	var passwordToSignIn = 'admin';
 
   	// sign in form models
@@ -26,7 +26,7 @@ describe('Auto Family staff user add a car', function(){
   	var uploadImageBtn = element(by.id('uploadBtn'));
 
 	beforeEach(function() {
-		browser.get('http://10.0.0.12:3000/admin');
+		browser.get('http://10.0.0.9:3000/admin');
 	});
 
 	it('should add a car', function(){
@@ -127,7 +127,7 @@ describe('Auto Family staff user add a car', function(){
 		element(by.model('year')).sendKeys('2013');
 		element(by.model('purchasePrice')).sendKeys('13500');
 		element(by.model('salePrice')).sendKeys('15560');
-		supplierSelect.$('[label="Hertz Rentals"]').click();
+		supplierSelect.$('[label="Hennie Motors"]').click();
 
 		submitBtn.click();
 

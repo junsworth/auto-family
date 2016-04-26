@@ -3,9 +3,9 @@ var path = require('path');
 describe('Auto Family Add Service', function() {
 
   // local variables
-  var titleToReg = 'Finance 10% - May 2016';
-  var headerToReg = 'Finance offered at 10% less during May.';
-  var descriptionToReg = 'Finance offered at 10% less during May.';
+  var titleToReg = 'Finance 25% - June 2016';
+  var headerToReg = 'Finance offered at 25% less during May.';
+  var descriptionToReg = 'Finance offered at 27% less during May.';
 
   // view elements
   var navBtn = element(by.id('Services'));

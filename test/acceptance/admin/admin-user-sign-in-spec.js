@@ -18,7 +18,7 @@ describe('Auto Family Admin User Sign In', function() {
   var dropDownBtn = element(by.id('signin-dropdown'));
 
   it('should have a title', function() {
-    browser.get('http://10.0.0.12:3000/admin');
+    browser.get('http://10.0.0.9:3000/admin');
     expect(browser.getTitle()).toEqual('Auto Family Admin');
   });
 
