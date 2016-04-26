@@ -171,7 +171,7 @@ angular.module('familyCarsApp')
         return UtilityService.formatDate(date);
     }
 
-    //getTestDrives();
-    //$scope.getCars();
-    //$scope.getUsers();
+    getTestDrives();
+    $scope.getCars();
+    $scope.getUsers();
   });
