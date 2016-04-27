@@ -6,7 +6,7 @@ describe('Controller: ReportsCtrl', function () {
   var ReportsCtrl;
   var $httpBackend;
   
-  // load the controller's module
+  // load the application's module
   beforeEach(module('familyCarsApp'));
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, _$httpBackend_) {
@@ -165,37 +165,6 @@ describe('Controller: ReportsCtrl', function () {
 
     expect($scope.subTotal).toEqual(total);
     expect($scope.vat).toEqual(vat);
-
-  });
-
-  it('should list sales agents', function() {
-
-
-    // var aUserList = [];
-
-    // aUserList.push(new User(1, 'jono@gmail.com', 'password', 1));
-    // aUserList.push(new User(2, 'jon@gmail.com', 'password', 2));
-    // aUserList.push(new User(3, 'jane@gmail.com', 'password', 3));
-    // aUserList.push(new User(4, 'jono@gmail.com', 'password', 2));
-    // aUserList.push(new User(5, 'jono@gmail.com', 'password', 3));
-    // aUserList.push(new User(6, 'jonny@gmail.com', 'password', 2));
-
-    // var total = '56789';
-    // var vat = Math.round((total * $scope.vatP) * 100) / 100;;
-    // var commission = Math.round((total * $scope.commP) * 100) / 100;
-    
-    // $httpBackend.expectGET('/auth/users').respond(aUserList);
-
-    // $scope.getUsers();
-
-    // $httpBackend.flush();
-
-    // expect($scope.users).toEqual(aUserList);
-    // expect($scope.agents).toBeDefined();
-
-    // expect($scope.users.length >= $scope.agents.length).toBeTruthy();
-    // expect($scope.agents.length).toBeLessThan($scope.users.length);
-    // expect($scope.agents.length).toBe(3);
 
   });
 

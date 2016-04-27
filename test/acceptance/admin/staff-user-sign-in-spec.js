@@ -1,7 +1,7 @@
 describe('Auto Family Staff User Sign In', function() {
 
   // local variables
-  var emailToSignIn = 'jon@gmail.com';
+  var emailToSignIn = 'jono@gmail.com';
   var passwordToSignIn = 'admin';
 
   // sign in form models
@@ -19,7 +19,7 @@ describe('Auto Family Staff User Sign In', function() {
 
   it('should have a title', function() {
     //browser.get('http://197.85.186.242:3005/admin');
-    browser.get('http://10.0.0.9:3000/admin');
+    browser.get('http://10.0.0.7:3000/admin');
     expect(browser.getTitle()).toEqual('Auto Family Admin');
   });
 

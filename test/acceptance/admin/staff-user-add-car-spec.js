@@ -18,39 +18,39 @@ describe('Auto Family Add Car', function(){
 
 	it('should add a car', function(){
 
-		var fileToUploadOne = '../../../stock/audia3/grey/audi_grey.jpeg',
-		absolutePathOne = path.resolve(__dirname, fileToUploadOne);
-		var fileToUploadTwo = '../../../stock/audia3/grey/audi_grey2.jpeg',
-		absolutePathTwo = path.resolve(__dirname, fileToUploadTwo);
-		var fileToUploadThree = '../../../stock/audia3/grey/audi_grey3.jpeg',
-		absolutePathThree = path.resolve(__dirname, fileToUploadThree);
-		var fileToUploadFour = '../../../stock/audia3/grey/audi_grey4.jpeg',
-		absolutePathFour = path.resolve(__dirname, fileToUploadFour);
-		var fileToUploadFive = '../../../stock/audia3/grey/audi_grey5.jpeg',
-		absolutePathFive = path.resolve(__dirname, fileToUploadFive);
-		var fileToUploadSix = '../../../stock/audia3/grey/audi_grey6.jpeg',
-		absolutePathSix = path.resolve(__dirname, fileToUploadSix);
-		var fileToUploadSeven = '../../../stock/audia3/grey/audi_grey7.jpeg',
-		absolutePathSeven = path.resolve(__dirname, fileToUploadSeven);
-		var fileToUploadEight = '../../../stock/audia3/grey/audi_grey8.jpeg',
-		absolutePathEight = path.resolve(__dirname, fileToUploadEight);
-
-		// var fileToUploadOne = '../../../stock/audia3/red/audi_red.jpeg',
+		// var fileToUploadOne = '../../../stock/audia3/grey/audi_grey.jpeg',
 		// absolutePathOne = path.resolve(__dirname, fileToUploadOne);
-		// var fileToUploadTwo = '../../../stock/audia3/red/audi_red2.jpeg',
+		// var fileToUploadTwo = '../../../stock/audia3/grey/audi_grey2.jpeg',
 		// absolutePathTwo = path.resolve(__dirname, fileToUploadTwo);
-		// var fileToUploadThree = '../../../stock/audia3/red/audi_red3.jpeg',
+		// var fileToUploadThree = '../../../stock/audia3/grey/audi_grey3.jpeg',
 		// absolutePathThree = path.resolve(__dirname, fileToUploadThree);
-		// var fileToUploadFour = '../../../stock/audia3/red/audi_red4.jpeg',
+		// var fileToUploadFour = '../../../stock/audia3/grey/audi_grey4.jpeg',
 		// absolutePathFour = path.resolve(__dirname, fileToUploadFour);
-		// var fileToUploadFive = '../../../stock/audia3/red/audi_red5.jpeg',
+		// var fileToUploadFive = '../../../stock/audia3/grey/audi_grey5.jpeg',
 		// absolutePathFive = path.resolve(__dirname, fileToUploadFive);
-		// var fileToUploadSix = '../../../stock/audia3/red/audi_red6.jpeg',
+		// var fileToUploadSix = '../../../stock/audia3/grey/audi_grey6.jpeg',
 		// absolutePathSix = path.resolve(__dirname, fileToUploadSix);
-		// var fileToUploadSeven = '../../../stock/audia3/red/audi_red7.jpeg',
+		// var fileToUploadSeven = '../../../stock/audia3/grey/audi_grey7.jpeg',
 		// absolutePathSeven = path.resolve(__dirname, fileToUploadSeven);
-		// var fileToUploadEight = '../../../stock/audia3/red/audi_red8.jpeg',
+		// var fileToUploadEight = '../../../stock/audia3/grey/audi_grey8.jpeg',
 		// absolutePathEight = path.resolve(__dirname, fileToUploadEight);
+
+		var fileToUploadOne = '../../../stock/audia3/red/audi_red.jpeg',
+		absolutePathOne = path.resolve(__dirname, fileToUploadOne);
+		var fileToUploadTwo = '../../../stock/audia3/red/audi_red2.jpeg',
+		absolutePathTwo = path.resolve(__dirname, fileToUploadTwo);
+		var fileToUploadThree = '../../../stock/audia3/red/audi_red3.jpeg',
+		absolutePathThree = path.resolve(__dirname, fileToUploadThree);
+		var fileToUploadFour = '../../../stock/audia3/red/audi_red4.jpeg',
+		absolutePathFour = path.resolve(__dirname, fileToUploadFour);
+		var fileToUploadFive = '../../../stock/audia3/red/audi_red5.jpeg',
+		absolutePathFive = path.resolve(__dirname, fileToUploadFive);
+		var fileToUploadSix = '../../../stock/audia3/red/audi_red6.jpeg',
+		absolutePathSix = path.resolve(__dirname, fileToUploadSix);
+		var fileToUploadSeven = '../../../stock/audia3/red/audi_red7.jpeg',
+		absolutePathSeven = path.resolve(__dirname, fileToUploadSeven);
+		var fileToUploadEight = '../../../stock/audia3/red/audi_red8.jpeg',
+		absolutePathEight = path.resolve(__dirname, fileToUploadEight);
 
 		
 		// click cars nav button

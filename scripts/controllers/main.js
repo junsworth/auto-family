@@ -8,12 +8,7 @@
  * Controller of the familyCarsApp
  */
 angular.module('familyCarsApp')
-  .controller('MainCtrl', function ($scope, request, filterFilter, $location, $rootScope, NewsService) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, request, filterFilter, $filter, $location, $rootScope, NewsService, UtilityService) {
 
     $scope.makeSelect = -1;
     $scope.modelSelect = -1;
@@ -54,7 +49,20 @@ angular.module('familyCarsApp')
     function getNews() {
       NewsService.articles().then(function(news) {
         $scope.news = news;
+        $scope.news = $filter('orderBy')($scope.news, 'releaseDate', true);
+
+        if($scope.news.length > 0) {
+          $scope.mainArticle = $scope.news[0];  
+        }        
       });
     };
+
+    $scope.formatDateTime = function(date) {
+        return UtilityService.formatDateTime(date);
+    }
+
+    $scope.formatDate = function(date) {
+        return UtilityService.formatDate(date);
+    }
 
   });
