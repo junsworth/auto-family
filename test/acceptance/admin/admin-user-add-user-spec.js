@@ -3,7 +3,7 @@ describe('Auto Family Admin Add User', function() {
   var emailToSignIn = 'jonathan@bubbleworks.co.za';
   var passwordToSignIn = 'admin';
 
-  var emailToReg = 'rene@gmail.com';
+  var emailToReg = 'janice@gmail.com';
   var passwordToReg = 'admin';
 
   
@@ -35,7 +35,7 @@ describe('Auto Family Admin Add User', function() {
     // send values to form model elements
     email.sendKeys(emailToReg);
     password.sendKeys(passwordToReg);
-    element(by.cssContainingText('option', 'Staff')).click();
+    element(by.cssContainingText('option', 'User')).click();
     // click submit form
     submitBtn.click();
     // get current url and confirm it's the expected url

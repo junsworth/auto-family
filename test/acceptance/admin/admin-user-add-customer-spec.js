@@ -1,7 +1,7 @@
 describe('Auto Family Admin User Sign In', function() {
 
   // local variables
-  var nameToReg = 'Graham Mattison';
+  var nameToReg = 'Mary Mattison';
   var addressToReg = '235 Marine Drive';
   var addressTwoToReg = 'Summerstrand, 6001';
   var cityToReg = 'Port Elizabeth';
