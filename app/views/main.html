@@ -79,7 +79,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <h4 class="page-header">Motoring News</h4>
+    <h3 class="page-header">Motoring News</h3>
   </div>
 </div>
 <div class="jumbotron" style="padding: 15px;">
@@ -91,13 +91,14 @@
     <div class="row">
 
       <div class="col-md-6">
-        <img ng-src="{{mainArticle.images}}" ng-if="mainArticle.images" width="120px;" height="90px;">
+        <img class="thumbnail" ng-src="{{mainArticle.images}}" ng-if="mainArticle.images" width="95%" height="95%">
       </div>
 
       <div class="col-md-6">
-        <label>{{mainArticle.title}}</label>  
-        <span class="text-muted">{{mainArticle.header}}</span>
+        <label style="font-size: 18px;">{{mainArticle.title}}</label>  
+        <!-- <label class="text-muted">{{mainArticle.header}}</label> -->
         <p style="font-size: 12px;">{{mainArticle.description}}</p>
+        <label  ng-init="formatted = formatDate(article.releaseDate)">{{formatted}}</label>
       </div>
       
     </div>
@@ -107,16 +108,18 @@
     <div class="col-md-6">
       
       <!-- {{news|json}} -->
-      <div ng-if="$index > 0 && $index < 3" class="row" ng-repeat="article in news track by ::article.id">
+      <div ng-if="$index > 0 && $index <= 3" class="row" ng-repeat="article in news track by ::article.id"
+      style="margin-bottom: 5px;">
 
-        <div class="col-md-6">
-          <img ng-src="{{article.images}}" ng-if="article.images" width="80px;" height="60px;">
+        <div class="col-md-5" align="right">
+          <img class="thumbnail" ng-src="{{article.images}}" ng-if="article.images" width="65%;" height="65 %;">
         </div>
 
-        <div class="col-md-6" style="vertical-align: middle;">
-          <label>{{article.title}}</label>  
-          <span class="text-muted">{{article.header}}</span>
+        <div class="col-md-7" style="vertical-align: middle;">
+          <label style="font-size: 16px;">{{article.title}}</label>  
+          <!-- <label class="text-muted">{{article.header}}</label> -->
           <p style="font-size: 12px;">{{article.description}}</p>
+          <label  ng-init="formatted = formatDate(article.releaseDate)">{{formatted}}</label>
         </div>
 
         <!-- <div  class="col-md-4" style="background-color: lightgrey; margin-left: 5px;">
