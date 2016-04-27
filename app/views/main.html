@@ -79,27 +79,52 @@
 
 <div class="row">
   <div class="col-md-12">
-    <h4 class="page-header">News</h4>
+    <h4 class="page-header">Motoring News</h4>
   </div>
 </div>
-<div class="jumbotron">
-<!-- {{news|json}} -->
+<div class="jumbotron" style="padding: 15px;">
+
   <div class="row">
-    <div ng-if="$index < 3" class="col-md-4" style="background-color: lightgrey; margin-left: 5px;" ng-repeat="article in news track by ::article.id">
+    
+    <div class="col-md-6">
+      
+    <div class="row">
 
-      <div class="row">
+      <div class="col-md-6">
+        <img ng-src="{{mainArticle.images}}" ng-if="mainArticle.images" width="120px;" height="90px;">
+      </div>
 
-        <div class="col-md-2">
-          <img ng-src="{{article.images}}" ng-if="article.images" width="120px;" height="80px;">
-        </div>
-
-        <div class="col-md-4">
-          <h5 class="page-header">{{article.title}}</h5>  
-          <span class="text-muted">{{article.header}}</span>
-        </div>
-        
-      </div>          
-          
+      <div class="col-md-6">
+        <label>{{mainArticle.title}}</label>  
+        <span class="text-muted">{{mainArticle.header}}</span>
+        <p style="font-size: 12px;">{{mainArticle.description}}</p>
+      </div>
+      
     </div>
+
+    </div>
+
+    <div class="col-md-6">
+      
+      <!-- {{news|json}} -->
+      <div ng-if="$index > 0 && $index < 3" class="row" ng-repeat="article in news track by ::article.id">
+
+        <div class="col-md-6">
+          <img ng-src="{{article.images}}" ng-if="article.images" width="80px;" height="60px;">
+        </div>
+
+        <div class="col-md-6" style="vertical-align: middle;">
+          <label>{{article.title}}</label>  
+          <span class="text-muted">{{article.header}}</span>
+          <p style="font-size: 12px;">{{article.description}}</p>
+        </div>
+
+        <!-- <div  class="col-md-4" style="background-color: lightgrey; margin-left: 5px;">
+        </div> -->
+      </div>
+
+    </div>
+
   </div>
+
 </div>

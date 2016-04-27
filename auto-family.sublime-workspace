@@ -8,6 +8,10 @@
 				"margin-left"
 			],
 			[
+				"fon",
+				"font-size"
+			],
+			[
 				"bac",
 				"background-color"
 			],
@@ -320,18 +324,18 @@
 	"buffers":
 	[
 		{
-			"file": "test/spec-admin/controllers/report.js",
+			"file": "app/views/main.html",
 			"settings":
 			{
-				"buffer_size": 6517,
+				"buffer_size": 3309,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "admin/scripts/controllers/ReportsController.js",
+			"file": "styles/main.css",
 			"settings":
 			{
-				"buffer_size": 4549,
+				"buffer_size": 2056,
 				"line_ending": "Unix"
 			}
 		}
@@ -369,16 +373,27 @@
 	"expanded_folders":
 	[
 		"/home/bugzilla/Documents/Development/workspace/auto-family",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/admin",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin/controllers"
+		"/home/bugzilla/Documents/Development/workspace/auto-family/app",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/styles"
 	],
 	"file_history":
 	[
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/ReportsController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/TestDriveController.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/add-car-karma.conf.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/staff-user-add-car-bmw-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin-user-add-user-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin-user-add-supplier-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin-user-add-service-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin-user-sign-in-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin-user-add-event-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin-user-add-customer-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/staff-user-sign-in-spec.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin.karma.conf.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/Constants.js",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/.gitignore",
+		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin/controllers/report.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/test/admin.conf.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/test/karma.conf.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/models/Car.js",
@@ -396,14 +411,11 @@
 		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/controllers/LoginController.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/controllers/AppController.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/reports.html",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/ReportsController.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin/services/user-service-spec.js",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin/controllers/report.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/factory/interceptor.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/gateway/routes/index.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/services/users.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/test/spec-admin/services/report-service-spec.js",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/scripts/Constants.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/car_form.html",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/CarManagerController.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/scripts/controllers/ServicesManagerController.js",
@@ -413,11 +425,8 @@
 		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/form-event.html",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/supplier_form.html",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/admin/views/forms/form-service.html",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin.karma.conf.js",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/admin-user-add-user-spec.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/test/acceptance/admin/staff-user-add-car-spec.js",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/app.js",
-		"/home/bugzilla/Documents/Development/workspace/auto-family/.gitignore",
 		"/home/bugzilla/Documents/Development/workspace/auto-family/.gitingnore",
 		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/admin-user-navigate-spec.js",
 		"/home/bugzilla/Documents/Development/auto-family/test/acceptance/admin/staff-user-navigate-spec.js",
@@ -497,16 +506,7 @@
 		"/home/bugzilla/Documents/Development/auto-family/app/views/events.html",
 		"/home/bugzilla/Documents/Development/auto-family/app/views/news.html",
 		"/home/bugzilla/Documents/Development/auto-family/gateway/routes/auth.js",
-		"/home/bugzilla/Documents/Development/auto-family/views/settings.html",
-		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/customer_form.html",
-		"/home/bugzilla/Documents/Development/auto-family/test/spec-admin/controllers/supplier.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/services/suppliers.js",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/controllers/main.js",
-		"/home/bugzilla/Documents/Development/auto-family/app/views/main.html",
-		"/home/bugzilla/Documents/Development/auto-family/test/spec-admin/services/supplier-service-spec.js",
-		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/form-event.html",
-		"/home/bugzilla/Documents/Development/auto-family/admin/views/forms/form-service.html",
-		"/home/bugzilla/Documents/Development/auto-family/scripts/models/User.js"
+		"/home/bugzilla/Documents/Development/auto-family/views/settings.html"
 	],
 	"find":
 	{
@@ -557,67 +557,67 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "test/spec-admin/controllers/report.js",
+					"file": "app/views/main.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6517,
+						"buffer_size": 3309,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								709,
-								709
+								3270,
+								3270
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 54.0,
+						"translation.y": 1350.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "admin/scripts/controllers/ReportsController.js",
+					"file": "styles/main.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4549,
+						"buffer_size": 2056,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								788,
-								788
+								1294,
+								1294
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 54.0,
+						"translation.y": 1134.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -700,7 +700,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 214.0,
+	"side_bar_width": 183.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

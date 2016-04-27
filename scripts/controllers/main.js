@@ -54,6 +54,9 @@ angular.module('familyCarsApp')
     function getNews() {
       NewsService.articles().then(function(news) {
         $scope.news = news;
+        if($scope.news.length > 0) {
+          $scope.mainArticle = $scope.news[0];  
+        }        
       });
     };
 
