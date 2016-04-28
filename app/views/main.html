@@ -93,12 +93,11 @@
       <div class="col-md-6">
         <img class="thumbnail" ng-src="{{mainArticle.images}}" ng-if="mainArticle.images" width="95%" height="95%">
       </div>
-
       <div class="col-md-6">
         <label style="font-size: 18px;">{{mainArticle.title}}</label>  
         <!-- <label class="text-muted">{{mainArticle.header}}</label> -->
         <p style="font-size: 12px;">{{mainArticle.description}}</p>
-        <label  ng-init="formatted = formatDate(mainArticle.releaseDate)">{{formatted}}</label>
+        <label>{{mainArticle.releaseDate}}</label>
       </div>
       
     </div>
@@ -119,7 +118,7 @@
           <label style="font-size: 16px;">{{article.title}}</label>  
           <!-- <label class="text-muted">{{article.header}}</label> -->
           <p style="font-size: 12px;">{{article.description}}</p>
-          <label  ng-init="formatted = formatDate(article.releaseDate)">{{formatted}}</label>
+          <label ng-init="formatted = formatDate(article.releaseDate)">{{formatted}}</label>
         </div>
 
         <!-- <div  class="col-md-4" style="background-color: lightgrey; margin-left: 5px;">
