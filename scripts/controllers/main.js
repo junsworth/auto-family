@@ -53,6 +53,8 @@ angular.module('familyCarsApp')
 
         if($scope.news.length > 0) {
           $scope.mainArticle = $scope.news[0];  
+          $scope.mainArticle.releaseDate = UtilityService.formatDate($scope.mainArticle.releaseDate);
+          console.log($scope.mainArticle);
         }        
       });
     };
@@ -62,6 +64,7 @@ angular.module('familyCarsApp')
     }
 
     $scope.formatDate = function(date) {
+      console.log('Date - ' + date);
         return UtilityService.formatDate(date);
     }
 
