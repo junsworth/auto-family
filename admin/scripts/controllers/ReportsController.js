@@ -82,8 +82,15 @@ angular.module('familyCarsApp')
     $scope.getSalesForAgent = function(agent) {
         ReportService.getSalesByAgent(agent.id)
         .then(function(total){
-            agent.salesTotal = total;
-            agent.commission = agent.salesTotal * $scope.commP;
+
+            if(total!=-1) {
+                agent.salesTotal = total;
+                agent.commission = agent.salesTotal * $scope.commP;
+            } else {
+                agent.salesTotal = 0;
+                agent.commission = 0;
+            }
+            
         });
     }
 
@@ -131,6 +138,8 @@ angular.module('familyCarsApp')
 
         } else if($scope.reportType.id == 4) {
             
+            $scope.doSalesReport();
+
             $scope.viewby = 4;
 
             $scope.totalItems = $scope.agents.length;

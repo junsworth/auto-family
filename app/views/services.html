@@ -17,7 +17,7 @@
 		<div class="row" ng-repeat="service in services.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::service.id">
 
 			<div class="col-sm-6">
-				<img class="pull-right" ng-src="{{service.images}}" width="40%" height="40%">
+				<img class="thumbnail pull-right" ng-src="{{service.images}}" width="40%" height="40%">
 			</div>
 
 			<div class="col-sm-6">

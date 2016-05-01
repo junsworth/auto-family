@@ -2,7 +2,7 @@
   
   <div class="panel-heading">
     
-    <h4>Auto-Family News</h4>
+    <h4>Motoring News</h4>
 
     <div align="center">
       <input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
@@ -19,7 +19,7 @@
 			<div class="row" ng-repeat="article in news.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::article.id">
 
 				<div class="col-sm-6">
-					<img class="pull-right" ng-src="{{article.images}}" width="40%" height="40%">
+					<img class="thumbnail pull-right" ng-src="{{article.images}}" width="40%" height="40%">
 				</div>
 
 				<div class="col-sm-6">
@@ -48,14 +48,14 @@
   </div>
 
   <div class="panel-footer">
-    <h4>Auto News</h4>
+    <h4>Motoring News</h4>
   </div>
 
 </div>
 
 <div ng-if="isStyle" class="container">
 
-	<h1 class="page-header">Auto News
+	<h1 class="page-header">Motoring News
     <div align="center">
       <input style="width: 80%;" class="form-control" ng-model="searchText" placeholder="Search phrase.."/>
     </div>
