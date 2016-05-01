@@ -26,6 +26,7 @@ describe('Auto Family Staff User Sign In', function() {
   it('should sign in ', function() {
     // click drop down menu
     dropDownBtn.click();
+    browser.sleep(1500);
     // send keys to models
     email.sendKeys(emailToSignIn);    
     password.sendKeys(passwordToSignIn);

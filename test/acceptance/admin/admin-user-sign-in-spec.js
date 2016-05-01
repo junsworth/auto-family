@@ -18,6 +18,7 @@ describe('Auto Family Admin User Sign In', function() {
   var dropDownBtn = element(by.id('signin-dropdown'));
 
   it('should have a title', function() {
+    //browser.get('http://197.85.186.242:3005/admin');
     browser.get('http://10.0.0.7:3000/admin');
     expect(browser.getTitle()).toEqual('Auto Family Admin');
   });
@@ -25,6 +26,7 @@ describe('Auto Family Admin User Sign In', function() {
   it('should sign in ', function() {
     // click drop down menu
     dropDownBtn.click();
+    browser.sleep(2500);
     // send keys to models
     email.sendKeys(emailToSignIn);    
     password.sendKeys(passwordToSignIn);
@@ -35,6 +37,21 @@ describe('Auto Family Admin User Sign In', function() {
     expect(navBrand.getText()).toEqual('Auto Family IMS');
     // compare emails
     expect(principalEmail.getText()).toEqual(emailToSignIn);
+
+
+    var scrollIntoView = function () {
+        arguments[0].scrollIntoView();
+      };
+
+      // browser.executeScript(scrollIntoView, dropDownBtn).then(function () {
+        
+      //   browser.sleep(3000).then(function () {
+            
+        //   });
+
+      // });
+
+
   });
 
 });

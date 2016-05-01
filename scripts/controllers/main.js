@@ -53,11 +53,26 @@ angular.module('familyCarsApp')
 
         if($scope.news.length > 0) {
           $scope.mainArticle = $scope.news[0];  
+
+          var mystring = String($scope.mainArticle.description);
+          var length_half = mystring.length / 2;
+
+          $scope.mainArticle.descriptionToDisplay = mystring.slice(0, length_half) + '...';
           $scope.mainArticle.releaseDate = UtilityService.formatDate($scope.mainArticle.releaseDate);
           console.log($scope.mainArticle);
         }        
       });
     };
+
+    $scope.setMainArticle = function (article) {
+      $scope.mainArticle = article;
+
+      var mystring = String($scope.mainArticle.description);
+      var length_half = mystring.length / 2;
+
+      $scope.mainArticle.descriptionToDisplay = mystring.slice(0, length_half) + '...';
+      $scope.mainArticle.releaseDate = UtilityService.formatDate($scope.mainArticle.releaseDate);
+    }
 
     $scope.formatDateTime = function(date) {
         return UtilityService.formatDateTime(date);
@@ -66,6 +81,29 @@ angular.module('familyCarsApp')
     $scope.formatDate = function(date) {
       console.log('Date - ' + date);
         return UtilityService.formatDate(date);
+    }
+
+    $scope.displayText = function(str) {
+      
+      console.log(str);
+
+        var mystring = String(str);
+
+        console.log(mystring);
+
+        var length_half = mystring.length / 2;
+
+        return mystring.slice(0, length_half) + '...';
+    }
+
+    $scope.displayText = function(str) {
+
+        var mystring = String(str);
+
+        var length_half = mystring.length / 4;
+
+        return mystring.slice(0, 250) + '...';
+
     }
 
   });

@@ -100,7 +100,9 @@ angular.module('familyCarsApp')
         CarService.cars().then(function(cars){
             $scope.cars = cars;
 
-            $scope.cars = filterFilter($scope.cars, {'ModelId':id});
+            $scope.cars = filterFilter($scope.cars, {'ModelId':id}, true);
+
+            console.log(JSON.stringify($scope.cars));
 
             $scope.viewby = 4;
 

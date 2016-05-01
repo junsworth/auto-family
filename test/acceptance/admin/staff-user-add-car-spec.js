@@ -59,34 +59,35 @@ describe('Auto Family Add Car', function(){
 		browser.getLocationAbsUrl().then(function(url) {
 			expect(url).toEqual('/cars');
 		});
+		browser.sleep(1500);
 		// click add car button
 		addBtn.click();
 		// get current url and confirm it's the expected url
 		browser.getLocationAbsUrl().then(function(url) {
 			expect(url).toEqual('/addcar');
 		});
+		browser.sleep(1000);
 		
 		// click edit image gallery
 		editGalleryButton.click();
 		$('input[type="file"]').sendKeys(absolutePathOne);
-		browser.sleep(2000);
+		browser.sleep(300);
 		$('input[type="file"]').sendKeys(absolutePathTwo); 
-		browser.sleep(2000);   
+		browser.sleep(300);   
 		$('input[type="file"]').sendKeys(absolutePathThree); 
-		browser.sleep(2000);   
+		browser.sleep(300);   
 		$('input[type="file"]').sendKeys(absolutePathFour);
-		browser.sleep(2000);
+		browser.sleep(300);
 		$('input[type="file"]').sendKeys(absolutePathFive);
-		browser.sleep(2000);
+		browser.sleep(300);
 		$('input[type="file"]').sendKeys(absolutePathSix);
-		browser.sleep(2000);
+		browser.sleep(300);
 		$('input[type="file"]').sendKeys(absolutePathSeven);
-		browser.sleep(2000);
+		browser.sleep(300);
 		$('input[type="file"]').sendKeys(absolutePathEight);
-		browser.sleep(2000);
+		browser.sleep(300);
 
   		//$('#uploadBtn').click();
-  		browser.sleep(1000);
   		editGalleryButton.click();
 		// uploadImageBtn.click();
 
@@ -110,6 +111,7 @@ describe('Auto Family Add Car', function(){
 		browser.getLocationAbsUrl().then(function(url) {
 			expect(url).toEqual('/cars');
 		});
+		browser.sleep(1000);
 
 	});
 

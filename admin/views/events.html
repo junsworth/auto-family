@@ -37,7 +37,7 @@
           <tr ng-repeat="event in events.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::event.id" ng-click="edit(event)">
 
             <td>{{event.id}}</td>
-            <td>{{event.name}}</td>
+            <td>{{event.title}}</td>
             <td>{{event.header}}</td>
             <td><span ng-init="dateFormatted = formatDate(event.startDate)">{{dateFormatted}}</span></td>
             <td><span ng-init="endDateFormatted = formatDate(event.endDate)">{{endDateFormatted}}</span></td>
@@ -121,7 +121,7 @@
                   <tr ng-repeat="event in events.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::event.id" ng-click="edit(event)">
 
                     <td>{{event.id}}</td>
-                    <td>{{event.name}}</td>
+                    <td>{{event.title}}</td>
                     <td>{{event.header}}</td>
                     <td><span ng-init="dateFormatted = formatDate(event.startDate)">{{dateFormatted}}</span></td>
                     <td><span ng-init="endDateFormatted = formatDate(event.endDate)">{{endDateFormatted}}</span></td>                 

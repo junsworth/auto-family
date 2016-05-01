@@ -17,11 +17,11 @@
       <div class="row" ng-repeat="offer in offers.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) track by ::offer.id">
 
 			<div class="col-sm-6">
-				<img class="pull-right" ng-src="{{offer.images}}" width="40%" height="40%">
+				<img class="thumbnail pull-right" ng-src="{{offer.images}}" width="40%" height="40%">
 			</div>
 
 			<div class="col-sm-6">
-				<h4>{{offer.title}}</h4>	
+				    <h4>{{offer.title}}</h4>	
 		        <h4>{{offer.header}}</h4>
 		        <p>{{offer.description}}</p>
 		    </div>
@@ -64,11 +64,11 @@
     		<div class="row" ng-repeat="offer in offers.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchText track by ::offer.id">
 
 				<div class="col-sm-6">
-					<img class="pull-right" ng-src="{{offer.images}}" width="40%" height="40%">
+					<img class="thumbnail pull-right" ng-src="{{offer.images}}" width="40%" height="40%">
 				</div>
 
 				<div class="col-sm-6">
-					<h4>{{offer.title}}</h4>	  
+					     <h4>{{offer.title}}</h4>	  
 			        <h4>{{offer.header}}</h4>
 			        <p>{{offer.description}}</p>
 			    </div>

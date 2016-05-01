@@ -3,7 +3,7 @@ describe('Auto Family Admin Add User', function() {
   var emailToSignIn = 'jonathan@bubbleworks.co.za';
   var passwordToSignIn = 'admin';
 
-  var emailToReg = 'janice@gmail.com';
+  var emailToReg = 'mark@gmail.com';
   var passwordToReg = 'admin';
 
   
@@ -26,22 +26,25 @@ describe('Auto Family Admin Add User', function() {
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/users');
       });
+    browser.sleep(1500);
     // click add user button
     addBtn.click();
     // get current url and confirm it's the expected url
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/adduser');
       });
+    browser.sleep(1500);
     // send values to form model elements
     email.sendKeys(emailToReg);
     password.sendKeys(passwordToReg);
-    element(by.cssContainingText('option', 'User')).click();
+    element(by.cssContainingText('option', 'Staff')).click();
     // click submit form
     submitBtn.click();
     // get current url and confirm it's the expected url
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/users');
       });
+    browser.sleep(1000);
 
   });
 

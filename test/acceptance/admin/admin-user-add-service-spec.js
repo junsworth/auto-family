@@ -3,9 +3,9 @@ var path = require('path');
 describe('Auto Family Add Service', function() {
 
   // local variables
-  var titleToReg = 'Finance 25% - June 2016';
-  var headerToReg = 'Finance offered at 25% less during May.';
-  var descriptionToReg = 'Finance offered at 27% less during May.';
+  var titleToReg = 'Financing at Auto-Family';
+  var headerToReg = 'Finance the friendly way at 34.9% APR';
+  var descriptionToReg = 'Ready to buy? Car Financing at CarMax is convenient and easy. Learn more about the CarMax financing process and how to get started today.';
 
   // view elements
   var navBtn = element(by.id('Services'));
@@ -17,7 +17,7 @@ describe('Auto Family Add Service', function() {
   var header = element(by.model('header'));
   var description = element(by.model('description'));
 
-  var fileToUpload = '../../../stock/poster_970x250.jpg',
+  var fileToUpload = '../../../stock/approve.png',
     absolutePath = path.resolve(__dirname, fileToUpload);
   
   it('should create service', function() {
@@ -27,13 +27,14 @@ describe('Auto Family Add Service', function() {
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/services');
       });
+    browser.sleep(1500);
     // click add service button
     addBtn.click();
     // get current url and confirm it's the expected url
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/addservice');
       });
-
+    browser.sleep(1500);
     // send values to form model elements
     title.sendKeys(titleToReg);
     header.sendKeys(headerToReg);
@@ -42,14 +43,14 @@ describe('Auto Family Add Service', function() {
     $('input[type="file"]').sendKeys(absolutePath);
 
     // let browser sleep
-    browser.sleep(1000);
+    browser.sleep(1500);
     // click submit form
     submitBtn.click();
     // get current url and confirm it's the expected url
     browser.getLocationAbsUrl().then(function(url) {
         expect(url).toEqual('/services');
       });
-
+    browser.sleep(1500);
   });
 
 });

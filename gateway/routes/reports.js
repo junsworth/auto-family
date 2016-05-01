@@ -29,6 +29,9 @@ exports.getSalesByAgent = function(req, res) {
 	}).then(function(sum) {
 		//res.send(sum);
 		console.log('Agent Sales Total - ' + sum);
+		if(sum == null) {
+			sum = -1;	// FIX ME
+		}
 		res.json(sum);
 	});
 };
